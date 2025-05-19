@@ -29,7 +29,7 @@ const ImageOrVideo = ({ src, caption, autoplay=true }: { src: string, caption: s
     if (src.endsWith('.mp4')) {
         return <video className="object-cover" preload="metadata" src={src + "#t=0.1"} autoPlay={autoplay} loop={autoplay} muted controls={!autoplay}/>
     } else {
-        return <Image className="object-cover" src={src} alt={caption} width={500} height={500} unoptimized={src.endsWith(".gif")} loading="eager"/>
+        return <Image className="object-cover" src={src} alt={caption} width={500} height={500} unoptimized={src.endsWith(".gif")}/>
     }
 }
 
@@ -143,7 +143,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                     <h2 className="text-3xl text-shadow-lg">{project.name}</h2>
                 </CardHeader>
                 {!isMobileDevice && <div ref={bgImageRef} className="h-full w-full flex items-center justify-center absolute top-0 left-0 blur-[10px] pointer-events-none">
-                    {!selectedImage.src.endsWith('.mp4') && !selectedImage.src.endsWith('.gif') && (<Image className="object-cover w-full h-full opacity-20" src={selectedImage.src} alt={selectedImage.caption} width={100} height={100} unoptimized={selectedImage.src.endsWith(".gif")} loading="eager"/>)}
+                    {!selectedImage.src.endsWith('.mp4') && !selectedImage.src.endsWith('.gif') && (<Image className="object-cover w-full h-full opacity-20" src={selectedImage.src} alt={selectedImage.caption} width={100} height={100} unoptimized={selectedImage.src.endsWith(".gif")} />)}
                 </div>}
 
                 <CardBody className="min-h-max">
