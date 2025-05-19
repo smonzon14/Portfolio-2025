@@ -21,16 +21,9 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
         }, 20000);
 
         const handleLoad = () => {
-            const images = Array.from(document.images);
             const videos = Array.from([document.getElementsByTagName("video")[0]]);
 
             const promises = [
-                ...images.map(
-                    (img) =>
-                        new Promise((res) =>
-                            img.complete ? res(true) : img.addEventListener("load", () => res(true))
-                        )
-                ),
                 ...videos.map(
                     (vid) =>
                         new Promise((res) =>
