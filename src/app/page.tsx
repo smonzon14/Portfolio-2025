@@ -13,7 +13,6 @@ import { ResearchSection } from "./sections/research-section";
 import { EngineeringSection } from "./sections/engineering-section";
 import { CodingSection } from "./sections/coding-section";
 
-import PageLoader from "./page-loader";
 import MiniCardsSection from "./sections/mini-cards-section";
 import { SkillsSection } from "./sections/skills-section";
 import { CVSection } from "./sections/cv-section";
@@ -27,7 +26,6 @@ export default async function Home() {
 
   return (
     
-    <PageLoader>
     <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
       <Navbar className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60" maxWidth="full">
         <NavbarBrand>
@@ -341,6 +339,6 @@ export default async function Home() {
           </div>
           <Script src="/sphere.js"></Script></>)}
       </footer>
-    </div></PageLoader>
+    </div>
   );
 }
