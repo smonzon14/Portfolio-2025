@@ -5,6 +5,9 @@ import {HeroUIProvider} from "@heroui/system";
 export const metadata: Metadata = {
   title: "Sebastian Monzon",
   description: "Curriculum Vitae of Sebastian Monzon",
+  openGraph: {
+    images: [{ url: '/projects/simulation-physics.jpg' }],
+  },
 };
 
 export default function RootLayout({
