@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {HeroUIProvider} from "@heroui/system";
+import ogImage from "../public/projects/simulation-physics.gif";
 
 export const metadata: Metadata = {
   title: "Sebastian Monzon",
   description: "Curriculum Vitae of Sebastian Monzon",
   openGraph: {
-    images: [{ url: '/projects/simulation-physics.jpg' }],
+    images: [{ url: ogImage.src, width:ogImage.width, height: ogImage.height }],
   },
 };
 
