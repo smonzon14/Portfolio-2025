@@ -1,8 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -14,13 +16,126 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
+}
+
+@font-face {
+  font-family: 'Quivera';
+  src: url("/fonts/QuiveraRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Electrolize';
+  src: url("/fonts/Electrolize-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Electrolize", sans-serif;
+}
+h2{
+  font-family: "Quivera", sans-serif;
+  color: var(--foreground);
+}
+
+p{
+  max-width: 700px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (max-width: 639px) {
+  p {
+    font-size: 1rem;
+  }
+}
+
+.jelly-text {
+  font-family: 'Quivera', sans-serif;  
+}
+
+.chevron-down {
+  fill: #FFF;
+  margin: auto;
+  width: 2em;
+  height: 2em;
+  animation: hover-me 1s infinite cubic-bezier(0.55, 0.085, 0.68, 0.53) alternate; 
+}
+/* 
+section{
+  border-left: 1px solid #161616;
+  padding-left: 2px;
+} */
+ /* section{
+  height: 2000px !important;
+ } */
+
+@keyframes hover-me {
+  100% { transform: translate3d(0, 10px, 0); }
+}
+#skills-sphere {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#sphere-canvas {
+  width: 800px;
+  height: 800px;
+  /* background-color: #0a0a0a; */
+  /* background: radial-gradient(circle at 50% 50%, #0f0f0f 0%, #000000 100%); */
+  border-radius: 100%;
+  /* border-color: #52d1b1;
+  border-width: 1px; */
+  /* background: radial-gradient(circle at 50% 50%, rgba(7, 65, 88, 0.932) 0%,  rgba(6, 77, 61, 0.384) 15%, black 20%); */
+}
+
+.tracking-in-contract-bck-top {
+	-webkit-animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-contract-bck-top 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-contract-bck-top
+ * ----------------------------------------
+ */
+@-webkit-keyframes tracking-in-contract-bck-top {
+  0% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(400px) translateY(-300px);
+            transform: translateZ(400px) translateY(-300px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract-bck-top {
+  0% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(400px) translateY(-300px);
+            transform: translateZ(400px) translateY(-300px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
 }
