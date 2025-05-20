@@ -407,12 +407,12 @@ const Keyboard = {
 };
 
 window.addEventListener("DOMContentLoaded", async function () {
-  await fetch("cheeses.txt").then((res) => {
+  await fetch("/curdle/cheeses.txt").then((res) => {
     return res.text();
   }).then(text => {
     window.cheeses = text.split("\r\n");
   });
-  await fetch("words.txt").then((res) => {
+  await fetch("/curdle/words.txt").then((res) => {
     return res.text();
   }).then(text => {
     window.words = text.split("\r\n");
@@ -422,7 +422,7 @@ window.addEventListener("DOMContentLoaded", async function () {
     navigator.share({
       title: 'Curdle Cheese Game',
       text: 'Try to guess today\'s 5-letter cheese on Curdle!',
-      url: 'https://smonzon.dev/Curdle'
+      url: 'https://smonzon.com/curdle/index.html'
     });
   }
 })
