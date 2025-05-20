@@ -137,7 +137,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const selectedImage = project.images[emblaApi?.selectedScrollSnap() || 0];
     return (
-        <div className="relative flex-grow flex lg:h-[800px] w-[500px] max-w-[700px]">
+        <div className="relative flex-grow flex lg:h-[800px] w-[500px]">
             <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
                 <CardHeader className="flex-col !items-center pointer-events-none text-center px-10 pt-4">
                     <h2 className="text-3xl text-shadow-lg">{project.name}</h2>
@@ -148,12 +148,12 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
                 <CardBody className="min-h-max">
                 <div className="embla relative h-full w-full overflow-hidden">
-                    <div className="embla__viewport" ref={emblaRef}>
-                        <div className="embla__container">
+                    <div className="embla__viewport h-full" ref={emblaRef}>
+                        <div className="embla__container h-full">
                             {project.images.map((image, index) => (
-                                <div className="embla__slide" key={index}>
+                                <div className="embla__slide flex-grow" key={index}>
 
-                                    <div className="relative h-full max-h-[400px] flex items-center justify-center">
+                                    <div className="relative h-full max-h-[400px] min-h-[400px] flex items-center justify-center">
                                         <ImageOrVideo src={image.src} caption={image.caption} autoplay={false}/>
                                     </div>
                                 </div>

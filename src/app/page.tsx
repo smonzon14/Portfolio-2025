@@ -18,6 +18,7 @@ import MiniCardsSection from "./sections/mini-cards-section";
 import { SkillsSection } from "./sections/skills-section";
 import { CVSection } from "./sections/cv-section";
 import { IntroSection } from "./sections/intro-section";
+import { MusicSection } from "./sections/music-section";
 
 export default async function Home() {
   const headersData = await headers();
@@ -89,6 +90,8 @@ export default async function Home() {
         <Divider className="my-4 mt-20" />
         <EngineeringSection isMobileDevice={isMobileDevice} />
 
+        <Divider className="my-4 mt-20" />
+        <MusicSection />
         <section className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40" id="contact">
           <SectionCard
             href="mailto:smonzon360@gmail.com"

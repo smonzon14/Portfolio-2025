@@ -13,9 +13,9 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
                     <p>An aspiring graduate student, software engineer, and musician, exploring how AI, electronics, and music can amplify the human experience.</p>
-                    <div className="text-white/40 bg-black max-w-max">{"<> All content on this website was coded by me </>"}</div>
+                    <div className="text-white/40 bg-black max-w-max">All content on this website was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link></div>
 
-                    <div className="flex flex-row gap-6 flex-wrap items-center mt-10">
+                    <div className="flex flex-row gap-6 flex-wrap items-center mt-10 max-w-[60%]">
                         <Button showAnchorIcon as={Link} size="lg" color="primary" variant="shadow" href="https://github.com/smonzon14" target="_blank" rel="noopener noreferrer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

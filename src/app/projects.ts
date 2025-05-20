@@ -81,14 +81,15 @@ export const codingProjects: Project[] = [
     },
     {
         name: "Curdle - Wordle for Cheeses",
-        description: "A web app that allows users to play a wordle-style game with cheese names. The app was built Javascript, and features a custom-built word list of cheeses. Built for cheese lovers who are undereducated on 5-letter cheeses.",
+        description: "A web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
         images: [
             {
                 src: "/projects/curdle.PNG",
-                caption: "A web app that allows users to play a wordle-style game with 5-letter cheese names. (There are much more than you think!)",
+                caption: "A web app that allows users to play a wordle-style game with 5-letter cheese names. (There are more than you think)",
             },
         ],
         size: 'lg',
+        link: "/curdle/index.html",
     },
     {
         name: "Newtonian Physics Simulator",
@@ -122,6 +123,7 @@ export const codingProjects: Project[] = [
             },
         ],
         size: 'lg',
+        link: "https://github.com/smonzon14/BlockBreaker",
     },
     {
         name: "VibeQ - Spotify group DJ app",
@@ -135,6 +137,30 @@ export const codingProjects: Project[] = [
         size: 'lg',
         link: "https://github.com/smonzon14/VibeQ"
     },
+    {
+        name: "Beamshyft - Lower construction costs for developers",
+        description: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
+        images: [
+            {
+                src: "/projects/beamshyft_white.PNG",
+                caption: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service.",
+            },
+        ],
+        size: 'lg',
+        link: "https://beamshyft.com/",
+    },
+    {
+        name: "MyHS - Highscool student portal",
+        description: "A web app that allows highschool students to view their grades, homework, and schedule. The app was writen in Swift while I attended highschool. Despite my efforts to explain that I had no sensitive data, the IT department didn't trust a highschooler to build an app and I was handed a cease and desist letter. I wear it with pride.",
+        images: [
+            {
+                src: "/projects/myhs.jpg",
+                caption: "A web app that syncs highschool grades, homework, and schedule all in one place (logo designed by me). The app was writen in Swift while I attended highschool.",
+            },
+        ],
+        size: 'lg',
+        link: "https://github.com/smonzon14/MyHS",
+    }
 ]
 
 export const engineeringProjects: Project[] = [
@@ -188,6 +214,7 @@ export const engineeringProjects: Project[] = [
             },
         ],
         size: 'lg',
+        link: "https://github.com/smonzon14/PiDrone",
     },
     {
         name: "Mushroom Environment Controller",
