@@ -25,8 +25,8 @@ export default function MiniCardsSection() {
                 <Image
                     src="/profile.png"
                     alt="P"
-                    width={400}
-                    height={400}
+                    width={640}
+                    height={640}
                     className="rounded-full border-4 border-white shadow-lg object-cover w-[400px] h-[400px] bg-transparent"
                     loading="eager"
 
