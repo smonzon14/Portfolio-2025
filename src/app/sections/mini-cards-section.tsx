@@ -24,7 +24,7 @@ export default function MiniCardsSection() {
             <div className="flex justify-center mb-8">
                 <Image
                     src="/profile.png"
-                    alt="P"
+                    alt="Profile"
                     width={400}
                     height={400}
                     className="rounded-full border-4 border-white shadow-lg object-cover w-[400px] h-[400px] bg-transparent"
