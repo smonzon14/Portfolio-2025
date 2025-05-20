@@ -19,13 +19,17 @@ export const researchProjects: Project[] = [
                 caption: "A framework designed to inpaint spectrograms using Stable Diffusion, with a focus on preserving original audio characteristics.",
             },
             {
-                src: "/projects/diffusion-reverse.mp4",
-                caption: "The reverse diffusion process, where noise is gradually removed from the spectrogram to generate a new image. This image is then converted back to audio using an inverse Short-Time Fourier Transform (STFT).",
-            },
-            {
                 src: "/projects/diffusion-beatmatch.png",
                 caption: "An example of a spectrogram inpainting task, where the model regenerates an original spectrogram. Masked parts are regenerated above 300 Hz while the rest is kept intact - preserving the bassline and the beat.",
-            }
+            },
+            {
+                src: "/projects/diffusion-mel-arch.jpg",
+                caption: "A framework to determine which frequencies contribute the most to hydrogel water extraction rates. The audio signal is converted into a mel-spectrum and then into a predictive model. We determine which frequencies are most important via Shapley Additive exPlanations (SHAP).",
+            },
+            {
+                src: "/projects/diffusion-spectrum.jpg",
+                caption: "The resulting spectrum of the hydrogel frequency response based on the predictive model.",
+            },
         ],
         size: 'lg',
         link: "",
