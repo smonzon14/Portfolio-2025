@@ -6,9 +6,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.smonzon.com'),
   title: "Sebastian Monzon",
   description: "Curriculum Vitae of Sebastian Monzon",
-  openGraph: {
-    images: [{ url: "https://www.smonzon.com/projects/simulation-physics.gif", width: 500, height: 500 }],
-  },
 };
 
 export default function RootLayout({
