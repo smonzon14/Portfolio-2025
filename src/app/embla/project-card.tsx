@@ -113,10 +113,6 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                     const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current)
                     const opacity = numberWithinRange(tweenValue, 0, 1).toString()
                     emblaApi.slideNodes()[slideIndex].style.opacity = opacity
-                    // if (slideIndex === engine.index.get()) {
-                    //     bgImageRef.current!.style.opacity = opacity
-                    // }
-
                 })
             })
         },
@@ -137,7 +133,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const selectedImage = project.images[emblaApi?.selectedScrollSnap() || 0];
     return (
-        <div className="relative flex-grow flex lg:h-[800px] w-[500px]">
+        <div className="relative flex-grow flex lg:h-[800px] w-[500px] lg-max-w-[50%]">
             <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
                 <CardHeader className="flex-col !items-center pointer-events-none text-center px-10 pt-4">
                     <h2 className="text-3xl text-shadow-lg">{project.name}</h2>

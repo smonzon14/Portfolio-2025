@@ -168,7 +168,26 @@ export const codingProjects: Project[] = [
 ]
 
 export const engineeringProjects: Project[] = [
-    
+    {
+        name: "FeedKevin! - Pet Feed Timer",
+        description: "Since it's nearly impossible to coordinate who's fed our cat Kevin, I built a pet feed timer that allows us to schedule feedings and track when Kevin was last fed.",
+        images: [
+            {
+                src: "/gifs/feedkevin.gif",
+                caption: "A gif of the pet feed timer in action, using an ESP8266, SSD1306 OLED display, and a button. The schedule is set programmatically, and the button is used to move between interfaces when the timer is running.",
+            },
+            {
+                src: "/projects/feedkevin-timer.jpeg",
+                caption: "After someone's fed kevin his wet food, they can press the button to log the feeding time, so that he can't fool us into thinking he hasn't been fed.",
+            },
+            {
+                src: "/projects/feedkevin-weight.jpg",
+                caption: "Kevin has a problem.",
+            },
+        ],
+        size: 'md',
+        link: "https://github.com/smonzon14/Feed-Kevin",
+    },
     {
         name: "Raspberry Pi Robot",
         description: "A robot designed to pick up objects remotely, featuring a camera, an ultrasonic sensor, and dynamic claw with 2 degrees of freedom. The robot is capable of using OpenCV for object detection and grabbing objects - particularly 'green cubes' which I 3D printed for testing. I designed this project to experiment with robotics and computer vision.",
