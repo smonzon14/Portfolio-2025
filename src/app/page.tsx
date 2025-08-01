@@ -84,15 +84,15 @@ export default async function Home() {
         <Divider className="my-4 mt-20" />
         <section
           id="projects"
-          className="w-screen relative  -ml-[50vw] -mr-[50vw] px-0 py-16 flex justify-center items-center bg-gradient-to-r from-[#1e293b] to-[#334155] z-10  px-2 md:px-6"
+          className="w-screen relative -ml-[50vw] -mr-[50vw] px-0 py-16 flex justify-center items-center bg-gradient-to-r from-[#1e293b] to-[#334155] z-10 px-2 md:px-6"
         >
-          <video preload='auto' autoPlay loop muted playsInline className="w-full h-full absolute top-0 object-cover z-0 opacity-50">
+          <video preload='auto' autoPlay loop muted playsInline className="w-full h-full absolute top-0 object-cover z-0">
               <source src="jellies2.mp4" type="video/mp4">
               </source>
           </video>
           <div className="max-w-[1340px] w-full flex flex-col z-10">
 
-            <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight z-1 relative">
+            <h2 className="text-5xl md:text-7xl font-extrabold text-black tracking-tight z-1 relative">
               PROJECTS
             </h2>
           </div>

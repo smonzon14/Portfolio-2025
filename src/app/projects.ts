@@ -12,22 +12,22 @@ export type Project = {
 export const researchProjects: Project[] = [
     {
         name: "Music-Spectrogram Inpainting",
-        description: "A Stable Diffusion model tuned to inpaint spectrograms. This was used to generate new audio samples from existing spectrograms, with a focus on preserving the original audio characteristics. By preserving certain frequencies, this model is capable of filling in music that sounds semantically similar and in key to the original, yet completely new. In this study, the idea was to generate music that was better suited for hydrogel water extraction rates by using frequency ranges and songs that performed the best. This was in collaboration with MIT researchers at META and the MIT Media Lab.",
+        description: "(Images hidden before publishing) A Stable Diffusion model tuned to inpaint spectrograms. This was used to generate new audio samples from existing spectrograms, with a focus on preserving the original audio characteristics. By preserving certain frequencies, this model is capable of filling in music that sounds semantically similar and in key to the original, yet completely new. In this study, the idea was to generate music that was better suited for hydrogel water extraction rates by using frequency ranges and songs that performed the best. This was in collaboration with MIT researchers at META and the MIT Media Lab.",
         images: [
             {
-                src: "/projects/diffusion-diagram.png",
+                src: "/projects/image-coming.png",
                 caption: "A framework designed to inpaint spectrograms using Stable Diffusion, with a focus on preserving original audio characteristics.",
             },
             {
-                src: "/projects/diffusion-beatmatch.png",
+                src: "/projects/image-coming.png",
                 caption: "An example of a spectrogram inpainting task, where the model regenerates an original spectrogram. Masked parts are regenerated above 300 Hz while the rest is kept intact - preserving the bassline and the beat.",
             },
             {
-                src: "/projects/diffusion-mel-arch.jpg",
+                src: "/projects/image-coming.png",
                 caption: "A framework to determine which frequencies contribute the most to hydrogel water extraction rates. The audio signal is converted into a mel-spectrum and then into a predictive model. We determine which frequencies are most important via Shapley Additive exPlanations (SHAP).",
             },
             {
-                src: "/projects/diffusion-spectrum.jpg",
+                src: "/projects/image-coming.png",
                 caption: "The resulting spectrum of the hydrogel frequency response based on the predictive model.",
             },
         ],
