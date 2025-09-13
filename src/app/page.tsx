@@ -30,7 +30,7 @@ export default async function Home() {
     
     <PageLoader>
     <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
-      <Button className="fixed bottom-4 right-4 z-50" as={Link} title="Curdle" color="warning" variant="ghost" size="md" href="/curdle/index.html" target="_blank">Solve today's <span className="cheesy">Curdle</span></Button>
+      <Button className="fixed bottom-4 right-4 z-50" as={Link} title="Curdle" color="warning" variant="ghost" size="md" href="/curdle/index.html">{isMobileDevice ? "" : "Solve today's"}<span className="cheesy">Curdle</span></Button>
       <Navbar className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60" maxWidth="full">
         <NavbarBrand>
           <Image

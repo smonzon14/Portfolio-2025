@@ -59,9 +59,9 @@ h2{
 
 p{
   max-width: 800px;
-  font-size: 1.17rem!important;
+  font-size: 1.17rem;
   line-height: 1.75rem;
-  color: rgb(163, 163, 163);
+  color: rgb(206, 206, 206);
 }
 
 @media (max-width: 639px) {
