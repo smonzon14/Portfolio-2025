@@ -40,7 +40,7 @@ export const CVSection = () => {
                 <SectionCard
                     href="#research"
                     title="Research"
-                    imageSrc="/projects/diffusion-diagram.png"
+                    imageSrc="/projects/honors-spectrograms.png"
                     imageAlt="Research"
                     description="Between generative music AI and underwater IoT, my journey as a researcher has only just begun."
                 >

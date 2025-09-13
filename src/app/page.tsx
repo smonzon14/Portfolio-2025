@@ -30,6 +30,7 @@ export default async function Home() {
     
     <PageLoader>
     <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
+      <Button className="fixed bottom-4 right-4 z-50" as={Link} title="Curdle" color="warning" variant="ghost" size="md" href="/curdle/index.html" target="_blank">Solve today's <span className="cheesy">Curdle</span></Button>
       <Navbar className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60" maxWidth="full">
         <NavbarBrand>
           <Image
@@ -84,18 +85,11 @@ export default async function Home() {
         <Divider className="my-4 mt-20" />
         <section
           id="projects"
-          className="w-screen relative -ml-[50vw] -mr-[50vw] px-0 py-16 flex justify-center items-center bg-gradient-to-r from-[#1e293b] to-[#334155] z-10 px-2 md:px-6"
+          className="max-w-[1340px] w-full flex justify-left items-center"
         >
-          <video preload='auto' autoPlay loop muted playsInline className="w-full h-full absolute top-0 object-cover z-0">
-              <source src="jellies2.mp4" type="video/mp4">
-              </source>
-          </video>
-          <div className="max-w-[1340px] w-full flex flex-col z-10">
-
-            <h2 className="text-5xl md:text-7xl font-extrabold text-black tracking-tight z-1 relative">
+            <h2 className="text-5xl md:text-7xl ">
               PROJECTS
             </h2>
-          </div>
         </section>
         <Divider className="my-4 mt-20" />
 
