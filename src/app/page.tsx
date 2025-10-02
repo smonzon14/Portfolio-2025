@@ -20,6 +20,9 @@ import { CVSection } from "./sections/cv-section";
 import { IntroSection } from "./sections/intro-section";
 import { MusicSection } from "./sections/music-section";
 
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import { ParallaxHeader } from "./parallax-header";
+
 export default async function Home() {
   const headersData = await headers();
   const { device } = userAgent({ headers: headersData });
@@ -57,22 +60,7 @@ export default async function Home() {
         </NavbarContent>
       </Navbar>
       <main className="relative flex flex-col px-2 md:px-6 items-center" id="home">
-        <div
-          className="absolute flex justify-center items-center top-0 right-0 w-screen h-[2000px] z-2 overflow-hidden"
-        >
-          <div id="waves-canvas"
-            className="self-center"
-            style={{ transform: "rotate(-25deg)" }}
-          >
-          <Script id="waves-canvas-script" src="/waves.js" strategy="afterInteractive" type="module" />
-
-          </div>
-        </div>
-        <IntroSection isMobileDevice={isMobileDevice}/>
-
-        <Divider className="my-4" />
-
-        <MiniCardsSection/>
+        <ParallaxHeader isMobileDevice={isMobileDevice} />
 
         <Divider className="mt-20" />
         
@@ -82,12 +70,12 @@ export default async function Home() {
         
         <CVSection />
 
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-40" />
         <section
           id="projects"
           className="max-w-[1340px] w-full flex justify-left items-center"
         >
-            <h2 className="text-5xl md:text-7xl ">
+            <h2 className="text-5xl md:text-7xl" style={{ textShadow: '0px 0px 25px rgba(255, 255, 255, 0.7)' }}>
               PROJECTS
             </h2>
         </section>

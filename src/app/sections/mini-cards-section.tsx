@@ -27,15 +27,15 @@ export default function MiniCardsSection() {
                     alt="P"
                     width={640}
                     height={640}
-                    className="rounded-full border-4 border-white shadow-lg object-cover w-[400px] h-[400px] bg-transparent"
+                    className="rounded-full border-1 border-white shadow-lg object-cover w-[300px] h-[300px] bg-transparent"
                     loading="eager"
 
                 />
             </div>
             <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-[#edc966]">lifelong learner</span> ready to make a difference...</div>
 
-            <div className="relative flex flex-row gap-10 justify-center w-full items-center flex-wrap">
-                <Card className="bg-[#111] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+            <div className="relative flex flex-row gap-5 justify-center w-full items-center flex-wrap">
+                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Designer</h2>
@@ -56,7 +56,7 @@ export default function MiniCardsSection() {
                         </p>
                     </CardFooter>
                 </Card>
-                <Card className="bg-[#111] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Developer</h2>
@@ -77,7 +77,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">Y.O.E.</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#111] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
                         <h2 className="text-xl text-shadow-lg">Graduate</h2>
                     </CardHeader>
@@ -97,7 +97,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">UMass Amherst</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#111] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Engineer</h2>
@@ -116,7 +116,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">Projects</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#111] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Musician</h2>
