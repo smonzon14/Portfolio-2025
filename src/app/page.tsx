@@ -108,7 +108,7 @@ export default async function Home() {
             imageSrc="/projects/art-guitar.jpg"
             imageAlt="Contact"
             title="Contact"
-            description="I'm always looking for new opportunities and collaborations. Let's connect!"
+            description="^ A Gibson les Paul guitar, painted by me :)"
           >
             <Button as={Link} size="lg" color="primary" variant="shadow" href="mailto:smonzon360@gmail.com" className="text-white" showAnchorIcon>
               smonzon360@gmail.com
