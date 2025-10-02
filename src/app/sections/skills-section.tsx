@@ -19,7 +19,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
 
 
     return (
-        <section className="relative flex flex-col max-w-[1340px] w-full gap-8 min-h-[1000px] justify-center items-center my-20 overflow-x-hidden" id="skills-section">
+        <section className="relative flex flex-col max-w-[1340px] w-full gap-8 min-h-[1000px] justify-center items-center my-20 overflow-hidden" id="skills-section">
           <div className="lg:grid grid-cols-2 relative flex flex-row gap-10 justify-between h-full w-full items-center flex-wrap" id="skills" ref={ref}>
             <div className={"flex flex-col gap-4 w-[500px] transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")}>
               <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">
@@ -70,7 +70,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
                 <canvas id="sphere-canvas" width="400" height="400">
 
                 </canvas>
-                <div className="absolute bottom-[-20px] right-0 text-white/40">
+                <div className="absolute bottom-[-100px] right-0 text-white/40">
                   ^ Coded by me on <Link showAnchorIcon href="https://github.com/smonzon14/Fibonacci-Sphere" target="_blank" rel="noopener noreferrer">GitHub</Link> and <Link showAnchorIcon href="https://codepen.io/smonzon14/pen/NWjRZWe" target="_blank" rel="noopener noreferrer">CodePen</Link>.
                 </div>
               </div>)}

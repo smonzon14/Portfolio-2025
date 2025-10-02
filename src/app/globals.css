@@ -100,8 +100,8 @@ section{
   align-items: center;
 }
 #sphere-canvas {
-  width: 800px;
-  height: 800px;
+  width: 700px;
+  height: 700px;
   /* background-color: #0a0a0a; */
   /* background: radial-gradient(circle at 50% 50%, #0f0f0f 0%, #000000 100%); */
   border-radius: 100%;
