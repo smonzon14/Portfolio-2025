@@ -14,13 +14,10 @@ import { EngineeringSection } from "./sections/engineering-section";
 import { CodingSection } from "./sections/coding-section";
 
 import PageLoader from "./page-loader";
-import MiniCardsSection from "./sections/mini-cards-section";
 import { SkillsSection } from "./sections/skills-section";
 import { CVSection } from "./sections/cv-section";
-import { IntroSection } from "./sections/intro-section";
 import { MusicSection } from "./sections/music-section";
 
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import { ParallaxHeader } from "./parallax-header";
 
 export default async function Home() {
