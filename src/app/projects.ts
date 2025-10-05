@@ -86,11 +86,11 @@ export const codingProjects: Project[] = [
     {
         key: "nyt",
         name: "NYT Large Language Model (LLM)",
-        description: "Designed as a personal-assistant, I made an locally-stored Large Language Model (LLM) for New York Times articles. The model refreshes articles daily and is capable of summarizing current events, or any other questions a user may have about past news.",
+        description: "Designed as an Ollama personal-assistant, I made an locally-stored Large Language Model (LLM) for New York Times articles that use text-to-speech (TTS) to respond. The model refreshes articles daily and is capable of summarizing current events, or any other questions a user may have about past news.",
         images: [
             {
                 src: "/projects/nyt-llm.mp4",
-                caption: "Here is a video of the NYT LLM in action, answering my question 'What is happening in the tech sector today?'.",
+                caption: "Here is a video of the NYT LLM in action, answering my question \"What is happening in the tech sector today?\".",
             },
             {
                 src: "/projects/nyt-logo.jpg",
