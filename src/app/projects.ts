@@ -183,11 +183,11 @@ export const codingProjects: Project[] = [
     {
         key: "myhs",
         name: "MyHS - Highscool student portal",
-        description: "A web app that allows highschool students to view their grades, homework, and schedule. The app was writen in Swift while I attended highschool. Despite my efforts to explain that I had no sensitive data, the IT department didn't trust a highschooler to build an app and I was handed a cease and desist letter. I wear it with pride.",
+        description: "A web app that allows highschool students to view their grades, homework, and schedule. The app was writen in Swift while I attended highschool. Despite my efforts to explain that I had no sensitive data, the IT department didn't trust a highschooler to build an app and I was handed a cease and desist letter. I wore it with pride.",
         images: [
             {
                 src: "/projects/myhs.jpg",
-                caption: "A web app that syncs highschool grades, homework, and schedule all in one place (logo designed by me). The app was writen in Swift while I attended highschool.",
+                caption: "A web app that syncs highschool grades, homework, and schedule all in one place (logo designed by me). The app was writen in Swift while I attended Melrose Public highschool.",
             },
         ],
         size: 'lg',
