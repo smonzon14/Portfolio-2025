@@ -23,13 +23,13 @@ export const CVSection = () => {
     return (
         <section className={"lg:grid grid-cols-2 gap-10 max-w-[1340px] w-full transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
             <div>
-                <div className="lg:sticky top-[34vh] z-10 flex flex-col gap-4 flex-wrap">
+                <div className="lg:sticky top-[28vh] z-10 flex flex-col gap-4 flex-wrap">
                     <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">
                         CURRICULUM VITAE
                     </div>
-                    <div className="pb-20 flex flex-row gap-4 justify-between w-full items-center flex-wrap">
+                    <div className="pb-0 flex flex-row gap-4 justify-between w-full items-center flex-wrap">
                         <p className="lg:max-w-[500px]">Whether it&#39;s building innovative software, engineering electrical systems, or exploring the intersection between AI and music, I strive to push my creative boundaries through experimentation and learning from failures. <br /><br />Below you will find an incomplete list of the things I&#39;ve made. The list is always growing, as I continue to take on harder challenges aligned with my passion for hands-on engineering, science, and music. I hope you enjoy.<br /><br />Sincerely,<br />Sebastian Monzón</p>
-                        <div className="w-full"><Button download="Sebastian Monzon CV" as={Link} size="lg" color="primary" variant="bordered" href="/SebastianMonzonCV.pdf">
+                        <div className="w-full"><Button download="Sebastian Monzon CV" as={Link} size="md" color="secondary" variant="bordered" href="/SebastianMonzonCV.pdf" >
                             Download CV
                         </Button>
                         </div>
