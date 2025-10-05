@@ -32,7 +32,7 @@ export default function MiniCardsSection() {
 
                 />
             </div>
-            <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-[#edc966]">lifelong learner</span> ready to make a difference...</div>
+            <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning">lifelong learner</span> ready to make a difference...</div>
 
             <div className="relative flex flex-row gap-5 justify-center w-full items-center flex-wrap">
                 <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">

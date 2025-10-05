@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 const amountX = 24;
 const amountY = 60;
-const spacer = 40;
+const spacer = 35;
 const particlesCount = amountX * amountY;
 let particles = 0;
 let count = 0;
@@ -19,7 +19,7 @@ let count = 0;
 const waveFrequencyX = 0.17;
 const waveFrequencyY = 0.3;
 const waveAmplitude = 90;
-const waveSpeed = 0.02;
+const waveSpeed = 0.01;
 
 
 function init() {

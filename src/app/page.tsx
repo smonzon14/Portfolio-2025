@@ -30,7 +30,6 @@ export default async function Home() {
     
     <PageLoader>
     <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
-      <Button className="fixed bottom-4 right-4 z-50" as={Link} title="Curdle" color="warning" variant="ghost" size="md" href="/curdle/index.html">{isMobileDevice ? "" : "Solve today's"}<span className="cheesy">Curdle</span></Button>
       <Navbar className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60" maxWidth="full">
         <NavbarBrand>
           <Image
@@ -41,7 +40,7 @@ export default async function Home() {
             className="w-10 h-10"
             loading="eager"
           />
-          <h1 className="text-2xl text-white font-bold">SMONZON.COM</h1>
+          <h1 className="text-xl text-white font-bold">SMONZON.COM</h1>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="end">
           {["about", "research", "coding", "engineering", "music", "contact"].map((section) => (
@@ -49,16 +48,20 @@ export default async function Home() {
               <Link
                 color="foreground"
                 href={`#${section}`}
+                className={section === "contact" ? "text-warning font-bold" : "hover:text-primary transition-colors duration-300"}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </Link>
             </NavbarItem>
           ))}
+          <NavbarItem>
+            <Button as={Link} title="Curdle" color="warning" variant="ghost" size="sm" href="/curdle/index.html" target="_blank">{isMobileDevice ? "" : "Solve today's"}<span className="cheesy">Curdle</span></Button>
+          </NavbarItem>
         </NavbarContent>
       </Navbar>
       <main className="relative flex flex-col px-2 md:px-6 items-center" id="home">
         <ParallaxHeader isMobileDevice={isMobileDevice} />
-
+ 
         <Divider className="mt-20" />
         
         <SkillsSection isMobileDevice={isMobileDevice} />
@@ -67,7 +70,7 @@ export default async function Home() {
         
         <CVSection />
 
-        <Divider className="my-4 mt-40" />
+        <Divider className="my-4 mt-20" />
         <section
           id="projects"
           className="max-w-[1340px] w-full flex justify-left items-center"

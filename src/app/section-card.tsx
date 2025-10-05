@@ -25,7 +25,7 @@ export const SectionCard = ({
     ...props
 } : SectionCardProps) => {
     return (
-        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[600px] text-white gap-4 relative overflow-hidden border-1 border-white/20 " + className} { ...props } >
+        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[600px] text-white gap-4 relative overflow-hidden border-1 border-white/10 " + className} { ...props } >
                 <Image
                     src={imageSrc}
                     alt={imageAlt}
@@ -36,13 +36,13 @@ export const SectionCard = ({
 
                 />
                 
-            <CardFooter className="justify-between flex-wrap absolute bg-black/50 bottom-0 z-2 border-t-1 pointer-events-none border-t-white/20 text-left gap-4">
+            <CardFooter className="justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none  text-left gap-2">
                 <h2 className="text-4xl">{title}</h2>
                 
-                <div className="flex flex-col pointer-events-none max-w-[500px] text-white/80">
-                    <p>{description}</p>
+                <div className="flex flex-col pointer-events-none max-w-[450px] text-white/80">
+                    <p className="text-md">{description}</p>
                 </div>
-                <div className="flex flex-row gap-2 pointer-events-auto flex-wrap">
+                <div className="gap-2 pointer-events-auto flex-wrap flex flex-row self-end">
                     {children}
                 </div>
             </CardFooter>

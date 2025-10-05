@@ -133,7 +133,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const selectedImage = project.images[emblaApi?.selectedScrollSnap() || 0];
     return (
-        <div className="relative flex-grow flex lg:h-[800px] w-[500px] lg-max-w-[50%]">
+        <div id={project.key} className="relative flex-grow flex lg:h-[800px] w-[500px] lg-max-w-[50%]">
             <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
                 <CardHeader className="flex-col !items-center pointer-events-none text-center px-10 pt-4">
                     <h2 className="text-3xl text-shadow-lg">{project.name}</h2>

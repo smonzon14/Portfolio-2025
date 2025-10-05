@@ -28,7 +28,7 @@ export const CVSection = () => {
                         CURRICULUM VITAE
                     </div>
                     <div className="pb-20 flex flex-row gap-4 justify-between w-full items-center flex-wrap">
-                        <p className="lg:max-w-[500px]">Whether it&#39;s building innovative software, engineering electrical systems, or exploring the intersection between AI and music, I strive to push my creative boundaries through experimentation and learning from failures. <br /><br />Below you will find an incomplete list of the things I&#39;ve made. The list is always growing, as I continue to take on harder challenges aligned with my passion for engineering, science, and music. I hope you enjoy.<br /><br />Sincerely,<br />Sebastian Monzón</p>
+                        <p className="lg:max-w-[500px]">Whether it&#39;s building innovative software, engineering electrical systems, or exploring the intersection between AI and music, I strive to push my creative boundaries through experimentation and learning from failures. <br /><br />Below you will find an incomplete list of the things I&#39;ve made. The list is always growing, as I continue to take on harder challenges aligned with my passion for hands-on engineering, science, and music. I hope you enjoy.<br /><br />Sincerely,<br />Sebastian Monzón</p>
                         <div className="w-full"><Button download="Sebastian Monzon CV" as={Link} size="lg" color="primary" variant="bordered" href="/SebastianMonzonCV.pdf">
                             Download CV
                         </Button>
@@ -42,9 +42,9 @@ export const CVSection = () => {
                     title="Research"
                     imageSrc="/projects/honors-spectrograms.png"
                     imageAlt="Research"
-                    description="Between generative music AI and underwater IoT, my journey as a researcher has only just begun."
+                    description="See my research on AI, music technology, and human-computer interaction."
                 >
-                    <Button as={Link} size="md" color="primary" variant="shadow" href="#research">
+                    <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         View Research
                     </Button>
                     {/* <Button as={Link} size="md" color="primary" className="text-white" variant="light" href="https://scholar.google.com/citations?user=" target="_blank" rel="noopener noreferrer" showAnchorIcon>
@@ -58,7 +58,7 @@ export const CVSection = () => {
                     imageAlt="Engineering Projects"
                     description="See my robotics, 3D design, electronics, and IoT projects."
                 >
-                    <Button as={Link} size="md" color="primary" variant="shadow" href="#engineering">
+                    <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         View Projects
                     </Button>
                 </SectionCard>
@@ -67,13 +67,10 @@ export const CVSection = () => {
                     title="Coding Projects"
                     imageSrc="/projects/simulation-physics.gif"
                     imageAlt="Coding Projects"
-                    description="See my coding project highlights which incorporate AI, simulations, mobile apps, commercial websites, and games."
+                    description="See my coding projects which incorporate AI, simulations, mobile apps, commercial websites, and games."
                 >
-                    <Button as={Link} size="md" color="primary" variant="shadow" href="#coding">
+                    <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         View Projects
-                    </Button>
-                    <Button as={Link} size="md" color="primary" className="text-white" variant="light" href="https://github.com/smonzon14" target="_blank" rel="noopener noreferrer" showAnchorIcon>
-                        GitHub
                     </Button>
                 </SectionCard>
                 <SectionCard
@@ -83,7 +80,7 @@ export const CVSection = () => {
                     imageAlt="Music"
                     description="Listen to my latest tracks and remixes."
                 >
-                    <Button as={Link} size="md" color="primary" variant="shadow" href="#music">
+                    <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         Listen Now
                     </Button>
                 </SectionCard>

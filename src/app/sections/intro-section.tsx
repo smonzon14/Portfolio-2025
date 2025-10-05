@@ -3,16 +3,17 @@ import { Button } from "@heroui/button";
 import { JellyText } from "../jelly-text";
 import { Link } from "@heroui/link";
 
+
 export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => {
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? " h-[700px]" : "h-screen")}>
+        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? " h-[600px]" : "h-[90vh] min-h-[800px]") } id="intro">
             <div className="flex flex-row gap-[8px] justify-between h-full items-center">
                 <div className="flex flex-col gap-[8px]">
                     <span className="mix-blend-difference text-4xl sm:text-5xl md:text-7xl lg:text-9xl ">
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p>Full-stack engineer, independent researcher, and musician exploring multimodal generative AI models, music technology, and human-computer intelligent interaction - alongside my work developing distributed systems at Cisco Meraki.</p>
+                    <p>Full-stack engineer, independent researcher, and musician exploring human-computer intelligent interaction, multimodal generative AI models, and music technology - alongside my work developing distributed systems at Cisco Meraki.</p>
                     <div className="text-white/40 bg-black max-w-max">All content on this website was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link></div>
 
                     <div className="flex flex-row gap-6 flex-wrap items-center mt-10 max-w-[60%]">
@@ -31,6 +32,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                     </div>
                 </div>
             </div>
+
             {/* <svg viewBox="0 0 68 33" className="chevron-down">
             <path d="M.58 3.414l27.432 27.433c2.715 2.715 7.167 2.787 9.964.164L67.356 3.46 64.62.54 35.24 28.093c-1.222 1.146-3.212 1.114-4.4-.075L3.408.586.579 3.414z"></path>
           </svg> */}

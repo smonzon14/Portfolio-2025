@@ -5,6 +5,7 @@ import { IntroSection } from './sections/intro-section';
 import MiniCardsSection from './sections/mini-cards-section';
 import { Divider } from "@heroui/divider";
 import Script from 'next/script';
+import ProjectShowcase from './sections/project-showcase';
 
 export const ParallaxHeader = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => (
     <ParallaxProvider>
@@ -25,6 +26,7 @@ export const ParallaxHeader = ({ isMobileDevice = true }: { isMobileDevice?: boo
 
         </div>
         <IntroSection isMobileDevice={isMobileDevice}/>
+        <ProjectShowcase height={isMobileDevice ? 150 : 250} edgeFadeWidth={isMobileDevice ? 20 : 120}/>
 
         <Divider className="my-4" />
 
