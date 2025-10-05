@@ -133,7 +133,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const selectedImage = project.images[emblaApi?.selectedScrollSnap() || 0];
     return (
-        <div id={project.key} className="relative flex-grow flex lg:h-[800px] w-[500px] lg-max-w-[50%]">
+        <div id={project.key} className="relative flex-grow flex w-[500px] lg:max-w-[50%]">
             <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
                 <CardHeader className="flex-col !items-center pointer-events-none text-center px-10 pt-4">
                     <h2 className="text-3xl text-shadow-lg">{project.name}</h2>
@@ -160,11 +160,11 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
                 </div>
                 </CardBody>
-                <CardFooter className="min-h-max bg-black/50 pb-10 z-2 border-t-1 border-t-white/20 text-left flex flex-col justify-between">
+                <CardFooter className="min-h-max bg-black/50 pb-4 z-2 border-t-1 border-t-white/20 text-left flex flex-col justify-between">
                 {scrollSnaps.length > 1 && (
                     <div className="embla !m-0 flex flex-row justify-center w-full pointer-events-none">
 
-                        <div className="flex-row flex gap-2 p-2 pointer-events-auto bottom-0 z-2 ">
+                        <div className="flex-row flex gap-2 pointer-events-auto bottom-0 z-2 ">
                             {scrollSnaps.map((_, index) => (
                                 <DotButton
                                     key={index}
@@ -176,8 +176,8 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                             ))}
                         </div>
                     </div>)}
-                    <p className="m-4 md:mx-16 sm:text-lg md:text-xl line-clamp-3 text-center">{selectedImage.caption}</p>
-                    <Button color="primary" className="min-h-[40px]" onPress={onOpenModal} >
+                    <p className="m-2 md:mx-16 sm:text-md md:text-lg line-clamp-3 text-center md:min-h-[70px] min-h-[60px] !leading-tight">{selectedImage.caption}</p>
+                    <Button color="warning" size="md" variant="ghost" onPress={onOpenModal} >
                         Read more
                     </Button>
                 </CardFooter>

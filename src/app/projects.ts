@@ -198,12 +198,12 @@ export const codingProjects: Project[] = [
 export const engineeringProjects: Project[] = [
     {
         key: "feedkevin",
-        name: "FeedKevin! - Pet Feed Timer",
+        name: "FeedKevin! - Pet Food Timer",
         description: "Since it's nearly impossible to coordinate who's fed our cat Kevin, I built a pet feed timer that allows us to schedule feedings and track when Kevin was last fed.",
         images: [
             {
                 src: "/gifs/feedkevin.gif",
-                caption: "A gif of the pet feed timer in action, using an ESP8266, SSD1306 OLED display, and a button. The schedule is set programmatically, and the button is used to move between interfaces when the timer is running.",
+                caption: "A gif of the pet food timer in action, using an ESP8266, SSD1306 OLED display, and a button. The schedule is set programmatically, and the button is used to move between interfaces when the timer is running.",
             },
             {
                 src: "/projects/feedkevin-timer.jpeg",
