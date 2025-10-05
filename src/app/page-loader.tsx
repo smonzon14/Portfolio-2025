@@ -44,14 +44,14 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
 
     return (
         <>
-            {!isLoaded && (
-                <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-                    <FullscreenLoader />
-                </div>
-            )}
-            <div className={isLoaded ? "opacity-100 transition-opacity transition duration-700" : "opacity-0"}>
-                {children}
+            <div
+                className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[2s] ${
+                    isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
+                }`}
+            >
+                <FullscreenLoader />
             </div>
+            {children}
         </>
     );
 }
