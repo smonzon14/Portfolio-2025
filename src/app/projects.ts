@@ -106,7 +106,7 @@ export const codingProjects: Project[] = [
         description: "A web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
         images: [
             {
-                src: "/projects/curdle.PNG",
+                src: "/projects/curdle.png",
                 caption: "A web app that allows users to play a wordle-style game with 5-letter cheese names. (There are more than you think)",
             },
         ],

@@ -135,8 +135,8 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
     return (
         <div id={project.key} className="relative flex-grow flex w-[500px] lg:max-w-[50%]">
             <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
-                <CardHeader className="flex-col !items-center pointer-events-none text-center px-10 pt-4">
-                    <h2 className="text-3xl text-shadow-lg">{project.name}</h2>
+                <CardHeader className="flex-col !items-center pointer-events-none text-center px-2 pt-4">
+                    <h2 className="text-2xl">{project.name}</h2>
                 </CardHeader>
                 {!isMobileDevice && <div ref={bgImageRef} className="h-full w-full flex items-center justify-center absolute top-0 left-0 blur-[10px] pointer-events-none">
                     {!selectedImage.src.endsWith('.mp4') && !selectedImage.src.endsWith('.gif') && (<Image className="object-cover w-full h-full opacity-20" src={selectedImage.src} alt={selectedImage.caption} width={100} height={100} unoptimized={selectedImage.src.endsWith(".gif")} />)}

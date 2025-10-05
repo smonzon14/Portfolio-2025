@@ -25,7 +25,7 @@ export const SectionCard = ({
     ...props
 } : SectionCardProps) => {
     return (
-        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[600px] text-white gap-4 relative overflow-hidden border-1 border-white/10 " + className} { ...props } >
+        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[500px] text-white gap-4 relative overflow-hidden border-1 border-white/10 " + className} { ...props } >
                 <Image
                     src={imageSrc}
                     alt={imageAlt}
