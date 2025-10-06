@@ -10,9 +10,9 @@ import ProjectShowcase from './sections/project-showcase';
 export const ParallaxHeader = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => (
     <ParallaxProvider>
         <div
-        className="absolute flex justify-center items-center top-0 right-0 w-screen h-[2000px] z-2 overflow-hidden"
+        className="absolute flex justify-center items-center top-0 right-0 w-screen h-[3200px] z-2 overflow-hidden"
         >
-        <Parallax speed={-40}>
+        <Parallax speed={-70}>
 
         <div id="waves-canvas"
             className="self-center"
