@@ -37,6 +37,12 @@ const staticOrder = [
     "simulation-cgol",
 ];
 
+const glowItems = [
+    "mage",
+    "music-spectrogram-inpainting",
+    "honors",
+]
+
 const items = staticOrder
     .map((key) =>
         projects.find((p) => p.key === key)
@@ -91,7 +97,7 @@ const items = staticOrder
 
       {/* Scroller */}
       <div
-        className="scroller relative h-full p-4"
+        className="scroller relative h-full p-8"
         style={{ maskImage: "none" }}
       >
         <div
@@ -106,36 +112,35 @@ const items = staticOrder
               href={`#${item.projectKey}`}
               onClick={(e) => handleClick(e, item.projectKey)}
               aria-label={`Open project ${item.projectKey}`}
-              className="relative block shrink-0  transition-transform duration-500 ease-out hover:scale-[1.05]"
+              className="relative block shrink-0 transition-transform duration-500 ease-out hover:scale-[1.05]"
             >
-              <figure
+                <figure
                 className="group/item relative overflow-hidden rounded-xl ring-1 ring-white/5 transition-opacity duration-300"
                 style={{
-                  height: clampedH - 40,
-                  width: Math.min(clampedH * 1.3, 720),
+                height: clampedH - 60,
+                width: Math.min(clampedH * 1.3, 720),
+                boxShadow: glowItems.includes(item.projectKey) ? "0px 0px 30px 5px hsl(37.03 100% 100% / 0.7)" : "", // Centered shadow
                 }}
-              >
+                >
                 <figcaption className="pointer-events-none absolute m-4 left-0 bottom-0 z-10 rounded-bl-md px-2 pt-2 text-sm leading-none text-white/85 z-10 line-clamp-2">
-                  {item.caption}
+                {item.caption}
                 </figcaption>
                 <div className="text-lg absolute top-0 left-0 w-full h-full z-0 bg-black text-center flex items-center justify-center">
-                    Go to project
+                Go to project
                 </div>
                 <div className="relative opacity-100 hover:opacity-40 transition-opacity duration-200">
-                  <Image
-                  removeWrapper
-                  src={item.src}
-                  alt={item.caption || item.projectKey}
-                  className="h-full w-full object-cover z-1"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
-                    aria-hidden="true"
-                  />
+                <Image
+                removeWrapper
+                src={item.src}
+                alt={item.caption || item.projectKey}
+                className="h-full w-full object-cover z-1"
+                />
+                <div
+                className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
+                aria-hidden="true"
+                />
                 </div>
-                {/* Focus ring for a11y */}
-                <span className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-offset-0 focus-within:ring-2 focus-within:ring-white/60" />
-              </figure>
+                </figure>
             </NextLink>
           ))}
         </div>
