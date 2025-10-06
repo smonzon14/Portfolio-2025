@@ -19,6 +19,7 @@ import { CVSection } from "./sections/cv-section";
 import { MusicSection } from "./sections/music-section";
 
 import { ParallaxHeader } from "./parallax-header";
+import { SmonzonNavbar } from "./smonzon-navbar";
 
 export default async function Home() {
   const headersData = await headers();
@@ -28,60 +29,7 @@ export default async function Home() {
   return (
     <PageLoader>
       <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
-        <Navbar
-          className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60"
-          maxWidth="full"
-        >
-          <NavbarBrand>
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              className="w-10 h-10"
-              loading="eager"
-            />
-            <h1 className="text-xl text-white font-bold">SMONZON.COM</h1>
-          </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-4" justify="end">
-            {[
-              "about",
-              "research",
-              "software",
-              "engineering",
-              "music",
-              "contact",
-            ].map((section) => (
-              <NavbarItem key={section} isActive={false}>
-                <Link
-                  color="foreground"
-                  href={`#${section}`}
-                  className={
-                    section === "contact"
-                      ? "text-warning font-bold"
-                      : "hover:text-primary transition-colors duration-300"
-                  }
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </Link>
-              </NavbarItem>
-            ))}
-            <NavbarItem>
-              <Button
-                as={Link}
-                title="Curdle"
-                color="warning"
-                variant="ghost"
-                size="sm"
-                href="/curdle/index.html"
-                target="_blank"
-              >
-                {isMobileDevice ? "" : "Solve today's"}
-                <span className="cheesy">Curdle</span>
-              </Button>
-            </NavbarItem>
-          </NavbarContent>
-        </Navbar>
+        <SmonzonNavbar isMobileDevice={isMobileDevice} />
         <main
           className="relative flex flex-col px-2 md:px-6 items-center"
           id="home"

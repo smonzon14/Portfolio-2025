@@ -21,13 +21,13 @@ export default function MiniCardsSection() {
 
     return (
         <section className={"relative flex flex-col max-w-[1340px] w-full gap-10 transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center">
                 <Image
                     src="/profile.png"
                     alt="P"
-                    width={640}
-                    height={640}
-                    className="rounded-full border-1 border-white shadow-lg object-cover w-[300px] h-[300px] bg-transparent"
+                    width={320}
+                    height={320}
+                    className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-transparent"
                     loading="eager"
 
                 />

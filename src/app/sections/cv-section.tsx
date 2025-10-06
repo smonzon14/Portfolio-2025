@@ -29,7 +29,7 @@ export const CVSection = ({isMobileDevice = false}) => {
                     </div>
                     <div className="pb-10 flex flex-row gap-4 justify-between w-full items-center flex-wrap">
                         <p className="lg:max-w-[500px]">Whether it&#39;s building innovative software, engineering electrical systems, or exploring the intersection between AI and music, I strive to push my creative boundaries through experimentation and learning from failures. <br /><br />Below you will find an incomplete list of the things I&#39;ve made. The list is always growing, as I continue to take on harder challenges aligned with my passion for hands-on engineering, science, and music. I hope you enjoy.<br /><br />Sincerely,<br />Sebastian Monzón</p>
-                        <div className="w-full"><Button download="Sebastian Monzon CV" as={Link} size="md" color="primary" variant="flat" href="/SebastianMonzonCV.pdf" >
+                        <div className="w-full"><Button download="Sebastian Monzon CV" as={Link} size="md" color="primary" variant="bordered" href="/SebastianMonzonCV.pdf" >
                             Download CV
                         </Button>
                         </div>
