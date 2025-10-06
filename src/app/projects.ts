@@ -101,6 +101,19 @@ export const codingProjects: Project[] = [
         size: 'lg',
     },
     {
+        key: "beamshyft",
+        name: "Beamshyft - Lower construction costs for developers",
+        description: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
+        images: [
+            {
+                src: "/projects/beamshyft_white.PNG",
+                caption: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service.",
+            },
+        ],
+        size: 'lg',
+        link: "https://beamshyft.com/",
+    },
+    {
         key: "curdle",
         name: "Curdle - Wordle for Cheeses",
         description: "A web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
@@ -166,19 +179,6 @@ export const codingProjects: Project[] = [
         ],
         size: 'lg',
         link: "https://github.com/smonzon14/VibeQ"
-    },
-    {
-        key: "beamshyft",
-        name: "Beamshyft - Lower construction costs for developers",
-        description: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
-        images: [
-            {
-                src: "/projects/beamshyft_white.PNG",
-                caption: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service.",
-            },
-        ],
-        size: 'lg',
-        link: "https://beamshyft.com/",
     },
     {
         key: "myhs",

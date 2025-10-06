@@ -177,7 +177,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                         </div>
                     </div>)}
                     <p className="m-2 md:mx-16 sm:text-md md:text-lg line-clamp-3 text-center md:min-h-[70px] min-h-[60px] !leading-tight">{selectedImage.caption}</p>
-                    <Button color="warning" size="md" variant="ghost" onPress={onOpenModal} >
+                    <Button color="warning" size="md" variant="flat" onPress={onOpenModal} >
                         Read more
                     </Button>
                 </CardFooter>
