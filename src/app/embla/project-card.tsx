@@ -133,67 +133,104 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const selectedImage = project.images[emblaApi?.selectedScrollSnap() || 0];
     return (
-        <div id={project.key} className="relative flex-grow flex w-[500px] lg:max-w-[50%]">
-            <Card isFooterBlurred className={"bg-black relative flex-grow text-white gap-4 relative overflow-hidden border-1 border-white/20"}>
-                <CardHeader className="flex-col !items-center pointer-events-none text-center px-2 pt-4">
-                    <h2 className="text-2xl">{project.name}</h2>
+        <div
+            id={project.key}
+            className="relative flex-grow flex w-[340px] lg:max-w-[40%] min-w-[280px] max-w-[400px] transition-all"
+        >
+            <Card
+                isFooterBlurred
+                className="bg-black relative flex-grow text-white gap-0 overflow-hidden border border-white/20 p-0"
+            >
+                {/* Header overlays image */}
+                <CardHeader className="absolute top-0 left-0 w-full flex-col items-center text-center px-2 pt-4 z-10 pointer-events-none bg-black/40 backdrop-blur-md">
+                    <h2 className="text-xl font-semibold">{project.name}</h2>
                 </CardHeader>
-                {!isMobileDevice && <div ref={bgImageRef} className="h-full w-full flex items-center justify-center absolute top-0 left-0 blur-[10px] pointer-events-none">
-                    {!selectedImage.src.endsWith('.mp4') && !selectedImage.src.endsWith('.gif') && (<Image className="object-cover w-full h-full opacity-20" src={selectedImage.src} alt={selectedImage.caption} width={100} height={100} unoptimized={selectedImage.src.endsWith(".gif")} />)}
-                </div>}
 
-                <CardBody className="min-h-max">
-                <div className="embla relative h-full w-full overflow-hidden">
-                    <div className="embla__viewport h-full" ref={emblaRef}>
-                        <div className="embla__container h-full">
-                            {project.images.map((image, index) => (
-                                <div className="embla__slide flex-grow" key={index}>
+                {/* Background image blur for desktop */}
+                {!isMobileDevice && (
+                    <div
+                        ref={bgImageRef}
+                        className="h-full w-full flex items-center justify-center absolute top-0 left-0 blur-[10px] pointer-events-none"
+                    >
+                        {!selectedImage.src.endsWith('.mp4') &&
+                            !selectedImage.src.endsWith('.gif') && (
+                                <Image
+                                    className="object-cover w-full h-full opacity-20"
+                                    src={selectedImage.src}
+                                    alt={selectedImage.caption}
+                                    width={100}
+                                    height={100}
+                                    unoptimized={selectedImage.src.endsWith('.gif')}
+                                />
+                            )}
+                    </div>
+                )}
 
-                                    <div className="relative h-full max-h-[400px] min-h-[400px] flex items-center justify-center">
-                                        <ImageOrVideo src={image.src} caption={image.caption} autoplay={false}/>
+                {/* Image/video fills card */}
+                <CardBody className="p-0 min-h-max relative pointer-events-none">
+                    <div className="embla relative h-full w-full overflow-hidden">
+                        <div className="embla__viewport h-full" ref={emblaRef}>
+                            <div className="embla__container h-full">
+                                {project.images.map((image, index) => (
+                                    <div className="embla__slide flex-grow" key={index}>
+                                        <div className="relative h-[360px] sm:h-[400px] md:h-[500px] flex items-center justify-center">
+                                            <ImageOrVideo
+                                                src={image.src}
+                                                caption={image.caption}
+                                                autoplay={false}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
-
-
-                </div>
                 </CardBody>
-                <CardFooter className="min-h-max bg-black/50 pb-4 z-2 border-t-1 border-t-white/20 text-left flex flex-col justify-between">
-                {scrollSnaps.length > 1 && (
-                    <div className="embla !m-0 flex flex-row justify-center w-full pointer-events-none">
 
-                        <div className="flex-row flex gap-2 pointer-events-auto bottom-0 z-2 ">
-                            {scrollSnaps.map((_, index) => (
-                                <DotButton
-                                    key={index}
-                                    onClick={() => onDotButtonClick(index)}
-                                    className={'embla__dot'.concat(
-                                        index === selectedIndex ? ' embla__dot--selected' : ''
-                                    )}
-                                />
-                            ))}
+                {/* Footer overlays image */}
+                <CardFooter className="absolute bottom-0 left-0 w-full bg-black/40 backdrop-blur-md pb-4 z-10 border-t border-white/20 text-left flex flex-col justify-between px-2 pt-2">
+                    {scrollSnaps.length > 1 && (
+                        <div className="embla flex flex-row justify-center w-full pointer-events-none mb-2">
+                            <div className="flex-row flex gap-2 pointer-events-auto z-2">
+                                {scrollSnaps.map((_, index) => (
+                                    <DotButton
+                                        key={index}
+                                        onClick={() => onDotButtonClick(index)}
+                                        className={
+                                            'embla__dot' +
+                                            (index === selectedIndex
+                                                ? ' embla__dot--selected'
+                                                : '')
+                                        }
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>)}
-                    <p className="m-2 md:mx-16 sm:text-md md:text-lg line-clamp-3 text-center md:min-h-[70px] min-h-[60px] !leading-tight">{selectedImage.caption}</p>
-                    <Button color="warning" size="md" variant="flat" onPress={onOpenModal} >
+                    )}
+                    <p className="mx-2 text-sm md:text-base line-clamp-3 text-center min-h-[40px] !leading-tight mb-2">
+                        {selectedImage.caption}
+                    </p>
+                    <Button
+                        color="warning"
+                        size="md"
+                        variant="flat"
+                        onPress={onOpenModal}
+                        className="self-center"
+                    >
                         Read more
                     </Button>
                 </CardFooter>
             </Card>
-            
-            <div className="flex flex-row justify-between absolute bottom-[50%] w-full p-4 pointer-events-none">
+
+            {/* Carousel arrows
+            <div className="flex flex-row justify-between absolute bottom-[50%] w-full p-4 pointer-events-none z-20">
                 <div className="pointer-events-auto">
                     <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
                 </div>
-
-
                 <div className="pointer-events-auto">
                     <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 };
