@@ -43,7 +43,7 @@ export default async function Home() {
           <h1 className="text-xl text-white font-bold">SMONZON.COM</h1>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="end">
-          {["about", "research", "coding", "engineering", "music", "contact"].map((section) => (
+          {["about", "research", "software", "engineering", "music", "contact"].map((section) => (
             <NavbarItem key={section} isActive={false}>
               <Link
                 color="foreground"

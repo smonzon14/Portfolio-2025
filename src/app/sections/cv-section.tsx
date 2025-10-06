@@ -64,11 +64,11 @@ export const CVSection = ({isMobileDevice = false}) => {
                     </Button>
                 </SectionCard>
                 <SectionCard
-                    href="#coding"
-                    title="Coding Projects"
+                    href="#software"
+                    title="Software Projects"
                     imageSrc="/projects/simulation-physics.gif"
-                    imageAlt="Coding Projects"
-                    description="See my coding projects which incorporate AI, simulations, mobile apps, commercial websites, and games."
+                    imageAlt="Software Projects"
+                    description="See my software projects which incorporate AI, simulations, mobile apps, commercial websites, and games."
                 >
                     <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         View Projects
