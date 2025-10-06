@@ -1,12 +1,10 @@
 import Script from "next/script";
-import Image from "next/image";
 import { userAgent } from "next/server";
 import { headers } from "next/headers";
 
 import { Button } from "@heroui/button";
 import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
 
 import { SectionCard } from "./section-card";
 import { ResearchSection } from "./sections/research-section";
