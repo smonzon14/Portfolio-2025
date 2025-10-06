@@ -75,6 +75,7 @@ export default async function Home() {
               className="max-h-[350px]"
               imageAlt="Contact"
               title="Contact"
+              cardFooterClassName="backdrop-filter-none bg-black/50"
               description="^ A Gibson les Paul guitar, painted by me :)"
             >
               <Button

@@ -13,6 +13,7 @@ interface SectionCardProps extends CardProps {
     description: string;
     children: React.ReactNode[] | React.ReactNode | string;
     className?: string;
+    cardFooterClassName?: string;
 }
 
 export const SectionCard = ({
@@ -22,6 +23,7 @@ export const SectionCard = ({
     description,
     children,
     className,
+    cardFooterClassName,
     ...props
 } : SectionCardProps) => {
     return (
@@ -35,8 +37,8 @@ export const SectionCard = ({
                     loading="eager"
 
                 />
-                
-            <CardFooter className="justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none  text-left gap-2">
+
+            <CardFooter className={"justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none  text-left gap-2 " + cardFooterClassName}>
                 <h2 className="text-4xl">{title}</h2>
                 
                 <div className="flex flex-col pointer-events-none max-w-[450px] text-white/80">
