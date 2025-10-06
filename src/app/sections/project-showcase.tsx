@@ -118,7 +118,7 @@ const items = staticOrder
                 <figcaption className="pointer-events-none absolute m-4 left-0 bottom-0 z-10 rounded-bl-md px-2 pt-2 text-sm leading-none text-white/85 z-10 line-clamp-2">
                   {item.caption}
                 </figcaption>
-                <div className="text-lg absolute top-0 left-0 w-full h-full z-0 bg-black text-center flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
+                <div className="text-lg absolute top-0 left-0 w-full h-full z-0 bg-black text-center flex items-center justify-center">
                     Go to project
                 </div>
                 <div className="relative opacity-100 hover:opacity-40 transition-opacity duration-200">
