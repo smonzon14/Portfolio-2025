@@ -62,15 +62,15 @@ export default async function Home() {
       <main className="relative flex flex-col px-2 md:px-6 items-center" id="home">
         <ParallaxHeader isMobileDevice={isMobileDevice} />
  
-        <Divider className="mt-20" />
+        <Divider className="mt-10" />
         
         <SkillsSection isMobileDevice={isMobileDevice} />
 
-        <Divider className="mt-20 mb-4" />
+        <Divider className="mt-10 mb-4" />
 
         <CVSection isMobileDevice={isMobileDevice} />
 
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-10" />
         <section
           id="projects"
           className="max-w-[1340px] w-full flex justify-left items-center"
@@ -79,21 +79,22 @@ export default async function Home() {
               PROJECTS
             </h2>
         </section>
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-10" />
 
         <ResearchSection isMobileDevice={isMobileDevice} />
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-10" />
         <CodingSection isMobileDevice={isMobileDevice} />
 
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-10" />
         <EngineeringSection isMobileDevice={isMobileDevice} />
 
-        <Divider className="my-4 mt-20" />
+        <Divider className="my-4 mt-10" />
         <MusicSection />
         <section className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40" id="contact">
           <SectionCard
             href="mailto:smonzon360@gmail.com"
             imageSrc="/projects/art-guitar.jpg"
+            className="max-h-[350px]"
             imageAlt="Contact"
             title="Contact"
             description="^ A Gibson les Paul guitar, painted by me :)"

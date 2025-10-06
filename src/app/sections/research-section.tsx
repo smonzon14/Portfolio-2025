@@ -41,7 +41,7 @@ export const ResearchSection = ({
         <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-20 bg-gradient-to-l from-black via-transparent to-transparent" />
       )}
 
-      <div className="relative w-full overflow-x-auto" ref={scrollRef}>
+      <div className="relative w-full overflow-x-auto pb-6" ref={scrollRef}>
         <div className="flex flex-row gap-4 h-full w-fit">
           {researchProjects.map((project, index) => (
             <ProjectCard
