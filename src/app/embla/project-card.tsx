@@ -47,12 +47,6 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
         ]
     );
 
-    useEffect(() => {
-        if (emblaApi) {
-            console.log(emblaApi.slideNodes()) // Access API
-        }
-    }, [emblaApi])
-
     const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
         const autoplay = emblaApi.plugins().autoplay
         if (!autoplay) return

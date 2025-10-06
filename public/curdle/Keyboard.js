@@ -167,7 +167,6 @@ const Keyboard = {
           dialog.style.opacity = 0.0;
         }, 2000);
       } else {
-        console.log(data);
         this.colorTiles(data);
         this.colorKeyboard(data.black, data.yellow, data.green);
 
@@ -284,7 +283,6 @@ const Keyboard = {
     let kb = Object.keys(black);
     let ky = Object.keys(yellow);
     let kg = Object.keys(green);
-    console.log(yellow)
     for (let b = 0; b < kb.length; b++){
       Array.from(keys).find(e => e.innerHTML === kb[b]).style.backgroundColor = this.colors.black;
     }

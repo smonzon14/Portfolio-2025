@@ -142,8 +142,7 @@ const items = staticOrder
                 className="h-full w-full object-cover z-1"
                 />
                 <div
-                className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
-                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-black to-transparent pointer-events-none"
                 />
                 </div>
                 </figure>

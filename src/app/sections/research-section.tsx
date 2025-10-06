@@ -32,7 +32,7 @@ export const ResearchSection = ({
       className="relative flex flex-col max-w-[1340px] w-full gap-4"
       id="research"
     >
-      <h2 className="text-4xl pb-4">RESEARCH x{researchProjects.length}</h2>
+      <h2 className="text-4xl pb-4 z-[21]">RESEARCH x{researchProjects.length}</h2>
 
       {showLeftGradient && (
         <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-20 bg-gradient-to-r from-black via-transparent to-transparent" />
