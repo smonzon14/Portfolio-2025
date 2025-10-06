@@ -32,10 +32,12 @@ export const ParallaxHeader = ({
       )}
     </div>
     <IntroSection isMobileDevice={isMobileDevice} />
-    <ProjectShowcase
-      height={isMobileDevice ? 150 : 250}
-      edgeFadeWidth={isMobileDevice ? 20 : 120}
-    />
+    {isMobileDevice ? null : (
+      <ProjectShowcase
+        height={isMobileDevice ? 150 : 250}
+        edgeFadeWidth={isMobileDevice ? 20 : 120}
+      />
+    )}
 
     <Divider className="my-4" />
 

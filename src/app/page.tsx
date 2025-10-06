@@ -67,8 +67,8 @@ export default async function Home() {
         <SkillsSection isMobileDevice={isMobileDevice} />
 
         <Divider className="mt-20 mb-4" />
-        
-        <CVSection />
+
+        <CVSection isMobileDevice={isMobileDevice} />
 
         <Divider className="my-4 mt-20" />
         <section
