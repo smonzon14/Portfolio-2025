@@ -20,18 +20,58 @@ import { useDotButton, DotButton } from './embla-carousel-dot-buttons'
 import Autoplay from 'embla-carousel-autoplay'
 import { Project } from "../projects"
 import Image from "next/image"
+import { useState } from "react";
+import { Spinner } from "@heroui/react";
 const TWEEN_FACTOR_BASE = 0.84
 
 const numberWithinRange = (number: number, min: number, max: number): number =>
     Math.min(Math.max(number, min), max)
 
-const ImageOrVideo = ({ src, caption, autoplay=true }: { src: string, caption: string, autoplay: boolean }) => {
+const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: string, caption: string, autoplay: boolean, controls?: boolean }) => {
+    const [loading, setLoading] = useState(true);
+
     if (src.endsWith('.mp4')) {
-        return <video className="object-cover" preload="metadata" src={src + "#t=0.1"} autoPlay={autoplay} loop={autoplay} muted controls={!autoplay}/>
+        return (
+            <div className="relative w-full h-full flex items-center justify-center">
+                {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30 pointer-events-none">
+                        <Spinner color="warning" size="lg" />
+                    </div>
+                )}
+                <video
+                    className="object-cover"
+                    preload="metadata"
+                    src={src + "#t=0.1"}
+                    autoPlay={autoplay}
+                    loop={autoplay}
+                    muted
+                    controls={controls}
+                    onLoadedData={() => setLoading(false)}
+                />
+            </div>
+        );
     } else {
-        return <Image className="object-cover" src={src} alt={caption} width={500} height={500} unoptimized={src.endsWith(".gif")}/>
+        return (
+            <div className="relative w-full h-full flex items-center justify-center">
+                {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30">
+                        <Spinner color="warning" size="lg" />
+                    </div>
+                )}
+                <Image
+                    className="object-cover"
+                    src={src}
+                    alt={caption}
+                    width={500}
+                    height={500}
+                    unoptimized={src.endsWith(".gif")}
+                    onLoad={() => setLoading(false)}
+                    style={loading ? { visibility: "hidden" } : {}}
+                />
+            </div>
+        );
     }
-}
+};
 
 const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Project, onOpenModal?: () => void, isMobileDevice: boolean }) => {
     const autoplayDelay = useMemo(() => Math.random() * 3000 + 6000, []); // Calculate delay once
@@ -172,6 +212,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                                                 src={image.src}
                                                 caption={image.caption}
                                                 autoplay={false}
+                                                controls={false}
                                             />
                                         </div>
                                     </div>
