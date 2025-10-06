@@ -65,6 +65,12 @@ const items = staticOrder
       el.scrollIntoView({ behavior: "smooth", block: "start" });
       // Optionally, update hash for sharing
       history.replaceState(null, "", `#${key}`);
+      setTimeout(() => {
+        const modalEl = document.getElementById(`${key}_modal`);
+        if (modalEl) {
+          modalEl.click();
+        }
+      }, 1500);
     }
     // If not found, let Next.js default anchor behavior happen (e.g., if you route elsewhere)
   };

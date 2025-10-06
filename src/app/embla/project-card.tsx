@@ -211,6 +211,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                         {selectedImage.caption}
                     </p>
                     <Button
+                        id={`${project.key}_modal`}
                         color="warning"
                         size="md"
                         variant="flat"
