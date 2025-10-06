@@ -60,6 +60,7 @@ const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: s
                 )}
                 <Image
                     className="object-cover"
+                    loading="lazy"
                     src={src}
                     alt={caption}
                     width={500}
