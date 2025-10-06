@@ -16,7 +16,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { EmblaCarouselType, EmblaEventType } from 'embla-carousel'
 
 import { useDotButton, DotButton } from './embla-carousel-dot-buttons'
-import { usePrevNextButtons, NextButton, PrevButton } from './embla-carousel-arrow-buttons'
+// import { usePrevNextButtons, NextButton, PrevButton } from './embla-carousel-arrow-buttons'
 import Autoplay from 'embla-carousel-autoplay'
 import { Project } from "../projects"
 import Image from "next/image"
@@ -34,7 +34,7 @@ const ImageOrVideo = ({ src, caption, autoplay=true }: { src: string, caption: s
 }
 
 const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Project, onOpenModal?: () => void, isMobileDevice: boolean }) => {
-    const autoplayDelay = useMemo(() => Math.random() * 1000 + 4000, []); // Calculate delay once
+    const autoplayDelay = useMemo(() => Math.random() * 3000 + 6000, []); // Calculate delay once
     const bgImageRef = useRef<HTMLDivElement>(null)
 
     const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -68,12 +68,12 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
 
     const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi, onNavButtonClick)
 
-    const {
-        prevBtnDisabled,
-        nextBtnDisabled,
-        onPrevButtonClick,
-        onNextButtonClick
-    } = usePrevNextButtons(emblaApi)
+    // const {
+    //     prevBtnDisabled,
+    //     nextBtnDisabled,
+    //     onPrevButtonClick,
+    //     onNextButtonClick
+    // } = usePrevNextButtons(emblaApi)
 
     const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
         tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length

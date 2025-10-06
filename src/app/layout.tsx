@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {HeroUIProvider} from "@heroui/system";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.smonzon.com'),
@@ -21,6 +22,7 @@ export default function RootLayout({
         <HeroUIProvider>
           {children}
         </HeroUIProvider>
+        <SpeedInsights/>
       </body>
     </html>
   );
