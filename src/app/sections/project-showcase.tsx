@@ -115,19 +115,23 @@ const items = staticOrder
                   width: Math.min(clampedH * 1.3, 720),
                 }}
               >
-                <figcaption className="pointer-events-none absolute left-0 bottom-0 z-10 rounded-bl-md bg-black/65 px-2 pt-2 text-sm leading-none text-white/85 z-10 line-clamp-2">
+                <figcaption className="pointer-events-none absolute m-4 left-0 bottom-0 z-10 rounded-bl-md px-2 pt-2 text-sm leading-none text-white/85 z-10 line-clamp-2">
                   {item.caption}
                 </figcaption>
                 <div className="text-lg absolute top-0 left-0 w-full h-full z-0 bg-black text-center flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                     Go to project
                 </div>
-                <div className="opacity-100 hover:opacity-40 transition-opacity duration-200">
-                    <Image
-                    removeWrapper
-                    src={item.src}
-                    alt={item.caption || item.projectKey}
-                    className="h-full w-full object-cover z-1"
-                    />
+                <div className="relative opacity-100 hover:opacity-40 transition-opacity duration-200">
+                  <Image
+                  removeWrapper
+                  src={item.src}
+                  alt={item.caption || item.projectKey}
+                  className="h-full w-full object-cover z-1"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black to-transparent"
+                    aria-hidden="true"
+                  />
                 </div>
                 {/* Focus ring for a11y */}
                 <span className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-offset-0 focus-within:ring-2 focus-within:ring-white/60" />
