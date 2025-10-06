@@ -66,7 +66,7 @@ export const CVSection = ({isMobileDevice = false}) => {
                 <SectionCard
                     href="#software"
                     title="Software Projects"
-                    imageSrc="/projects/simulation-physics.gif"
+                    imageSrc="/projects/simulation-physics-compressed.gif"
                     imageAlt="Software Projects"
                     description="See my software projects which incorporate AI, simulations, mobile apps, commercial websites, and games."
                 >

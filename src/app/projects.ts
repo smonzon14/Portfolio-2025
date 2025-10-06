@@ -132,7 +132,7 @@ export const codingProjects: Project[] = [
         description: "A physics simulator built with Python and Pygame, featuring a 2D physics engine that simulates gravitational bodies and instantaneous velocities in a 2D space. The simulator allows users to create and manipulate objects in a 2D space, and observe their interactions with each other. I built this project to learn about PyGame and test my knowledge of basic gravitational physics.",
         images: [
             {
-                src: "projects/simulation-physics.gif",
+                src: "projects/simulation-physics-compressed.gif",
                 caption: "A physics simulator built with Python and Pygame, featuring a 2D physics engine that simulates gravitational bodies and instantaneous velocities in a 2D space.",
             },
         ],
@@ -231,7 +231,7 @@ export const engineeringProjects: Project[] = [
                 caption: "In version 1, robot had a camera, an ultrasonic sensor. A dynamic claw with 2 degrees of freedom was added later. The robot can be controlled with a DualShock 4 controller or run autonomously with computer vision.",
             },
             {
-                src: "/projects/biwheel-cad.gif",
+                src: "/projects/biwheel-cad-compressed.gif",
                 caption: "The CAD model of the robot, designed in Fusion 360.",
             },
             {
