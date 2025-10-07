@@ -243,7 +243,7 @@ const Carousel = ({ project, onOpenModal, isMobileDevice=true }: { project: Proj
                             </div>
                         </div>
                     )}
-                    <p className="mx-2 text-sm md:text-base line-clamp-3 text-center min-h-[40px] !leading-tight mb-2">
+                    <p className="text-[1rem] text-white/90 pt-1 line-clamp-3 text-center min-h-[40px] !leading-tight mb-2">
                         {selectedImage.caption}
                     </p>
                     <Button
@@ -300,9 +300,7 @@ export function ProjectCard({ project, isMobileDevice=true }: {
                                         {project.images.map((image, index) => (
                                             <div key={index} className="items-center flex flex-col gap-4 bg-black/40 p-4 rounded-lg min-w-[200px] min-h-[200px]">
                                                 <p className="self-start text-xl">{"fig." + (index+1)}</p>
-                                                <React.Suspense fallback={<Spinner color="warning" size="lg" />}>
                                                     <ImageOrVideo src={image.src} caption={image.caption} autoplay={false}/>
-                                                </React.Suspense>
                                                 <p className="text-center">{image.caption}</p>
                                             </div>
                                         ))}
