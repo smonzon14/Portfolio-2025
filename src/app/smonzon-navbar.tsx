@@ -38,7 +38,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
                 </summary>
-                <div className="absolute right-0 mt-2 w-48 bg-black/90 rounded shadow-lg z-50 flex flex-col">
+                <div className="absolute right-0 mt-2 w-48 bg-black/90 rounded shadow-lg z-50 flex flex-col border border-white/10">
                   {[
                     "about",
                     "research",
@@ -77,6 +77,41 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                   </Link>
                 </div>
               </details>
+              <style>{`
+                summary {
+                  outline: none;
+                }
+
+                details[open] > div {
+                  animation: slideDown 0.3s ease-out;
+                }
+
+                details:not([open]) > div {
+                  animation: slideUp 0.3s ease-in;
+                }
+
+                @keyframes slideDown {
+                  from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+
+                @keyframes slideUp {
+                  from {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                  to {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                  }
+                }
+              `}</style>
             </div>
           ) : (
             <NavbarContent className="hidden sm:flex gap-4" justify="end">

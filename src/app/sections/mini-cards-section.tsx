@@ -23,7 +23,7 @@ export default function MiniCardsSection() {
         <section className={"relative flex flex-col max-w-[1340px] w-full gap-10 transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
             <div className="flex justify-center">
                 <Image
-                    src="/profile.png"
+                    src="/profile_2.png"
                     alt="P"
                     width={320}
                     height={320}
