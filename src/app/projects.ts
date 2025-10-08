@@ -14,7 +14,7 @@ export const researchProjects: Project[] = [
     {
         key: "mage",
         name: "MAGE: Motion-to-Audio Generative autoEncoder",
-        description: "An independent research project using deep learning to generate audio from hand gestures. The model is based on RAVE, a state-of-the-art neural audio synthesis model, and is trained on a dataset of percussive hand movements and sounds from a conga drum at a high frame rate. The goal of this project is to be able to play any drum or percussive instrument with hand gestures and a camera.",
+        description: "An ongoing solo research project that uses a variational auto-encoder to generate percussive audio from hand gestures. The model is based on RAVE, a state-of-the-art neural audio synthesis model, and is trained on a dataset of percussive hand movements and sounds from a conga drum (played by my dad) at a high frame rate to capture fine hand movements. The goal of this project is to be able to play any drum or percussive instrument with hand gestures and a camera.",
         images: [
             {
                 src: "/projects/mage_playing_adv2.mp4",
@@ -35,7 +35,7 @@ export const researchProjects: Project[] = [
     {
         key: "music-spectrogram-inpainting",
         name: "Music-Spectrogram Inpainting",
-        description: "A Stable Diffusion model tuned to inpaint music spectrograms. This was used to generate new audio samples from existing spectrograms, with a focus on increasing certain frequencies while preserving others to still sound like music. In this study, the goal is to generate music that is better suited for hydrogel dewatering rates by using frequency ranges and songs that performed the best. This was in collaboration with MIT researchers at the Dept. of MechE and the MIT Media Lab.",
+        description: "In collaboration with researchers at the MIT Dept. of MechE and Media Lab, I developed a Stable Diffusion model and pipeline (based on Riffusion) to inpaint music spectrograms to improve hydrogel air-water extraction by increasing desirable frequencies in music. This project is ongoing and I am currently experimenting with CLIP soft-tokens to improve the generative guidance of the model.",
         images: [
             {
                 src: "/projects/music-spectrogram-inpainting.png",
@@ -52,7 +52,7 @@ export const researchProjects: Project[] = [
     {
         key: "honors",
         name: "Honors Thesis",
-        description: "A research project discussing the use of Generative Adverserial Networks for timbre synthesis and a multiclass-classification model for instrument identification. The idea was to use a GAN to synthesize audio with specific timbre descriptors from text (i.e. \"soothing piano with long release and pleasant overtones\"). This would be incredibly useful for sound designers/music producers to come up with new sounds or don't have a background in sound synthesis. This was my undergraduate honors thesis at the UMass Amherst Commonwealth Honors College, a program that requires a thesis to graduate with honors.",
+        description: "As a music producer, I struggled with engineering the right sound textures and timbres I was looking for. That's what inspired me to research Generative Adverserial Networks for timbre synthesis. Though I didn't have the time or resources during undergrad, I developed a multiclass-classification model for instrument identification. The idea was to use a GAN to synthesize audio with specific timbre descriptors from text (i.e. \"soothing piano with long release and pleasant overtones\"). In theory, an AI model that did this would be incredibly useful for sound designers/music producers to come up with new sounds or use words for sound synthesis. This was my undergraduate honors thesis at the UMass Amherst Commonwealth Honors College.",
         images: [
             {
                 src: "/projects/honors-confusion-matrix.png",
@@ -86,7 +86,7 @@ export const codingProjects: Project[] = [
     {
         key: "nyt",
         name: "NYT Large Language Model (LLM)",
-        description: "Designed as an Ollama personal-assistant, I made an locally-stored Large Language Model (LLM) for New York Times articles that use text-to-speech (TTS) to respond. The model refreshes articles daily and is capable of summarizing current events, or any other questions a user may have about past news.",
+        description: "I always dreamt of having a personal assistant keep me up to date on everything that was happening in the world. That's why I designed an Ollama personal-assistant, a locally-stored Large Language Model (LLM) for New York Times articles that use realtime text-to-speech (TTS) to read out its response. The model refreshes articles daily and is capable of summarizing current events, or any other questions a user may have about recent or past news.",
         images: [
             {
                 src: "/projects/nyt-llm.mp4",
@@ -103,7 +103,7 @@ export const codingProjects: Project[] = [
     {
         key: "beamshyft",
         name: "Beamshyft - Lower construction costs for developers",
-        description: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
+        description: "Looking for stylish interior furnishings at a fraction of the price? Order your next interior renovation through Beamshyft! I built this website for a service that delivers interior items from manufacturers to developers. Business partners and I are continuously working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
         images: [
             {
                 src: "/projects/beamshyft_white.PNG",
@@ -116,7 +116,7 @@ export const codingProjects: Project[] = [
     {
         key: "curdle",
         name: "Curdle - Wordle for Cheeses",
-        description: "A web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
+        description: "Since I always felt left out when people mentioned wild cheese names, I built a web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
         images: [
             {
                 src: "/projects/curdle.png",
@@ -170,7 +170,7 @@ export const codingProjects: Project[] = [
     {
         key: "vibeq",
         name: "VibeQ - Spotify group DJ app",
-        description: "I built this app during a 3 day hackathon at UMass Amherst which won two runner-up awards. It allows Spotify users to request/upvote songs in a queue for a DJ or master music player. The app was built with React Native on Expo and Google Cloud Firebase.",
+        description: "Have you ever been in a car or at an event where you wanted to queue a song (but so does everyone else)? This app gives you the ability to vote for the next song in a Spotify queue just by scanning a QR-code. I built this app during a 3 day hackathon at UMass Amherst which won two runner-up awards. The app was built with React Native on Expo and Google Cloud Firebase.",
         images: [
             {
                 src: "/projects/vibeq.png",
@@ -199,7 +199,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "feedkevin",
         name: "FeedKevin! - Pet Food Timer",
-        description: "Since it's nearly impossible to coordinate who's fed our cat Kevin, I built a pet feed timer that allows us to schedule feedings and track when Kevin was last fed.",
+        description: "Since it's nearly impossible to coordinate who's fed our cat Kevin, I soldered together a WiFi enabled smart button that allows us to schedule feedings and track when Kevin was last fed. The device retrieves local time from an NTP server and displays it on an OLED display. The device was built with an ESP8266 microcontroller, an SSD1306 OLED display, and a button.",
         images: [
             {
                 src: "/gifs/feedkevin.gif",
@@ -220,7 +220,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "biwheel",
         name: "Raspberry Pi Robot",
-        description: "A robot designed to pick up objects remotely, featuring a camera, an ultrasonic sensor, and dynamic claw with 2 degrees of freedom. The robot is capable of using OpenCV for object detection and grabbing objects - particularly 'green cubes' which I 3D printed for testing. I designed this project to experiment with robotics and computer vision.",
+        description: "Originally I wanted a way to \"clean my room remotely\", so I designed this 3-wheel claw robot to pick up objects with a PS4 controller, featuring a camera, an ultrasonic sensor, and dynamic claw with 2 degrees of freedom. The robot is capable of using OpenCV for object detection and grabbing objects. I partially designed this robot as an excuse to experiment with computer vision and object detection.",
         images: [
             {
                 src: "/projects/biwheel-top.jpg",
@@ -240,7 +240,7 @@ export const engineeringProjects: Project[] = [
             },
             {
                 src: "/projects/biwheel-karate.mp4",
-                caption: "The robot performing a karate chop emote, demonstrating its awesome moves. (for self-defense purposes)",
+                caption: "The robot performing a karate chop emote, which I programmed for fun.",
             },
         ],
         size: 'lg',
@@ -248,7 +248,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "drone",
         name: "Raspberry Pi Bluetooth/WiFi Quadcopter",
-        description: "A quadcopter built with a Raspberry Pi, featuring a camera, GPS, and Bluetooth/WiFi control.  I designed this project to learn about quadcopter dynamics and attempt to code my own flight controller using PID. Unfortunately, A Raspberry Pi has many drawbacks to be used as a flight controller (and my battery may have been too big), but I taught myself PID control and quadcopter dynamics to try it the HARD way.",
+        description: "A quadcopter built with a Raspberry Pi, featuring a camera, GPS, and Bluetooth/WiFi control.  I designed this project to learn about quadcopter dynamics and attempt to code my own flight controller using PID. Unfortunately, A Raspberry Pi has many drawbacks to be used as a flight controller, but I taught myself PID control and quadcopter dynamics to try it the HARD way.",
         images: [
             {
                 src: "/projects/drone-exposed.jpg",
@@ -273,7 +273,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "mushete",
         name: "Mushroom Environment Controller",
-        description: "A custom-built environment controller for mushroom cultivation, featuring an ESP32 microcontroller, a custom PCB, and OLED display. The controller was able to atomize water, connect to the internet, power UV lights, control PC fans, generate heat/cold with a Peltier solid-state cooling device, and had a selector knob for user-interaction. Sadly, something shorted out and I was unable to grow mushrooms :( but I plan on reviving it one day.",
+        description: "A custom-built environment controller for mushroom cultivation, featuring an ESP32 microcontroller, a custom PCB, and OLED display. The controller is able to atomize water, connect to the internet, power UV lights, control PC fans, generate heat/cold with a Peltier solid-state cooling device, and had a selector knob for user-interaction. The project was built to create an optimal environment for growing mushrooms at home, and I designed a custom PCB in KiCAD to interface with all the components.",
         images: [
             {
                 src: "/projects/mushete-board-completed.JPEG",
@@ -305,7 +305,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "3dprinter",
         name: "3D Printer Cooling System",
-        description: "A custom-built cooling fan mount, and nozzle system for a 3D printer to improve capabilities and print quality.",
+        description: "My very cheap kit 3D printer struggled to cool off filament fast enough as it left the nozzle, so I built a custom-built cooling fan mount and nozzle system to improve overhang and print quality.",
         images: [
             {
                 src: "/projects/3dprinter-attachment.jpg",
@@ -333,7 +333,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "whoshome",
         name: "Anybody Home?",
-        description: "An ESP8266 project that detects when someone is home by scanning for their phone's MAC address, which can be used to trigger automations or send notifications. I decommissioned it (because it's creepy), but when you live in the attic - sometimes it's hard to tell who's home!",
+        description: "It was hard to tell who was home at times because my room is in the attic, so I made an ESP8266 project that detects when someone is home by scanning for their phone's MAC address, which can be used to trigger notifications. I decommissioned it (because it's creepy), but when you live in the attic - sometimes it's hard to tell who's home!",
         images: [
             {
                 src: "/projects/whoshome.jpg",
@@ -345,7 +345,7 @@ export const engineeringProjects: Project[] = [
     {
         key: "breaker",
         name: "Breaker Panel Monitor",
-        description: "A custom-built breaker panel monitor that detects when a circuit is tripped and sends a notification to your phone. I designed this project to monitor the stubborn circuit that controlled a heater in my college house, and it worked great! (cheaper than calling an electrician)",
+        description: "The room-heater breaker in my house would constantly trip during the winter, which made us worried that the pipes would freeze. So, I built a custom-built breaker panel monitor that detects when a circuit is tripped and sends a notification to your phone. I designed this project to monitor the stubborn circuit, and it worked great! (cheaper than calling an electrician, though I still recommend that)",
         images: [
             {
                 src: "/projects/breaker-panel.jpg",
