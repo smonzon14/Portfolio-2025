@@ -44,7 +44,7 @@ export const CVSection = ({isMobileDevice = false}) => {
                                 />
                                 <rect x="3" y="17" width="14" height="2" rx="1" />
                             </svg>
-                            Download CV
+                            Download my CV
                         </Button>
                         </div>
                     </div>
