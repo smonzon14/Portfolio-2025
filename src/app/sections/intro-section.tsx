@@ -14,10 +14,34 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
                     <p>Full-stack engineer, independent researcher, and musician exploring <b>embodied human-computer interaction, multimodal generative AI models, and music technology</b> - alongside my work developing distributed systems at Cisco Meraki.</p>
-                    <div className="text-white/40 bg-black max-w-max">All content on this website was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link></div>
+                    <div className="text-white/40 bg-black max-w-max">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link> in Next.JS</div>
 
-                    <div className="flex flex-row gap-6 flex-wrap items-center mt-10 max-w-[60%]">
-                        <Button showAnchorIcon as={Link} size="lg" color="primary" variant="shadow" href="https://github.com/smonzon14" target="_blank" rel="noopener noreferrer">
+                    <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
+                        <Button
+                            as="a"
+                            size="lg"
+                            color="primary"
+                            variant="shadow"
+                            href="/SebastianMonzonCV.pdf"
+                            download
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 22"
+                                fill="currentColor"
+                                className="w-6 h-6 inline-block"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M10 3a1 1 0 011 1v8.586l2.293-2.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V4a1 1 0 011-1z"
+                                    clipRule="evenodd"
+                                />
+                                <rect x="3" y="17" width="14" height="2" rx="1" />
+                            </svg>
+                            Download CV
+                        </Button>
+                        <Button showAnchorIcon as={Link} size="lg" color="default" variant="bordered" href="https://github.com/smonzon14" target="_blank" rel="noopener noreferrer">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
