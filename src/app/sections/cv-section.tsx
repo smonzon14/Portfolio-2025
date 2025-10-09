@@ -21,7 +21,7 @@ export const CVSection = ({isMobileDevice = false}) => {
     }, [inView]);
 
     return (
-        <section className={"lg:grid grid-cols-2 gap-10 max-w-[1590px] w-full transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
+        <section className={"lg:grid grid-cols-2 gap-10 max-w-[1340px] w-full transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
             <div>
                 <div className="lg:sticky top-[28vh] z-10 flex flex-col gap-4 flex-wrap">
                     <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">

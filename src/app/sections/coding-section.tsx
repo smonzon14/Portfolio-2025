@@ -30,7 +30,7 @@ useEffect(() => {
 
 return (
     <section
-        className="relative flex flex-col max-w-[1590px] w-full gap-4"
+        className="relative flex flex-col max-w-[1340px] w-full gap-4"
         id="software"
     >
         <h2 className="text-4xl pb-4 z-[21]">SOFTWARE</h2>

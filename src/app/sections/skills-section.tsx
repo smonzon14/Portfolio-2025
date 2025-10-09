@@ -19,7 +19,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
 
 
     return (
-        <section className="relative flex flex-col max-w-[1590px] w-full gap-8 justify-center items-center my-0 overflow-hidden" id="skills-section" ref={ref}>
+        <section className="relative flex flex-col max-w-[1340px] w-full gap-8 justify-center items-center my-0 overflow-hidden" id="skills-section" ref={ref}>
           <div className="lg:grid grid-cols-2 relative flex flex-row gap-10 justify-between h-full w-full items-center flex-wrap" id="skills">
             <div className={"flex flex-col gap-4 w-[500px] transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")}>
               <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">
