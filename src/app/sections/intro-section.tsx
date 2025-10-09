@@ -6,7 +6,7 @@ import { Link } from "@heroui/link";
 
 export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => {
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? " h-[800px]" : "h-[87vh] min-h-[800px]") } id="intro">
+        <section className={"relative flex flex-col max-w-[1590px] w-full z-1 " + (isMobileDevice ? " h-[800px]" : "h-[87vh] min-h-[800px]") } id="intro">
             <div className="flex flex-row gap-[8px] justify-between h-full items-center">
                 <div className="flex flex-col gap-[8px]">
                     <span className="mix-blend-difference text-5xl sm:text-6xl md:text-7xl lg:text-9xl ">

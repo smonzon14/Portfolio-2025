@@ -45,7 +45,7 @@ export default async function Home() {
           <Divider className="my-4 mt-10" />
           <section
             id="projects"
-            className="max-w-[1340px] w-full flex justify-left items-center"
+            className="max-w-[1590px] w-full flex justify-left items-center"
           >
             <h2
               className="text-5xl md:text-7xl"
@@ -66,7 +66,7 @@ export default async function Home() {
           <Divider className="my-4 mt-10" />
           <MusicSection />
           <section
-            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40"
+            className="relative flex flex-row py-20 max-w-[1590px] w-full gap-8 h-full mb-40"
             id="contact"
           >
             <SectionCard
