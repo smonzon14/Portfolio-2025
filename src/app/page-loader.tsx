@@ -21,8 +21,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
         }, 7000);
 
         const handleLoad = () => {
-            const videos = Array.from(document.querySelectorAll('video[src="jellies2.mp4"]')) as HTMLVideoElement[];
-
+            const videos = Array.from(document.querySelectorAll(".jelly-video")) as HTMLVideoElement[];
             const promises = [
                 ...videos.map(
                     (vid) =>
@@ -33,7 +32,6 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
             ];
             Promise.all(promises).then(checkLoaded);
         };
-
         if (document.readyState === "complete") {
             handleLoad();
         } else {

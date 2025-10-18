@@ -9,7 +9,7 @@ export const JellyText = ({ children }: { children: ReactNode | string }) => {
         loop
         muted
         playsInline
-        className="w-full h-full absolute top-0 object-cover z-0 pt-1"
+        className="w-full h-full absolute top-0 object-cover z-0 pt-1 jelly-video"
         style={{ filter: "brightness(1.5)" }}
         // Hint to browser for priority loading (not a guarantee)
         data-priority="true"
