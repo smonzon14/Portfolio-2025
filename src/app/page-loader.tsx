@@ -18,7 +18,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
             if (!loaded) {
                 checkLoaded();
             }
-        }, 20000);
+        }, 7000);
 
         const handleLoad = () => {
             const videos = Array.from(document.querySelectorAll('video[src="jellies2.mp4"]')) as HTMLVideoElement[];

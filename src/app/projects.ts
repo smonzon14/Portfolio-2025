@@ -1,367 +1,420 @@
 export type Project = {
-    key: string;
-    name: string;
-    description: string;
-    images: {
-        src: string;
-        caption: string;
-    }[];
-    size: 'sm' | 'md' | 'lg';
-    link?: string;
+  key: string;
+  name: string;
+  description: string;
+  images: {
+    src: string;
+    caption: string;
+  }[];
+  size: "sm" | "md" | "lg";
+  link?: string;
 };
 
 export const researchProjects: Project[] = [
-    {
-        key: "mage",
-        name: "MAGE: Motion-to-Audio Generative autoEncoder",
-        description: "An ongoing solo research project that uses a variational auto-encoder to generate percussive audio from hand gestures. The model is based on RAVE, a state-of-the-art neural audio synthesis model, and is trained on a dataset of percussive hand movements and sounds from a conga drum (played by my dad) at a high frame rate to capture fine hand movements. The goal of this project is to be able to play any drum or percussive instrument with hand gestures and a camera.",
-        images: [
-            {
-                src: "/projects/mage_playing_adv2.mp4",
-                caption: "Hand landmarks are extracted via MediaPipe and augmented with normal vectors to capture hand orientation.",
-            },
-            {
-                src: "/projects/mage_audio_waveform_peaks.png",
-                caption: "Audio files are processed by slicing them into shorter clips and extracting audio peaks for noise cancellation before the first peak. I do this so that the model focusses on percussive sounds, and not hand gesture noise in the beginning of samples.",
-            },
-            {
-                src: "/projects/mage_hand_landmarks_vs_audio.png",
-                caption: "Hand landmarks are extracted from video frames using MediaPipe and resampled to match BRAVE's 344.5Hz latent sample rate. Audio is processed by encoding it into a latent space using BRAVE's audio encoder.",
-            },
-        ],
-        size: 'lg',
-        link: "",
-    },
-    {
-        key: "music-spectrogram-inpainting",
-        name: "Music-Spectrogram Inpainting",
-        description: "In collaboration with researchers at the MIT Dept. of MechE and Media Lab, I developed a Stable Diffusion model and pipeline (based on Riffusion) to inpaint music spectrograms to improve hydrogel air-water extraction by increasing desirable frequencies in music. This project is ongoing and I am currently experimenting with CLIP soft-tokens to improve the generative guidance of the model.",
-        images: [
-            {
-                src: "/projects/music-spectrogram-inpainting.png",
-                caption: "The framework I developed to with my Riffusion inpainting model. The model takes in a spectrogram with a masked region, and generates new audio in the masked region while preserving the unmasked regions.",
-            },
-            {
-                src: "/projects/music-spectrogram-inpainting-hiphop.png",
-                caption: "An example of inpainting the lower frequencies of a GTZAN song. The model was able to generate a new bassline while preserving the higher frequencies, resulting in a coherent and musical output while increasing desirable low frequencies (< 300Hz).",
-            }
-        ],
-        size: 'lg',
-        link: "",
-    },
-    {
-        key: "honors",
-        name: "Honors Thesis",
-        description: "As a music producer, I struggled with engineering the right sound textures and timbres I was looking for. That's what inspired me to research Generative Adverserial Networks for timbre synthesis. Though I didn't have the time or resources during undergrad, I developed a multiclass-classification model for instrument identification. The idea was to use a GAN to synthesize audio with specific timbre descriptors from text (i.e. \"soothing piano with long release and pleasant overtones\"). In theory, an AI model that did this would be incredibly useful for sound designers/music producers to come up with new sounds or use words for sound synthesis. This was my undergraduate honors thesis at the UMass Amherst Commonwealth Honors College.",
-        images: [
-            {
-                src: "/projects/honors-confusion-matrix.png",
-                caption: "A confusion matrix showing the performance of the classifier model on a test set. The model was able to achieve an accuracy of 76% on the test set, with confused classes being psychoacoustically similar. e.g. (bass vs. guitar) or (reed vs. brass.)",
-            },
-            {
-                src: "/projects/honors-title.png",
-                caption: "My undergraduate thesis at the UMass Amherst Commonwealth Honors College. Here I discuss the use of Generative Adversarial Networks for timbre synthesis and build a multiclass-classification model for instrument identification.",
-            },
-            {
-                src: "/projects/honors-gan.png",
-                caption: "The basic Generative Adversarial Network (GAN) architecture I studied as the basis for my thesis. Though I did not have resources to implement a GAN, I did study the architecture and its applications for timbre synthesis. I designed a multiclass-classification model instead to identify instruments and as a starting point for the discriminator model.",
-            },
-            {
-                src: "/projects/honors-spectrograms.png",
-                caption: "Example spectrograms of sound samples from the NSynth dataset, which were used to train the classifier model.",
-            },
-            {
-                src: "/projects/honors-nsynth-dataset.png",
-                caption: "The NSynth dataset distribution, showing a wide variety of instrument families but a lack of samples for some classes - an issue I discuss in this paper. The dataset contains 300,000 samples of 1-second audio clips, each with a unique sounds and timbre.",
-            },
-        ],
-        size: 'lg',
-        link: "https://docs.google.com/document/d/1Xb-1g6tz4VSmXon9N6VQUGq1lYzuSttLNalpCWSiQdc/edit?usp=sharing",
-    },
-
-]
+  {
+    key: "mage",
+    name: "MAGE: Motion-to-Audio Generative autoEncoder",
+    description:
+      "An ongoing independent research project that uses a variational autoencoder to generate percussive audio from hand gestures. The model builds upon RAVE, a state-of-the-art neural audio synthesis architecture, and trains on high-frame-rate recordings of conga drum performances (played by my dad) to capture fine hand movements. The goal is to make it possible to play any percussive instrument using only hand gestures and a camera.",
+    images: [
+      {
+        src: "/projects/mage_playing_adv2.mp4",
+        caption:
+          "Hand landmarks are extracted with MediaPipe and augmented with normal vectors to capture hand orientation.",
+      },
+      {
+        src: "/projects/mage_audio_waveform_peaks.png",
+        caption:
+          "Audio clips are segmented and denoised by aligning to percussive peaks and removing initial audio before the first beat, ensuring the model focuses on the sound itself rather than gesture noise.",
+      },
+      {
+        src: "/projects/mage_hand_landmarks_vs_audio.png",
+        caption:
+          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "music-spectrogram-inpainting",
+    name: "Music-Spectrogram Inpainting",
+    description:
+      "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I develop a Stable Diffusion-based pipeline (inspired by Riffusion) for spectrogram inpainting. The system reconstructs masked audio regions to enhance hydrogel air-water extraction by amplifying specific frequency bands. I am currently experimenting with CLIP soft tokens to improve generative guidance and musical coherence.",
+    images: [
+      {
+        src: "/projects/music-spectrogram-inpainting.png",
+        caption:
+          "The Riffusion-inspired inpainting framework reconstructs masked spectrogram regions while preserving unmasked context.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting-hiphop.png",
+        caption:
+          "Low-frequency inpainting on a GTZAN track produces a coherent new bassline (<300 Hz) while preserving higher-frequency details.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "honors",
+    name: "Honors Thesis",
+    description:
+      "As a music producer, I searched for ways to design the right timbre and texture. That curiosity led me to research Generative Adversarial Networks for timbre synthesis in my undergraduate honors thesis at UMass Amherst. With limited resources, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.”",
+    images: [
+      {
+        src: "/projects/honors-confusion-matrix.png",
+        caption:
+          "A confusion matrix showing 76% test accuracy, with most confusion between psychoacoustically similar instruments.",
+      },
+      {
+        src: "/projects/honors-title.png",
+        caption:
+          "Undergraduate thesis at the UMass Amherst Commonwealth Honors College exploring GANs for timbre synthesis.",
+      },
+      {
+        src: "/projects/honors-gan.png",
+        caption:
+          "The GAN architecture I studied as the basis for the thesis; the classifier served as a starting point for a future discriminator.",
+      },
+      {
+        src: "/projects/honors-spectrograms.png",
+        caption:
+          "Spectrogram examples from the NSynth dataset used to train the classifier.",
+      },
+      {
+        src: "/projects/honors-nsynth-dataset.png",
+        caption:
+          "NSynth dataset distribution showing class imbalance across instrument families—an issue discussed in the thesis.",
+      },
+    ],
+    size: "lg",
+    link: "https://docs.google.com/document/d/1Xb-1g6tz4VSmXon9N6VQUGq1lYzuSttLNalpCWSiQdc/edit?usp=sharing",
+  },
+];
 
 export const codingProjects: Project[] = [
-    
-    {
-        key: "nyt",
-        name: "NYT Large Language Model (LLM)",
-        description: "I always dreamt of having a personal assistant keep me up to date on everything that was happening in the world. That's why I designed an Ollama personal-assistant, a locally-stored Large Language Model (LLM) for New York Times articles that use realtime text-to-speech (TTS) to read out its response. The model refreshes articles daily and is capable of summarizing current events, or any other questions a user may have about recent or past news.",
-        images: [
-            {
-                src: "/projects/nyt-llm.mp4",
-                caption: "Here is a video of the NYT LLM in action, answering my question \"What is happening in the tech sector today?\".",
-            },
-            {
-                src: "/projects/nyt-logo.jpg",
-                caption: "New York Times article summaries are retrieved from RSS feeds and stored in a vectorized database. These are retrieved by the LLM to answer questions.",
-            }
-        ],
-        link: "https://github.com/smonzon14/NYT-LLM",
-        size: 'lg',
-    },
-    {
-        key: "beamshyft",
-        name: "Beamshyft - Lower construction costs for developers",
-        description: "Looking for stylish interior furnishings at a fraction of the price? Order your next interior renovation through Beamshyft! I built this website for a service that delivers interior items from manufacturers to developers. Business partners and I are continuously working on building the service. The website was built with Next.js and will feature backend services for users to request materials and track deliveries.",
-        images: [
-            {
-                src: "/projects/beamshyft_white.PNG",
-                caption: "The website for a service that delivers interior construction materials to developers. This is a startup I'm building with a friend, and we are currently working on building the service.",
-            },
-        ],
-        size: 'lg',
-        link: "https://beamshyft.com/",
-    },
-    {
-        key: "curdle",
-        name: "Curdle - Wordle for Cheeses",
-        description: "Since I always felt left out when people mentioned wild cheese names, I built a web app that allows users to play a wordle-style game with cheese names. The app was built using Javascript, and features a word list of 5-letter cheeses (there are 42 5-letter cheeses). Built for cheese lovers who are undereducated on 5-letter cheeses. Refreshes daily. Play it with the link below!",
-        images: [
-            {
-                src: "/projects/curdle.png",
-                caption: "A web app that allows users to play a wordle-style game with 5-letter cheese names. (There are more than you think)",
-            },
-        ],
-        size: 'lg',
-        link: "/curdle/index.html",
-    },
-    {
-        key: "simulation-physics",
-        name: "Newtonian Physics Simulator",
-        description: "A physics simulator built with Python and Pygame, featuring a 2D physics engine that simulates gravitational bodies and instantaneous velocities in a 2D space. The simulator allows users to create and manipulate objects in a 2D space, and observe their interactions with each other. I built this project to learn about PyGame and test my knowledge of basic gravitational physics.",
-        images: [
-            {
-                src: "projects/simulation-physics-compressed.gif",
-                caption: "A physics simulator built with Python and Pygame, featuring a 2D physics engine that simulates gravitational bodies and instantaneous velocities in a 2D space.",
-            },
-        ],
-        size: 'lg',
-    },
-    {
-        key: "simulation-cgol",
-        name: "Conway's Game of Life, C++",
-        description: "A C++ implementation of Conway's Game of Life, a cellular automaton that simulates the evolution of a grid of cells based on simple rules. The project was built to expirement with cellular automata and the elegant patterns that arise from simple rules. I color-graded cells depending on which rule they were following.",
-        images: [
-            {
-                src: "/projects/simulation-cgol.gif",
-                caption: "A C++ implementation of Conway's Game of Life, a cellular automaton that simulates the evolution of a grid of cells based on simple rules.",
-            },
-        ],
-        size: 'lg',
-    },
-    {
-        key: "blockbreaker",
-        name: "Blockbreaker",
-        description: "A modern blockbreaker game built with JavaScript and an HTML5 canvas. The game features levels with increasing difficulty to break blocks with a limited number of balls.",
-        images: [
-            {
-                src: "/projects/blockbreaker.mp4",
-                caption: "A modern blockbreaker game built with JavaScript and an HTML5 canvas.",
-            },
-            {
-                src: "/projects/blockbreaker-ss.png",
-                caption: "The game features levels with increasing difficulty to break blocks with a limited number of balls.",
-            }
-        ],
-        size: 'lg',
-        link: "https://github.com/smonzon14/BlockBreaker",
-    },
-    {
-        key: "vibeq",
-        name: "VibeQ - Spotify group DJ app",
-        description: "Have you ever been in a car or at an event where you wanted to queue a song (but so does everyone else)? This app gives you the ability to vote for the next song in a Spotify queue just by scanning a QR-code. I built this app during a 3 day hackathon at UMass Amherst which won two runner-up awards. The app was built with React Native on Expo and Google Cloud Firebase.",
-        images: [
-            {
-                src: "/projects/vibeq.png",
-                caption: "\"Still waiting for your favorite song to play? Bring aux to the bourgeoisie with VibeQ!\"",
-            },
-        ],
-        size: 'lg',
-        link: "https://github.com/smonzon14/VibeQ"
-    },
-    {
-        key: "myhs",
-        name: "MyHS - Highscool student portal",
-        description: "A web app that allows highschool students to view their grades, homework, and schedule. The app was writen in Swift while I attended highschool. Despite my efforts to explain that I had no sensitive data, the IT department didn't trust a highschooler to build an app and I was handed a cease and desist letter. I wore it with pride.",
-        images: [
-            {
-                src: "/projects/myhs.jpg",
-                caption: "A web app that syncs highschool grades, homework, and schedule all in one place (logo designed by me). The app was writen in Swift while I attended Melrose Public highschool.",
-            },
-        ],
-        size: 'lg',
-        link: "https://github.com/smonzon14/MyHS",
-    }
-]
+  {
+    key: "nyt",
+    name: "NYT Large Language Model (LLM)",
+    description:
+      "I designed a local Ollama-based personal assistant that summarized and read New York Times articles using real-time TTS. The system refreshed its dataset daily and answered both current and historical questions—stored and processed locally for privacy.",
+    images: [
+      {
+        src: "/projects/nyt-llm.mp4",
+        caption:
+          "The NYT LLM answering “What's happening in the tech sector today?” using locally stored articles.",
+      },
+      {
+        src: "/projects/nyt-logo.jpg",
+        caption:
+          "Article summaries were vectorized and retrieved from a local database for contextual question answering.",
+      },
+    ],
+    link: "https://github.com/smonzon14/NYT-LLM",
+    size: "lg",
+  },
+  {
+    key: "beamshyft",
+    name: "Beamshyft - Lower Construction Costs for Developers",
+    description:
+      "I built the Beamshyft web platform to connect developers with manufacturers for cost-efficient interior materials. Developed with Next.js, it enabled users to request materials, manage deliveries, and source stylish furnishings directly from producers.",
+    images: [
+      {
+        src: "/projects/beamshyft_white.PNG",
+        caption:
+          "The Beamshyft platform delivered interior construction materials from manufacturers to developers.",
+      },
+    ],
+    size: "lg",
+    link: "https://beamshyft.com/",
+  },
+  {
+    key: "curdle",
+    name: "Curdle - Wordle for Cheeses",
+    description:
+      "To address my cheese-based insecurity, I created Curdle—a Wordle-style game featuring real five-letter cheese names (yes, there were 42). Built with JavaScript, it refreshed daily and offered a flavorful test of dairy vocabulary.",
+    images: [
+      {
+        src: "/projects/curdle.png",
+        caption:
+          "A playful word game that challenged users to guess five-letter cheese names.",
+      },
+    ],
+    size: "lg",
+    link: "/curdle/index.html",
+  },
+  {
+    key: "simulation-physics",
+    name: "Newtonian Physics Simulator",
+    description:
+      "I built a 2D physics simulator in Python using Pygame, featuring gravitational bodies, instantaneous velocities, and dynamic interactions. Users could create, move, and observe objects as they interacted under Newtonian forces.",
+    images: [
+      {
+        src: "projects/simulation-physics-compressed.gif",
+        caption:
+          "A 2D physics simulation that visualized gravitational attraction and motion in real time.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "simulation-cgol",
+    name: "Conway's Game of Life (C++)",
+    description:
+      "I implemented Conway's Game of Life in C++ and color-graded cells based on the rule they followed, exploring how simple rules produced complex patterns.",
+    images: [
+      {
+        src: "/projects/simulation-cgol.gif",
+        caption:
+          "A colorized visualization of Conway's Game of Life implemented in C++.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "blockbreaker",
+    name: "Blockbreaker",
+    description:
+      "I created a modern blockbreaker game using JavaScript and an HTML5 canvas. It featured multiple levels, progressive difficulty, and crisp collision physics.",
+    images: [
+      {
+        src: "/projects/blockbreaker.mp4",
+        caption:
+          "Gameplay demo of the modernized blockbreaker built with HTML5 canvas.",
+      },
+      {
+        src: "/projects/blockbreaker-ss.png",
+        caption:
+          "Each level increased difficulty, demanding precision and timing to clear all blocks.",
+      },
+    ],
+    size: "lg",
+    link: "https://github.com/smonzon14/BlockBreaker",
+  },
+  {
+    key: "vibeq",
+    name: "VibeQ - Spotify Group DJ App",
+    description:
+      "I developed VibeQ, an app that let multiple users vote on the next Spotify song in a shared queue via QR code. Built with React Native (Expo) and Firebase, it won two runner-up awards at a UMass Amherst hackathon.",
+    images: [
+      {
+        src: "/projects/vibeq.png",
+        caption:
+          "“Still waiting for your favorite song? Bring the aux to the people with VibeQ.”",
+      },
+    ],
+    size: "lg",
+    link: "https://github.com/smonzon14/VibeQ",
+  },
+  {
+    key: "myhs",
+    name: "MyHS - High School Student Portal",
+    description:
+      "In high school, I wrote a Swift-based web app that aggregated grades, homework, and schedules. The IT department mistook it for hacking and issued a cease-and-desist—an early lesson in innovation (and bureaucracy).",
+    images: [
+      {
+        src: "/projects/myhs.jpg",
+        caption:
+          "A Swift web app that synced grades, homework, and schedules—built during high school.",
+      },
+    ],
+    size: "lg",
+    link: "https://github.com/smonzon14/MyHS",
+  },
+];
 
 export const engineeringProjects: Project[] = [
-    {
-        key: "feedkevin",
-        name: "FeedKevin! - Pet Food Timer",
-        description: "Since it's nearly impossible to coordinate who's fed our cat Kevin, I soldered together a WiFi enabled smart button that allows us to schedule feedings and track when Kevin was last fed. The device retrieves local time from an NTP server and displays it on an OLED display. The device was built with an ESP8266 microcontroller, an SSD1306 OLED display, and a button.",
-        images: [
-            {
-                src: "/gifs/feedkevin.gif",
-                caption: "A gif of the pet food timer in action, using an ESP8266, SSD1306 OLED display, and a button. The schedule is set programmatically, and the button is used to move between interfaces when the timer is running.",
-            },
-            {
-                src: "/projects/feedkevin-timer.jpeg",
-                caption: "After someone's fed kevin his wet food, they can press the button to log the feeding time, so that he can't fool us into thinking he hasn't been fed.",
-            },
-            {
-                src: "/projects/feedkevin-weight.jpg",
-                caption: "Kevin has a problem.",
-            },
-        ],
-        size: 'md',
-        link: "https://github.com/smonzon14/Feed-Kevin",
-    },
-    {
-        key: "biwheel",
-        name: "Raspberry Pi Robot",
-        description: "Originally I wanted a way to \"clean my room remotely\", so I designed this 3-wheel claw robot to pick up objects with a PS4 controller, featuring a camera, an ultrasonic sensor, and dynamic claw with 2 degrees of freedom. The robot is capable of using OpenCV for object detection and grabbing objects. I partially designed this robot as an excuse to experiment with computer vision and object detection.",
-        images: [
-            {
-                src: "/projects/biwheel-top.jpg",
-                caption: "The robot's top view, showing the camera and ultrasonic sensor. The camera was used for object detection and the ultrasonic sensor was used to determine distance to objects.",
-            },
-            {
-                src: "/projects/biwheel-controller.JPEG",
-                caption: "In version 1, robot had a camera, an ultrasonic sensor. A dynamic claw with 2 degrees of freedom was added later. The robot can be controlled with a DualShock 4 controller or run autonomously with computer vision.",
-            },
-            {
-                src: "/projects/biwheel-cad-compressed.gif",
-                caption: "The CAD model of the robot, designed in Fusion 360.",
-            },
-            {
-                src: "/projects/biwheel-back.jpg",
-                caption: "The robot's back view. I used a portable battery pack to power the robot, and batteries to power the motor. An LED light is used to indicate controller connection.",
-            },
-            {
-                src: "/projects/biwheel-karate.mp4",
-                caption: "The robot performing a karate chop emote, which I programmed for fun.",
-            },
-        ],
-        size: 'lg',
-    },
-    {
-        key: "drone",
-        name: "Raspberry Pi Bluetooth/WiFi Quadcopter",
-        description: "A quadcopter built with a Raspberry Pi, featuring a camera, GPS, and Bluetooth/WiFi control.  I designed this project to learn about quadcopter dynamics and attempt to code my own flight controller using PID. Unfortunately, A Raspberry Pi has many drawbacks to be used as a flight controller, but I taught myself PID control and quadcopter dynamics to try it the HARD way.",
-        images: [
-            {
-                src: "/projects/drone-exposed.jpg",
-                caption: "Parts of the quadcopter, including a Raspberry Pi, camera, GPS module, ESC management, and IMU. The drone was designed to be controlled via Bluetooth or WiFi, and I used a Raspberry Pi for the flight controller.",
-            },
-            {
-                src: "/projects/drone-design.png",
-                caption: "The CAD model of the quadcopter, designed in Fusion 360. I paid special attention to the weight distribution and center of mass, as well as structural integrity.",
-            },
-            {
-                src: "/projects/drone-top.jpg",
-                caption: "The top view of the quadcopter. Included a camera, IMU, and GPS module for navigation.",
-            },
-            {
-                src: "/projects/drone-testing.mp4",
-                caption: "A video of me tuning the PID controllers with a string holding the quadcopter from the ceiling. In these tests I tried to remove the 'wobble' by changing PID parameters for the roll, pitch, and yaw of the quadcopter.",
-            },
-        ],
-        size: 'lg',
-        link: "https://github.com/smonzon14/PiDrone",
-    },
-    {
-        key: "mushete",
-        name: "Mushroom Environment Controller",
-        description: "A custom-built environment controller for mushroom cultivation, featuring an ESP32 microcontroller, a custom PCB, and OLED display. The controller is able to atomize water, connect to the internet, power UV lights, control PC fans, generate heat/cold with a Peltier solid-state cooling device, and had a selector knob for user-interaction. The project was built to create an optimal environment for growing mushrooms at home, and I designed a custom PCB in KiCAD to interface with all the components.",
-        images: [
-            {
-                src: "/projects/mushete-board-completed.JPEG",
-                caption: "A custom-built environment controller for mushroom cultivation, featuring an ESP32 microcontroller, and a custom PCB with several interfaces.",
-            },
-            {
-                src: "/projects/mushete-kicad.jpg",
-                caption: "The KiCAD schematic for the mushroom environment controller, featuring a built-in custom humidifier and fan controller circuit.",
-            },
-            {
-                src: "/projects/mushete-board-pcb.jpg",
-                caption: "The custom PCB design for the mushroom environment controller, designed in KiCAD. The PCB features an ESP32 microcontroller, OLED display, a tempurature/humidity sensor, humidifier, fan outputs, and a Peltier cooling/heating device.",
-            },
-            {
-                src: "/projects/mushete-sensor.mp4",
-                caption: "The temperature and humidity sensor used in the mushroom environment controller, which relays data to an OLED display.",
-            },
-            {
-                src: "/projects/mushete-mount.png",
-                caption: "The custom mount for the Peltier cooling/heating device, designed to fit the retro-fitted PC case. The mount was designed to be easily removable for maintenance.",
-            },
-            {
-                src: "/projects/mushete-case.jpg",
-                caption: "The setup of the mushroom environment, built with an old PC case, mylar insulation, and UV lights.",
-            }
-        ],
-        size: 'lg',
-    },
-    {
-        key: "3dprinter",
-        name: "3D Printer Cooling System",
-        description: "My very cheap kit 3D printer struggled to cool off filament fast enough as it left the nozzle, so I built a custom-built cooling fan mount and nozzle system to improve overhang and print quality.",
-        images: [
-            {
-                src: "/projects/3dprinter-attachment.jpg",
-                caption: "A custom-built cooling fan, mount, and nozzle system for a 3D printer. I built the original 3D Printer from a kit, and I designed this cooling system to improve the printer's capabilities and print-quality.",
-            },
-            {
-                src: "/projects/3dprinter-design.png",
-                caption: "The first revision for a cooling nozzle, designed in Fusion 360.",
-            },
-            {
-                src: "/projects/3dprinter-design2.png",
-                caption: "The second revision for a cooling nozzle, showing that simplicity is king.",
-            },
-            {
-                src: "/projects/3dprinter-mount.png",
-                caption: "The cooling mount, designed to fit the printer's extrusion system.",
-            },
-            {
-                src: "/projects/3dprinter-nozzle.gif",
-                caption: "A 3D-printer stress test, showing the cooling system in action on a glass bed with intricate supports. This was a major improvement overall.",
-            }
-        ],
-        size: 'md',
-    },
-    {
-        key: "whoshome",
-        name: "Anybody Home?",
-        description: "It was hard to tell who was home at times because my room is in the attic, so I made an ESP8266 project that detects when someone is home by scanning for their phone's MAC address, which can be used to trigger notifications. I decommissioned it (because it's creepy), but when you live in the attic - sometimes it's hard to tell who's home!",
-        images: [
-            {
-                src: "/projects/whoshome.jpg",
-                caption: "An ESP8266 that detects when someone is home by scanning for their phone's MAC address.",
-            },
-        ],
-        size: 'sm',
-    },
-    {
-        key: "breaker",
-        name: "Breaker Panel Monitor",
-        description: "The room-heater breaker in my house would constantly trip during the winter, which made us worried that the pipes would freeze. So, I built a custom-built breaker panel monitor that detects when a circuit is tripped and sends a notification to your phone. I designed this project to monitor the stubborn circuit, and it worked great! (cheaper than calling an electrician, though I still recommend that)",
-        images: [
-            {
-                src: "/projects/breaker-panel.jpg",
-                caption: "A custom-built breaker panel monitor that detects when a circuit is tripped and sends a notification to your phone.",
-            },
-            {
-                src: "/projects/breaker-ifttt.PNG",
-                caption: "Notifications were sent to my phone when the circuit was tripped. For this I used IFTTT.",
-            }
-        ],
-        size: 'sm',
-    },
-]
+  {
+    key: "feedkevin",
+    name: "FeedKevin! - Pet Food Timer",
+    description:
+      "To avoid double-feeding our cat Kevin, I soldered a WiFi-enabled smart button that logged and displayed feeding times using an ESP8266, SSD1306 OLED, and a single button. The device fetched NTP time and kept everyone honest—including Kevin.",
+    images: [
+      {
+        src: "/gifs/feedkevin.gif",
+        caption:
+          "A WiFi-enabled feeding tracker built with an ESP8266, OLED, and tactile button.",
+      },
+      {
+        src: "/projects/feedkevin-timer.jpeg",
+        caption:
+          "Pressing the button logged Kevin's last meal so he couldn't beg twice.",
+      },
+      {
+        src: "/projects/feedkevin-weight.jpg",
+        caption: "Kevin had a problem.",
+      },
+    ],
+    size: "md",
+    link: "https://github.com/smonzon14/Feed-Kevin",
+  },
+  {
+    key: "biwheel",
+    name: "Raspberry Pi Robot",
+    description:
+      "Originally meant to help me “clean my room remotely,” this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed objects autonomously or via controller.",
+    images: [
+      {
+        src: "/projects/biwheel-top.jpg",
+        caption:
+          "Top view showing the camera and ultrasonic sensor used for detection.",
+      },
+      {
+        src: "/projects/biwheel-controller.JPEG",
+        caption:
+          "Controlled with a DualShock 4 controller; included a two-DOF claw for object interaction.",
+      },
+      {
+        src: "/projects/biwheel-cad-compressed.gif",
+        caption: "The robot's CAD model designed in Fusion 360.",
+      },
+      {
+        src: "/projects/biwheel-back.jpg",
+        caption:
+          "Rear view showing power setup and status LED for controller connection.",
+      },
+      {
+        src: "/projects/biwheel-karate.mp4",
+        caption:
+          "Robot performing a “karate chop” emote—because function and fun coexisted.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "drone",
+    name: "Raspberry Pi Quadcopter",
+    description:
+      "I built a quadcopter powered by a Raspberry Pi with an onboard camera, GPS, and Bluetooth/WiFi control. The project explored PID flight control and quadcopter dynamics—the Raspberry Pi wasn't ideal for flight control, but the lessons were invaluable.",
+    images: [
+      {
+        src: "/projects/drone-exposed.jpg",
+        caption:
+          "Components included Raspberry Pi, GPS, IMU, ESCs, and a camera for navigation.",
+      },
+      {
+        src: "/projects/drone-design.png",
+        caption:
+          "Fusion 360 model showing optimized weight distribution and frame design.",
+      },
+      {
+        src: "/projects/drone-top.jpg",
+        caption: "Top view highlighting navigation and sensing modules.",
+      },
+      {
+        src: "/projects/drone-testing.mp4",
+        caption:
+          "PID tuning session using a ceiling-mounted tether for safe testing.",
+      },
+    ],
+    size: "lg",
+    link: "https://github.com/smonzon14/PiDrone",
+  },
+  {
+    key: "mushete",
+    name: "Mushroom Environment Controller",
+    description:
+      "I designed a custom ESP32-based environmental controller for mushroom cultivation. Built on a custom KiCAD PCB, it controlled humidity, UV lighting, PC fans, and a Peltier element for heating/cooling. It also included an OLED interface and internet connectivity for monitoring.",
+    images: [
+      {
+        src: "/projects/mushete-board-completed.JPEG",
+        caption:
+          "Completed controller featuring an ESP32 microcontroller and custom PCB.",
+      },
+      {
+        src: "/projects/mushete-kicad.jpg",
+        caption: "KiCAD schematic showing humidity and fan control circuits.",
+      },
+      {
+        src: "/projects/mushete-board-pcb.jpg",
+        caption:
+          "PCB layout integrating sensors, display, and solid-state cooling components.",
+      },
+      {
+        src: "/projects/mushete-sensor.mp4",
+        caption:
+          "Temperature and humidity sensor feeding data to the OLED display.",
+      },
+      {
+        src: "/projects/mushete-mount.png",
+        caption:
+          "Custom mount for the Peltier module designed for easy maintenance.",
+      },
+      {
+        src: "/projects/mushete-case.jpg",
+        caption:
+          "Completed mushroom-growing setup inside a repurposed PC case.",
+      },
+    ],
+    size: "lg",
+  },
+  {
+    key: "3dprinter",
+    name: "3D Printer Cooling System",
+    description:
+      "To improve print quality on my budget 3D printer, I designed a custom fan mount and nozzle system in Fusion 360. The upgrade significantly improved cooling performance, overhangs, and overall print precision.",
+    images: [
+      {
+        src: "/projects/3dprinter-attachment.jpg",
+        caption:
+          "Custom cooling mount and nozzle assembly for improved print performance.",
+      },
+      {
+        src: "/projects/3dprinter-design.png",
+        caption: "First nozzle revision designed in Fusion 360.",
+      },
+      {
+        src: "/projects/3dprinter-design2.png",
+        caption: "Simplified second revision—less proved to be more.",
+      },
+      {
+        src: "/projects/3dprinter-mount.png",
+        caption: "Cooling mount designed to fit the printer's extrusion frame.",
+      },
+      {
+        src: "/projects/3dprinter-nozzle.gif",
+        caption:
+          "Stress test demonstrating improved cooling and layer consistency.",
+      },
+    ],
+    size: "md",
+  },
+  {
+    key: "whoshome",
+    name: "Anybody Home?",
+    description:
+      "Because living in an attic made it hard to tell who was home, I created an ESP8266-based device that detected nearby phones by MAC address and sent notifications. I eventually decommissioned it—effective, but a little too Black Mirror.",
+    images: [
+      {
+        src: "/projects/whoshome.jpg",
+        caption:
+          "ESP8266 device that detected known MAC addresses to infer presence.",
+      },
+    ],
+    size: "sm",
+  },
+  {
+    key: "breaker",
+    name: "Breaker Panel Monitor",
+    description:
+      "To prevent frozen pipes during winter, I built a breaker panel monitor that detected circuit trips and sent notifications via IFTTT. It was a reliable, low-cost safeguard—and far cheaper than calling an electrician.",
+    images: [
+      {
+        src: "/projects/breaker-panel.jpg",
+        caption:
+          "Breaker monitor that detected tripped circuits and alerted via WiFi.",
+      },
+      {
+        src: "/projects/breaker-ifttt.PNG",
+        caption:
+          "Example IFTTT mobile notification triggered by a breaker trip.",
+      },
+    ],
+    size: "sm",
+  },
+];
 
 export const projects: Project[] = [
-    ...researchProjects,
-    ...engineeringProjects,
-    ...codingProjects,
-]
+  ...researchProjects,
+  ...engineeringProjects,
+  ...codingProjects,
+];

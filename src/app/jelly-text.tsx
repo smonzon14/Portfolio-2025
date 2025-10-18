@@ -10,7 +10,7 @@ export const JellyText = ({ children }: { children: ReactNode | string }) => {
         muted
         playsInline
         className="w-full h-full absolute top-0 object-cover z-0 pt-1"
-        style={{ filter: "brightness(1.6)" }}
+        style={{ filter: "brightness(1.5)" }}
         // Hint to browser for priority loading (not a guarantee)
         data-priority="true"
       >
