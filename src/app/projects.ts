@@ -89,7 +89,7 @@ export const researchProjects: Project[] = [
       },
     ],
     size: "lg",
-    link: "https://swimsense.mit.edu/",
+    link: "https://github.com/smonzon14/SwimSense",
   },
   {
     key: "honors",
