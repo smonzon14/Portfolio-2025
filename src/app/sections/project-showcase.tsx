@@ -29,6 +29,7 @@ export default function ProjectShowcase({
     "mage",
     "feedkevin",
     "music-spectrogram-inpainting",
+    "swimsense",
     "drone",
     "honors",
     "simulation-physics",
@@ -36,7 +37,7 @@ export default function ProjectShowcase({
     "simulation-cgol",
   ];
 
-  const glowItems = ["mage", "music-spectrogram-inpainting", "honors"];
+  const glowItems = ["mage", "music-spectrogram-inpainting", "honors", "swimsense"];
 
   const items = staticOrder
     .map((key) => projects.find((p) => p.key === key))

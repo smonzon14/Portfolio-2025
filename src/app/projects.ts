@@ -55,6 +55,43 @@ export const researchProjects: Project[] = [
     size: "lg",
   },
   {
+    key: "swimsense",
+    name: "SwimSense: Computational Sensing for Swimming Analysis",
+    description:
+      "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training.",
+    images: [
+      {
+        src: "/projects/swimsense-heartrate.jpeg",
+        caption:
+          "The SwimSense device measures heart rate underwater using a PPG sensor positioned behind the ear.",
+      },
+      {
+        src: "/projects/swimsense-stripped.jpg",
+        caption: "The soldered SwimSense v2 prototype with waterproof top removed. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
+      },
+      {
+        src: "/projects/swimsense-single.jpg",
+        caption:
+          "The device without a second layer swim-cap. External wires include a charging/ data port, power button, and PPG sensor.",
+      },
+      {
+        src: "/projects/swimsense-doubled.jpg",
+        caption:
+          "The SwimSense v2 prototype is designed to be worn under two swim-caps for waterproofing and stability during swimming.",
+      },
+      {
+        src: "/projects/swimsense-rx.jpg",
+        caption: "Data is transmitted and received via LoRa to a nearby computer for real-time monitoring and analysis.",
+      },
+      {
+        src: "/projects/swimsense-v1.mp4",
+        caption: "The SwimSense v1 prototype had a battery that was too large. For human safety, I am now using 250mAh LiPo with protection circuit.",
+      },
+    ],
+    size: "lg",
+    link: "https://swimsense.mit.edu/",
+  },
+  {
     key: "honors",
     name: "Honors Thesis",
     description:
