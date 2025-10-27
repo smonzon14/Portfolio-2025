@@ -13,7 +13,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p>Full-stack engineer, independent researcher, and musician exploring <b>embodied human-computer interaction, multimodal generative AI models, and music technology</b> - alongside my work developing distributed systems at Cisco Meraki.</p>
+                    <p>Software engineer, independent researcher, <b>NSF CSGrad4US Fellow</b>, and musician exploring <b>multimodal interaction, generative AI models, and computational sensing & design</b> - alongside my work as a full-stack developer at Cisco Meraki.</p>
                     <div className="text-white/40 bg-black max-w-max">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link> in Next.JS</div>
 
                     <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
