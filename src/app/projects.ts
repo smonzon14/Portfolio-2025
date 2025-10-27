@@ -246,12 +246,12 @@ export const codingProjects: Project[] = [
     key: "myhs",
     name: "MyHS - High School Student Portal",
     description:
-      "In high school, I wrote a Swift-based web app that aggregated grades, homework, and schedules. The IT department mistook it for hacking and issued a cease-and-desist—an early lesson in innovation (and bureaucracy).",
+      "In high school, I wrote a Swift-based mobile app that aggregated grades, homework, and schedules. The IT department mistook it for hacking and issued a cease-and-desist—an early lesson in innovation (and bureaucracy).",
     images: [
       {
         src: "/projects/myhs.jpg",
         caption:
-          "A Swift web app that synced grades, homework, and schedules—built during high school.",
+          "A Swift mobile app that synced grades, homework, and schedules—built during high school.",
       },
     ],
     size: "lg",
