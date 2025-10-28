@@ -4,6 +4,7 @@ import React, { useMemo, MouseEvent } from "react";
 import NextLink from "next/link";
 import { Image } from "@heroui/react";
 import { projects } from "../projects";
+import { Spinner } from "@heroui/spinner";
 
 type ProjectShowcaseProps = {
   /** seconds for one full loop (lower = faster) */
@@ -130,15 +131,24 @@ export default function ProjectShowcase({
                 <div className="text-lg absolute top-0 left-0 w-full h-full z-0 bg-black text-center flex items-center justify-center">
                   Go to project
                 </div>
-                <div className="relative opacity-100 hover:opacity-40 transition-opacity duration-200">
+                <React.Suspense
+                  fallback={
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30">
+                        <Spinner color="white" size="lg" />
+                    </div>
+                  }
+                >
+                  <div className="relative opacity-100 hover:opacity-40 transition-opacity duration-200">
                   <Image
                     removeWrapper
                     src={item.src}
                     alt={item.caption || item.projectKey}
                     className="h-full w-full object-cover z-1"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent pointer-events-none" />
-                </div>
+                  </div>
+                </React.Suspense>
               </figure>
             </NextLink>
           ))}

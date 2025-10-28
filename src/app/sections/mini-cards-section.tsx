@@ -46,7 +46,6 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         className="object-cover w-[80px] h-full"
-                        loading="eager"
                         unoptimized
                     />
                     <CardFooter className="justify-center flex-wrap text-left">
@@ -67,9 +66,7 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         className="object-cover w-[80px] h-full"
-                        loading="eager"
                         unoptimized
-
                     />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
@@ -87,7 +84,6 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         className="object-cover w-[80px] h-full"
-                        loading="eager"
                         unoptimized
 
                     />
@@ -108,7 +104,6 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         unoptimized
-                        loading="eager"
                         className="object-cover w-[80px] h-full" />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
@@ -127,7 +122,6 @@ export default function MiniCardsSection() {
                         width={200}
                         unoptimized
                         height={200}
-                        loading="eager"
                         className="object-cover w-[80px] h-full" />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
