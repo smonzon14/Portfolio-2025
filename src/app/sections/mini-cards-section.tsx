@@ -28,8 +28,6 @@ export default function MiniCardsSection() {
                     width={320}
                     height={320}
                     className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-transparent"
-                    loading="eager"
-
                 />
             </div>
             <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning">lifelong learner</span> ready to make a difference...</div>
@@ -46,6 +44,7 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         className="object-cover w-[80px] h-full"
+                        loading="lazy"
                         unoptimized
                     />
                     <CardFooter className="justify-center flex-wrap text-left">
@@ -67,6 +66,7 @@ export default function MiniCardsSection() {
                         height={200}
                         className="object-cover w-[80px] h-full"
                         unoptimized
+                        loading="lazy"
                     />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
@@ -85,7 +85,7 @@ export default function MiniCardsSection() {
                         height={200}
                         className="object-cover w-[80px] h-full"
                         unoptimized
-
+                        loading="lazy"
                     />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2 flex-col">
@@ -104,6 +104,7 @@ export default function MiniCardsSection() {
                         width={200}
                         height={200}
                         unoptimized
+                        loading="lazy"
                         className="object-cover w-[80px] h-full" />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
@@ -122,6 +123,7 @@ export default function MiniCardsSection() {
                         width={200}
                         unoptimized
                         height={200}
+                        loading="lazy"
                         className="object-cover w-[80px] h-full" />
                     <CardFooter className="justify-center flex-wrap text-left">
                         <p className="max-w-[200px] text-center flex items-center justify-center gap-2">
