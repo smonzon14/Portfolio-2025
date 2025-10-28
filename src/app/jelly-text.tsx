@@ -13,8 +13,9 @@ export const JellyText = ({ children }: { children: ReactNode | string }) => {
         style={{ filter: "brightness(1.5)" }}
         // Hint to browser for priority loading (not a guarantee)
         data-priority="true"
+        poster="jellies2-poster.jpg"
       >
-        <source src="jellies2.mp4" type="video/mp4" />
+        <source src="jellies2.mp4" type="video/mp4"/>
       </video>
       <div className="width-full mix-blend-multiply z-10 bg-[var(--background)]">
         {children}
