@@ -13,9 +13,9 @@ export const ParallaxHeader = ({
   isMobileDevice?: boolean;
 }) => (
   <ParallaxProvider>
-    <div className="absolute flex justify-center items-center top-0 right-0 w-screen h-[3200px] z-2 overflow-hidden">
+    <div className="absolute flex justify-center items-center top-0 right-0 w-screen h-[2000px] z-2 overflow-hidden">
       {isMobileDevice ? null : (
-        <Parallax speed={-70}>
+        <Parallax speed={-30}>
           <div
             id="waves-canvas"
             className="self-center"
@@ -32,15 +32,19 @@ export const ParallaxHeader = ({
       )}
     </div>
     <IntroSection isMobileDevice={isMobileDevice} />
-    {isMobileDevice ? null : (
-      <ProjectShowcase
-        height={isMobileDevice ? 150 : 250}
-        edgeFadeWidth={isMobileDevice ? 20 : 120}
-      />
-    )}
 
-    <Divider className="my-4" />
+    <Divider className="my-12" />
 
     <MiniCardsSection />
+
+    <Divider className="my-12" />
+
+    {isMobileDevice ? null : (
+      <ProjectShowcase
+        height={230}
+        edgeFadeWidth={120}
+      />
+    )}
+    <Divider className="my-4" />
   </ParallaxProvider>
 );

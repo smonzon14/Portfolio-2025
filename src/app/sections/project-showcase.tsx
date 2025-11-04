@@ -16,7 +16,7 @@ type ProjectShowcaseProps = {
 };
 
 export default function ProjectShowcase({
-  speedSeconds = 80,
+  speedSeconds = 160,
   edgeFadeWidth = 120,
   height = 250,
 }: ProjectShowcaseProps) {
