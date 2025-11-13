@@ -27,7 +27,7 @@ export default function MiniCardsSection() {
                     alt="P"
                     width={320}
                     height={320}
-                    className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-transparent"
+                    className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-[#122b4d]"
                 />
             </div>
             <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning">lifelong learner</span> ready to make a difference...</div>
