@@ -29,7 +29,7 @@ export const SectionCard = ({
     ...props
 } : SectionCardProps) => {
     return (
-        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[400px] text-white gap-4 relative overflow-hidden border-1 border-white/10 " + className} { ...props } >
+        <Card isFooterBlurred className={"bg-black relative flex-grow h-[400px] lg:h-[400px] text-white gap-4 relative overflow-hidden border-1 border-white/10 rounded-none " + className} { ...props } >
             <React.Suspense
                 fallback={
                     <div className="w-full h-full flex items-center justify-center bg-black/30">
@@ -46,7 +46,7 @@ export const SectionCard = ({
                 />
             </React.Suspense>
 
-            <CardFooter className={"justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none  text-left gap-2 " + cardFooterClassName}>
+            <CardFooter className={"justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none rounded-none text-left gap-2 " + cardFooterClassName}>
                 <h2 className="text-4xl">{title}</h2>
                 
                 <div className="flex flex-col pointer-events-none max-w-[450px] text-white/80">

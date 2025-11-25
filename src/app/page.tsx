@@ -10,6 +10,8 @@ import { SectionCard } from "./section-card";
 import { ResearchSection } from "./sections/research-section";
 import { EngineeringSection } from "./sections/engineering-section";
 import { CodingSection } from "./sections/coding-section";
+import { engineeringProjects, codingProjects, researchProjects } from "./projects";
+import { GridGallery } from "./sections/grid-gallery";
 
 import PageLoader from "./page-loader";
 import { SkillsSection } from "./sections/skills-section";
@@ -42,26 +44,41 @@ export default async function Home() {
 
           <CVSection isMobileDevice={isMobileDevice} />
 
-          <Divider className="my-4 mt-10" />
-          <section
-            id="projects"
-            className="max-w-[1340px] w-full flex justify-left items-center"
-          >
-            <h2
-              className="text-5xl md:text-7xl"
-              style={{ textShadow: "0px 0px 25px rgba(255, 255, 255, 0.7)" }}
-            >
-              PROJECTS
-            </h2>
-          </section>
-          <Divider className="my-4 mt-10" />
+          <Divider className="my-20" />
 
+          
+          <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
+            {
+              
+              [researchProjects, [...codingProjects, ...engineeringProjects].sort((a, b) => a.name.localeCompare(b.name))].map((projects, index) => {
+                const sectionIds = ["research", "projects"];
+                const sectionTitles = ["RESEARCH", "PROJECTS"];
+                return (<GridGallery key={index} projects={projects} sectionId={sectionIds[index]} title={sectionTitles[index]} />);
+            })
+            }
+          </div>    
+
+          {/* <div
+          className="relative flex flex-col max-w-[1340px] w-full gap-4"
+          >
+             <h2 className="text-5xl pb-10 z-[21]">CURRENT<br/>RESEARCH</h2>
+          </div>
           <ResearchSection isMobileDevice={isMobileDevice} />
           <Divider className="my-4 mt-10" />
+          <div
+          className="relative flex flex-col max-w-[1340px] w-full gap-4"
+          >
+              <h2 className="text-5xl pb-10 z-[21]">SOFTWARE<br/>PROJECTS</h2>
+          </div>
           <CodingSection isMobileDevice={isMobileDevice} />
 
           <Divider className="my-4 mt-10" />
-          <EngineeringSection isMobileDevice={isMobileDevice} />
+          <div
+          className="relative flex flex-col max-w-[1340px] w-full gap-4"
+          >
+              <h2 className="text-5xl pb-10 z-[21]">HARDWARE<br/>PROJECTS</h2>
+          </div>
+          <EngineeringSection isMobileDevice={isMobileDevice} /> */}
 
           <Divider className="my-4 mt-10" />
           <MusicSection />

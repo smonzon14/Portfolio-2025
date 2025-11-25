@@ -42,8 +42,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                   {[
                     "about",
                     "research",
-                    "software",
-                    "engineering",
+                    "projects",
                     "music",
                     "contact",
                   ].map((section) => (
@@ -118,8 +117,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
               {[
               "about",
               "research",
-              "software",
-              "engineering",
+              "projects",
               "music",
               "contact",
               ].map((section) => (

@@ -20,7 +20,7 @@ export default function MiniCardsSection() {
     }, [inView]);
 
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full gap-10 transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
+        <section className={"relative flex flex-col max-w-[1340px] w-full gap-12 transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
             <div className="flex justify-center">
                 <Image
                     src="/profile_2.png"
@@ -30,10 +30,10 @@ export default function MiniCardsSection() {
                     className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-[#122b4d]"
                 />
             </div>
-            <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning">lifelong learner</span> ready to make a difference...</div>
+            <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning bold">lifelong learner</span> ready to make a difference...</div>
 
-            <div className="relative flex flex-row gap-5 justify-center w-full items-center flex-wrap">
-                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+            <div className="relative flex flex-row gap-5 justify-center w-full items-center flex-wrap ">
+                <Card className="bg-transparent text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Designer</h2>
@@ -54,7 +54,7 @@ export default function MiniCardsSection() {
                         </p>
                     </CardFooter>
                 </Card>
-                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-transparent text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Developer</h2>
@@ -74,7 +74,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">Y.O.E.</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-transparent text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
                         <h2 className="text-xl text-shadow-lg">Graduate</h2>
                     </CardHeader>
@@ -93,7 +93,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">UMass Amherst</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-transparent text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Engineer</h2>
@@ -112,7 +112,7 @@ export default function MiniCardsSection() {
                             <span className="align-middle">Projects</span>
                         </p></CardFooter>
                 </Card>
-                <Card className="bg-[#000] border-1 border-white/20 text-white flex flex-col text-center items-center justify-center relative">
+                <Card className="bg-transparent text-white flex flex-col text-center items-center justify-center relative">
                     <CardHeader className="flex-col">
 
                         <h2 className="text-xl text-shadow-lg">Musician</h2>

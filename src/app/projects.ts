@@ -6,17 +6,27 @@ export type Project = {
     src: string;
     caption: string;
   }[];
-  size: "sm" | "md" | "lg";
+  size: "sm" | "md" | "lg" | "xl" | "xxl";
   link?: string;
 };
 
 export const researchProjects: Project[] = [
   {
     key: "mage",
-    name: "MAGE: Motion-to-Audio Generative autoEncoder",
+    name: "MAGE: Motion-to-Audio Generative autoEncoder (in-progress)",
     description:
       "An ongoing independent research project that uses a variational autoencoder to generate percussive audio from hand gestures. The model builds upon RAVE, a state-of-the-art neural audio synthesis architecture, and trains on high-frame-rate recordings of conga drum performances (played by my dad) to capture fine hand movements. The goal is to make it possible to play any percussive instrument using only hand gestures and a camera.",
     images: [
+      {
+        src: "/projects/mage_live.gif",
+        caption:
+          "Live demo of MAGE generating conga drum audio from real-time hand tracking using MediaPipe.",
+      },
+      {
+        src: "/projects/mage_hand_landmarks_vs_audio.png",
+        caption:
+          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
+      },
       {
         src: "/projects/mage_playing_adv2.mp4",
         caption:
@@ -27,17 +37,12 @@ export const researchProjects: Project[] = [
         caption:
           "Audio clips are segmented and denoised by aligning to percussive peaks and removing initial audio before the first beat, ensuring the model focuses on the sound itself rather than gesture noise.",
       },
-      {
-        src: "/projects/mage_hand_landmarks_vs_audio.png",
-        caption:
-          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
-      },
     ],
-    size: "lg",
+    size: "xxl",
   },
   {
     key: "music-spectrogram-inpainting",
-    name: "Music-Spectrogram Inpainting",
+    name: "Music-Spectrogram Inpainting (in-progress)",
     description:
       "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I develop a Stable Diffusion-based pipeline (inspired by Riffusion) for spectrogram inpainting. The system reconstructs masked audio regions to enhance hydrogel air-water extraction by amplifying specific frequency bands. I am currently experimenting with CLIP soft tokens to improve generative guidance and musical coherence.",
     images: [
@@ -52,18 +57,28 @@ export const researchProjects: Project[] = [
           "Low-frequency inpainting on a GTZAN track produces a coherent new bassline (<300 Hz) while preserving higher-frequency details.",
       },
     ],
-    size: "lg",
+    size: "xxl",
   },
   {
     key: "swimsense",
-    name: "SwimSense: Computational Sensing for Swimming Analysis",
+    name: "SwimSense: Computational Sensing for Swimming Analysis (in-progress)",
     description:
       "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training.",
     images: [
       {
+        src: "/projects/swimsense-swimming-and-dashboard.mp4",
+        caption:
+          "SwimSense captures real-time heart rate and motion data during swimming, visualized on a dashboard for performance analysis. This is a video of my brother swimming as I film and monitor the data.",
+      },
+      {
+        src: "/projects/swimsense-gabe-side.png",
+        caption:
+          "SwimSense prototype sandwiched between two swim-caps for waterproofing and a wire leading to the PPG sensor positioned on top of the earlobe.",
+      },
+      {
         src: "/projects/swimsense-heartrate.jpeg",
         caption:
-          "The SwimSense device measures heart rate underwater using a PPG sensor positioned behind the ear.",
+          "The SwimSense device measures heart rate underwater using a PPG sensor positioned on the earlobe.",
       },
       {
         src: "/projects/swimsense-stripped.jpg",
@@ -85,10 +100,10 @@ export const researchProjects: Project[] = [
       },
       {
         src: "/projects/swimsense-v1.mp4",
-        caption: "The SwimSense v1 prototype had a battery that was too large. For human safety, I am now using 250mAh LiPo with protection circuit.",
+        caption: "V1 prototype with a battery that was too big for safety. I'm using a 250 mAh LiPo in V2 with a protection circuit.",
       },
     ],
-    size: "lg",
+    size: "xxl",
     link: "https://github.com/smonzon14/SwimSense",
   },
   {
@@ -98,14 +113,14 @@ export const researchProjects: Project[] = [
       "As a music producer, I searched for ways to design the right timbre and texture. That curiosity led me to research Generative Adversarial Networks for timbre synthesis in my undergraduate honors thesis at UMass Amherst. With limited resources, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.”",
     images: [
       {
-        src: "/projects/honors-confusion-matrix.png",
-        caption:
-          "A confusion matrix showing 76% test accuracy, with most confusion between psychoacoustically similar instruments.",
-      },
-      {
         src: "/projects/honors-title.png",
         caption:
           "Undergraduate thesis at the UMass Amherst Commonwealth Honors College exploring GANs for timbre synthesis.",
+      },
+      {
+        src: "/projects/honors-confusion-matrix.png",
+        caption:
+          "A confusion matrix showing 76% test accuracy, with most confusion between psychoacoustically similar instruments.",
       },
       {
         src: "/projects/honors-gan.png",
@@ -176,7 +191,7 @@ export const codingProjects: Project[] = [
           "A playful word game that challenged users to guess five-letter cheese names.",
       },
     ],
-    size: "lg",
+    size: "md",
     link: "/curdle/index.html",
   },
   {
@@ -186,12 +201,12 @@ export const codingProjects: Project[] = [
       "I built a 2D physics simulator in Python using Pygame, featuring gravitational bodies, instantaneous velocities, and dynamic interactions. Users could create, move, and observe objects as they interacted under Newtonian forces.",
     images: [
       {
-        src: "projects/simulation-physics-compressed.gif",
+        src: "/projects/simulation-physics-compressed.gif",
         caption:
           "A 2D physics simulation that visualized gravitational attraction and motion in real time.",
       },
     ],
-    size: "lg",
+    size: "md",
   },
   {
     key: "simulation-cgol",
@@ -205,7 +220,7 @@ export const codingProjects: Project[] = [
           "A colorized visualization of Conway's Game of Life implemented in C++.",
       },
     ],
-    size: "lg",
+    size: "md",
   },
   {
     key: "blockbreaker",
@@ -224,7 +239,7 @@ export const codingProjects: Project[] = [
           "Each level increased difficulty, demanding precision and timing to clear all blocks.",
       },
     ],
-    size: "lg",
+    size: "sm",
     link: "https://github.com/smonzon14/BlockBreaker",
   },
   {
@@ -239,7 +254,7 @@ export const codingProjects: Project[] = [
           "“Still waiting for your favorite song? Bring the aux to the people with VibeQ.”",
       },
     ],
-    size: "lg",
+    size: "md",
     link: "https://github.com/smonzon14/VibeQ",
   },
   {
@@ -254,7 +269,7 @@ export const codingProjects: Project[] = [
           "A Swift mobile app that synced grades, homework, and schedules—built during high school.",
       },
     ],
-    size: "lg",
+    size: "sm",
     link: "https://github.com/smonzon14/MyHS",
   },
 ];
@@ -315,7 +330,7 @@ export const engineeringProjects: Project[] = [
           "Robot performing a “karate chop” emote—because function and fun coexisted.",
       },
     ],
-    size: "lg",
+    size: "xxl",
   },
   {
     key: "drone",
@@ -343,7 +358,7 @@ export const engineeringProjects: Project[] = [
           "PID tuning session using a ceiling-mounted tether for safe testing.",
       },
     ],
-    size: "lg",
+    size: "md",
     link: "https://github.com/smonzon14/PiDrone",
   },
   {
@@ -382,7 +397,7 @@ export const engineeringProjects: Project[] = [
           "Completed mushroom-growing setup inside a repurposed PC case.",
       },
     ],
-    size: "lg",
+    size: "xxl",
   },
   {
     key: "3dprinter",
@@ -446,7 +461,7 @@ export const engineeringProjects: Project[] = [
           "Example IFTTT mobile notification triggered by a breaker trip.",
       },
     ],
-    size: "sm",
+    size: "md",
   },
 ];
 

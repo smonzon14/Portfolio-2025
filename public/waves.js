@@ -7,8 +7,8 @@ const camera = new THREE.PerspectiveCamera(
   1,
   10000
 );
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-const amountX = 24;
+const renderer = new THREE.WebGLRenderer({ antialias: false });
+const amountX = 16;
 const amountY = 60;
 const spacer = 35;
 const particlesCount = amountX * amountY;
