@@ -53,8 +53,6 @@ export const ParallaxHeader = ({
       projects={resizedProjects}
       sectionId="engineering"
       cols={9}
-
-      isMobileDevice={isMobileDevice}
         />
       </div>
 

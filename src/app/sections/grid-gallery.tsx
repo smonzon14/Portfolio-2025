@@ -57,14 +57,12 @@ export const GridGallery = ({
   projects,
   title,
   sectionId,
-  isMobileDevice = true,
   cols = 12,
 }: {
   projects: Project[];
     title: string;
     sectionId: string;
     cols?: number;
-  isMobileDevice?: boolean;
 }) => {
   return (<div className="relative w-full pb-6" id={sectionId}>
         <h2 className="text-5xl pb-10 z-[21]">{title}</h2>

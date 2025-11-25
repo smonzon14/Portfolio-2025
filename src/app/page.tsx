@@ -7,9 +7,6 @@ import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 
 import { SectionCard } from "./section-card";
-import { ResearchSection } from "./sections/research-section";
-import { EngineeringSection } from "./sections/engineering-section";
-import { CodingSection } from "./sections/coding-section";
 import { engineeringProjects, codingProjects, researchProjects } from "./projects";
 import { GridGallery } from "./sections/grid-gallery";
 

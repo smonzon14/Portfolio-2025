@@ -13,7 +13,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p>Software engineer, researcher, <b>NSF CSGrad4US Fellow</b>, and musician exploring <b>multimodal interaction, generative AI models, and computational sensing & design</b> - alongside my full-time job as a full-stack developer at Cisco Meraki.<br/><br/><span className="float-right">I'm seeking graduate programs for Fall 2026.</span></p>
+                    <p>Software engineer, researcher, <b>NSF CSGrad4US Fellow</b>, and musician exploring <b>multimodal interaction, generative AI models, and computational sensing & design</b> - alongside my full-time job as a full-stack developer at Cisco Meraki.<br/><br/><span className="float-right">I&#39;m seeking graduate programs for Fall 2026.</span></p>
 
                     <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
                         <Button
@@ -42,7 +42,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         </Button>
                         <Link className="underline text-lg" href="mailto:smonzon360@gmail.com">smonzon360@gmail.com</Link>
                     </div>
-                    <div className="text-white/40 bg-black max-w-max mt-10">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link> in Next.JS</div>
+                    <div className="text-white/40 bg-black max-w-max mt-2">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link> in Next.JS</div>
 
                 </div>
             </div>
