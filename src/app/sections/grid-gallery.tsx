@@ -64,9 +64,27 @@ export const GridGallery = ({
     sectionId: string;
     cols?: number;
 }) => {
+  const getGridColsClass = (cols: number) => {
+    const colsMap: { [key: number]: string } = {
+      1: 'md:grid-cols-1',
+      2: 'md:grid-cols-2',
+      3: 'md:grid-cols-3',
+      4: 'md:grid-cols-4',
+      5: 'md:grid-cols-5',
+      6: 'md:grid-cols-6',
+      7: 'md:grid-cols-7',
+      8: 'md:grid-cols-8',
+      9: 'md:grid-cols-9',
+      10: 'md:grid-cols-10',
+      11: 'md:grid-cols-11',
+      12: 'md:grid-cols-12'
+    };
+    return colsMap[cols] || 'md:grid-cols-12';
+  };
+
   return (<div className="relative w-full pb-6" id={sectionId}>
         <h2 className="text-5xl pb-10 z-[21]">{title}</h2>
-          <div className={`grid grid-cols-1 grid-rows-0 auto-cols-[16rem] auto-rows-[12rem] gap-1 md:grid-cols-${cols}`}>
+          <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
               <ProjectItem key={project.key} project={project} />
             ))}
