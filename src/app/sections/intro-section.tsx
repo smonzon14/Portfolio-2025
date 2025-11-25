@@ -13,7 +13,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p>Software engineer, independent researcher, <b>NSF CSGrad4US Fellow</b>, and musician exploring <b>multimodal interaction, generative AI models, and computational sensing & design</b> - alongside my work as a full-stack developer at Cisco Meraki.<br/><br/><span className="float-right">I'm seeking graduate programs in HCI and AI for Fall 2026.</span></p>
+                    <p>Software engineer, researcher, <b>NSF CSGrad4US Fellow</b>, and musician exploring <b>multimodal interaction, generative AI models, and computational sensing & design</b> - alongside my full-time job as a full-stack developer at Cisco Meraki.<br/><br/><span className="float-right">I'm seeking graduate programs for Fall 2026.</span></p>
 
                     <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
                         <Button
