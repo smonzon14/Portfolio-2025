@@ -41,7 +41,7 @@ const SoundCloudEmbed: React.FC<{ html: string }> = ({ html }) => {
 export const MusicSection = () => {
     return (
         <section className="relative flex flex-col w-full gap-4 max-w-[1340px] w-full" id="music">
-            <h2 className="text-5xl pb-4">MUSIC</h2>
+            <h2 className="text-4xl pb-4">MUSIC</h2>
             <div className="flex flex-col items-start w-full flex-wrap justify-start gap-4">
                 {[
                     {

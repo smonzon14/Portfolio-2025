@@ -58,11 +58,13 @@ export const GridGallery = ({
   title,
   sectionId,
   cols = 12,
+  isMobileDevice = false,
 }: {
   projects: Project[];
     title: string;
     sectionId: string;
     cols?: number;
+    isMobileDevice?: boolean;
 }) => {
   const getGridColsClass = (cols: number) => {
     const colsMap: { [key: number]: string } = {
@@ -83,16 +85,16 @@ export const GridGallery = ({
   };
 
   return (<div className="relative w-full pb-6" id={sectionId}>
-        <h2 className="text-5xl pb-10 z-[21]">{title}</h2>
+        <h2 className="text-4xl pb-10 z-[21]">{title}</h2>
           <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 grid-flow-dense ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
-              <ProjectItem key={project.key} project={project} />
+              <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice}/>
             ))}
           </div>
         </div>);
 };
 
-const ProjectItem = ({project}: {project: Project;}) => {
+const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevice: boolean;}) => {
     // If you use useDisclosure, make sure to import it:
     const { isOpen, onOpen, onOpenChange } = useDisclosure?.() ?? {};
     const sizeMap = {
@@ -123,13 +125,45 @@ const ProjectItem = ({project}: {project: Project;}) => {
 
     const firstImage = project.images?.find((img) => !img.src.endsWith(".mp4"));
 
+    const cardRef = React.useRef<HTMLAnchorElement>(null);
+    const [isActive, setIsActive] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (!isMobileDevice || !cardRef.current) return;
+            const rect = cardRef.current.getBoundingClientRect();
+            const cardCenter = rect.top + rect.height / 2;
+            // Use visualViewport for more accurate viewport size on mobile
+            const windowCenter = (window.visualViewport?.height ?? window.innerHeight) / 2;
+            // Allow a threshold for "centered"
+            const threshold = rect.height / 2;
+            setIsActive(Math.abs(cardCenter - windowCenter) < threshold);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll);
+        window.addEventListener("touchmove", handleScroll, { passive: true });
+        window.visualViewport?.addEventListener("resize", handleScroll);
+
+        // Initial check
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+            window.removeEventListener("touchmove", handleScroll);
+            window.visualViewport?.removeEventListener("resize", handleScroll);
+        };
+    }, [isMobileDevice]);
+
     return (
         <>
             <a
                 key={project.key ?? project.name}
                 onClick={onOpen}
                 rel="noreferrer"
-                className={`${span} relative block overflow-hidden holographic-card duration-300 pointer-events-auto brightness-[0.5] hover:brightness-[1.0] cursor-pointer border-1 border-white/10 bg-black`}
+                ref={cardRef}
+                className={`${span} ${isActive ? "holo-active" : ""} relative block overflow-hidden holographic-card duration-300 pointer-events-auto cursor-pointer border-1 border-white/10 bg-black`}
             >
                 {firstImage?.src ? (
                     <Image
@@ -145,45 +179,51 @@ const ProjectItem = ({project}: {project: Project;}) => {
                 )}
                 <div className="absolute inset-x-0 bottom-0 pointer-events-none">
                     <div className="bg-gradient-to-t from-black/100 to-transparent px-2 py-40 pb-4">
-                        <p className={"font-bold text-white/90 line-clamp-3 w-fit " + textSize}>
+                        <p className={"font-bold text-white/90 w-fit " + textSize}>
                             {project.name}
-                            <span className="text-sm font-normal block mt-1 text-[#ccc]">{project.description}</span>
                         </p>
+                        <p className="text-sm font-normal  mt-1 text-[#ccc] line-clamp-1">{project.description}</p>
+
                     </div>
+
                 </div>
             </a>
-            <style jsx>{`
+            <style>{
+            `
+            .holographic-card {
+                filter: brightness(0.5);
+            }
+            .holographic-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                    0deg, 
+                    transparent, 
+                    transparent 30%, 
+                    rgba(255,255,255,0.3)
+                );
+                transform: rotate(-45deg);
+                transition: all 0.5s ease;
+                opacity: 0;
+            }
 
+            .holographic-card:hover,
+            .holographic-card.holo-active {
+                z-index: 10;
+                transform: scale(1.05);
+                filter: brightness(1.0);
+                box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            }
 
-.holographic-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    0deg, 
-    transparent, 
-    transparent 30%, 
-    rgba(255,255,255,0.3)
-  );
-  transform: rotate(-45deg);
-  transition: all 0.5s ease;
-  opacity: 0;
-}
-
-.holographic-card:hover {
-z-index: 10;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
-}
-
-.holographic-card:hover::before {
-z-index: 11;
-  opacity: 1;
-  transform: rotate(-45deg) translateY(100%);
-}
+            .holographic-card:hover::before,
+            .holographic-card.holo-active::before {
+                opacity: 1;
+                transform: rotate(-45deg) translateY(100%);
+            }
             `}</style>
            <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="dark max-w-max" backdrop="blur" scrollBehavior="outside">
                 <ModalContent>

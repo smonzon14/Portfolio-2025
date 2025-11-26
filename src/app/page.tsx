@@ -48,7 +48,7 @@ export default async function Home() {
               [researchProjects, [...codingProjects, ...engineeringProjects].sort((a, b) => a.awesomeness - b.awesomeness)].map((projects, index) => {
                 const sectionIds = ["research", "projects"];
                 const sectionTitles = ["RESEARCH", "PROJECTS"];
-                return (<GridGallery key={index} projects={projects} sectionId={sectionIds[index]} title={sectionTitles[index]} />);
+                return (<GridGallery key={index} projects={projects} sectionId={sectionIds[index]} title={sectionTitles[index]} isMobileDevice={isMobileDevice} />);
             })
             }
           </div>    
@@ -78,39 +78,16 @@ export default async function Home() {
           <Divider className="my-4 mt-10" />
           <MusicSection />
           <section
-            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40"
+            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40 flex-wrap grid place-items-center"
             id="contact"
           >
-              <h2 className="text-5xl pb-4 z-[21]">GET IN TOUCH:</h2>
+              <h2 className="text-4xl pb-4 z-[21]">GET IN TOUCH</h2>
 
               <Button
                 as={Link}
                 size="lg"
                 color="primary"
-                variant="shadow"
-                href="mailto:smonzon360@gmail.com"
                 className="text-white"
-                showAnchorIcon
-              >
-                smonzon360@gmail.com
-              </Button>
-              <Button
-                as={Link}
-                size="lg"
-                color="primary"
-                variant="bordered"
-                href="sms://17815308016"
-                className="text-white"
-                showAnchorIcon
-              >
-                (781) 530-8016
-              </Button>
-              <Button
-                as={Link}
-                size="lg"
-                color="primary"
-                className="text-white"
-                variant="flat"
                 href="https://www.linkedin.com/in/sebastian-monz%C3%B3n-9ab695102/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -126,6 +103,20 @@ export default async function Home() {
                 </svg>
                 LinkedIn
               </Button>
+              <Link
+                size="lg"
+                href="mailto:smonzon360@gmail.com"
+                className="text-white"
+              >
+                smonzon360@gmail.com
+              </Link>
+              <Link
+                size="lg"
+                href="sms://17815308016"
+                className="text-white"
+              >
+                (781) 530-8016
+              </Link>
           </section>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
