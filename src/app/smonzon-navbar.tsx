@@ -3,7 +3,6 @@
 import Image from "next/image";
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
-import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 
 export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
@@ -64,7 +63,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </Link>
                   ))}
-                  <Link
+                  {/* <Link
                     as="a"
                     title="Curdle"
                     color="warning"
@@ -73,7 +72,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                     className="block px-4 py-3 text-yellow-400 hover:bg-white/10 transition-colors duration-200"
                   >
                     <span className="cheesy">Curdle</span>
-                  </Link>
+                  </Link> */}
                 </div>
               </details>
               <style>{`
@@ -141,7 +140,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
               </NavbarItem>
               ))}
               <NavbarItem>
-              <Button
+              {/* <Button
                 as={Link}
                 title="Curdle"
                 color="warning"
@@ -152,7 +151,7 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
               >
                 {"Solve today's "}
                 <span className="cheesy">Curdle</span>
-              </Button>
+              </Button> */}
               </NavbarItem>
             </NavbarContent>
           )}

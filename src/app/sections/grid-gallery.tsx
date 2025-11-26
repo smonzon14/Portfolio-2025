@@ -84,7 +84,7 @@ export const GridGallery = ({
 
   return (<div className="relative w-full pb-6" id={sectionId}>
         <h2 className="text-5xl pb-10 z-[21]">{title}</h2>
-          <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 ${getGridColsClass(cols)}`}>
+          <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 grid-flow-dense ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
               <ProjectItem key={project.key} project={project} />
             ))}
@@ -129,7 +129,7 @@ const ProjectItem = ({project}: {project: Project;}) => {
                 key={project.key ?? project.name}
                 onClick={onOpen}
                 rel="noreferrer"
-                className={`${span} relative block overflow-hidden  duration-300 pointer-events-auto cursor-pointer border-1 border-white/10 `}
+                className={`${span} relative block overflow-hidden holographic-card duration-300 pointer-events-auto brightness-[0.5] hover:brightness-[1.0] cursor-pointer border-1 border-white/10 bg-black`}
             >
                 {firstImage?.src ? (
                     <Image
@@ -137,14 +137,14 @@ const ProjectItem = ({project}: {project: Project;}) => {
                         height={700}
                         src={firstImage.src}
                         alt={project.description ?? project.name}
-                        className={`absolute inset-0 h-full w-full hover:scale-105 duration-300 opacity-60 hover:opacity-100 ` + (project.key === "beamshyft" ? " object-contain" : " object-cover")}
+                        className={`absolute inset-0 h-full w-full duration-300 ` + (project.key === "beamshyft" ? " object-contain" : " object-cover")}
                         draggable={false}
                     />
                 ) : (
                     <div className="absolute inset-0 bg-neutral-900" />
                 )}
                 <div className="absolute inset-x-0 bottom-0 pointer-events-none">
-                    <div className="bg-gradient-to-t from-black/90 to-transparent px-2 py-6 backdrop-blur-sm">
+                    <div className="bg-gradient-to-t from-black/100 to-transparent px-2 py-40 pb-4">
                         <p className={"font-bold text-white/90 line-clamp-3 w-fit " + textSize}>
                             {project.name}
                             <span className="text-sm font-normal block mt-1 text-[#ccc]">{project.description}</span>
@@ -152,6 +152,39 @@ const ProjectItem = ({project}: {project: Project;}) => {
                     </div>
                 </div>
             </a>
+            <style jsx>{`
+
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(255,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+z-index: 10;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+.holographic-card:hover::before {
+z-index: 11;
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+            `}</style>
            <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="dark max-w-max" backdrop="blur" scrollBehavior="outside">
                 <ModalContent>
                     {(onClose) => (

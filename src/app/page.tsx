@@ -6,13 +6,11 @@ import { Button } from "@heroui/button";
 import { Divider } from "@heroui/divider";
 import { Link } from "@heroui/link";
 
-import { SectionCard } from "./section-card";
 import { engineeringProjects, codingProjects, researchProjects } from "./projects";
 import { GridGallery } from "./sections/grid-gallery";
 
 import PageLoader from "./page-loader";
 import { SkillsSection } from "./sections/skills-section";
-import { CVSection } from "./sections/cv-section";
 import { MusicSection } from "./sections/music-section";
 
 import { ParallaxHeader } from "./parallax-header";
@@ -37,17 +35,17 @@ export default async function Home() {
 
           <SkillsSection isMobileDevice={isMobileDevice} />
 
-          <Divider className="mt-10 mb-4" />
+          {/* <Divider className="mt-10 mb-4" />
 
-          <CVSection isMobileDevice={isMobileDevice} />
+          <CVSection isMobileDevice={isMobileDevice} /> */}
 
           <Divider className="my-20" />
 
           
-          <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
+          <div className="relative flex flex-col max-w-[1340px] w-full gap-10">
             {
               
-              [researchProjects, [...codingProjects, ...engineeringProjects].sort((a, b) => a.name.localeCompare(b.name))].map((projects, index) => {
+              [researchProjects, [...codingProjects, ...engineeringProjects].sort((a, b) => a.awesomeness - b.awesomeness)].map((projects, index) => {
                 const sectionIds = ["research", "projects"];
                 const sectionTitles = ["RESEARCH", "PROJECTS"];
                 return (<GridGallery key={index} projects={projects} sectionId={sectionIds[index]} title={sectionTitles[index]} />);
@@ -83,15 +81,8 @@ export default async function Home() {
             className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40"
             id="contact"
           >
-            <SectionCard
-              href="mailto:smonzon360@gmail.com"
-              imageSrc="/projects/art-guitar.jpg"
-              className="max-h-[350px]"
-              imageAlt="Contact"
-              title="Contact"
-              cardFooterClassName="backdrop-filter-none bg-black/50"
-              description="^ A Gibson les Paul guitar, painted by me :)"
-            >
+              <h2 className="text-5xl pb-4 z-[21]">GET IN TOUCH:</h2>
+
               <Button
                 as={Link}
                 size="lg"
@@ -135,7 +126,6 @@ export default async function Home() {
                 </svg>
                 LinkedIn
               </Button>
-            </SectionCard>
           </section>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

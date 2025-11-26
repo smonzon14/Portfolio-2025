@@ -7,6 +7,7 @@ export type Project = {
     caption: string;
   }[];
   size: "sm" | "md" | "lg" | "xl" | "xxl";
+  awesomeness: number;
   link?: string;
 };
 
@@ -39,6 +40,7 @@ export const researchProjects: Project[] = [
       },
     ],
     size: "xxl",
+    awesomeness: 1,
   },
   {
     key: "music-spectrogram-inpainting",
@@ -58,6 +60,7 @@ export const researchProjects: Project[] = [
       },
     ],
     size: "xxl",
+    awesomeness: 2,
   },
   {
     key: "swimsense",
@@ -105,6 +108,7 @@ export const researchProjects: Project[] = [
     ],
     size: "xxl",
     link: "https://github.com/smonzon14/SwimSense",
+    awesomeness: 3,
   },
   {
     key: "honors",
@@ -140,6 +144,7 @@ export const researchProjects: Project[] = [
     ],
     size: "lg",
     link: "https://docs.google.com/document/d/1Xb-1g6tz4VSmXon9N6VQUGq1lYzuSttLNalpCWSiQdc/edit?usp=sharing",
+    awesomeness: 4,
   },
 ];
 
@@ -163,6 +168,7 @@ export const codingProjects: Project[] = [
     ],
     link: "https://github.com/smonzon14/NYT-LLM",
     size: "lg",
+    awesomeness: 5,
   },
   {
     key: "beamshyft",
@@ -178,6 +184,7 @@ export const codingProjects: Project[] = [
     ],
     size: "lg",
     link: "https://beamshyft.com/",
+    awesomeness: 11,
   },
   {
     key: "curdle",
@@ -191,8 +198,9 @@ export const codingProjects: Project[] = [
           "A playful word game that challenged users to guess five-letter cheese names.",
       },
     ],
-    size: "md",
+    size: "sm",
     link: "/curdle/index.html",
+    awesomeness: 19,
   },
   {
     key: "simulation-physics",
@@ -207,6 +215,7 @@ export const codingProjects: Project[] = [
       },
     ],
     size: "md",
+    awesomeness: 10,
   },
   {
     key: "simulation-cgol",
@@ -220,7 +229,8 @@ export const codingProjects: Project[] = [
           "A colorized visualization of Conway's Game of Life implemented in C++.",
       },
     ],
-    size: "md",
+    size: "sm",
+    awesomeness: 14,
   },
   {
     key: "blockbreaker",
@@ -241,6 +251,7 @@ export const codingProjects: Project[] = [
     ],
     size: "sm",
     link: "https://github.com/smonzon14/BlockBreaker",
+    awesomeness: 15,
   },
   {
     key: "vibeq",
@@ -256,6 +267,7 @@ export const codingProjects: Project[] = [
     ],
     size: "md",
     link: "https://github.com/smonzon14/VibeQ",
+    awesomeness: 9,
   },
   {
     key: "myhs",
@@ -271,6 +283,7 @@ export const codingProjects: Project[] = [
     ],
     size: "sm",
     link: "https://github.com/smonzon14/MyHS",
+    awesomeness: 16,
   },
 ];
 
@@ -298,6 +311,7 @@ export const engineeringProjects: Project[] = [
     ],
     size: "md",
     link: "https://github.com/smonzon14/Feed-Kevin",
+    awesomeness: 13,
   },
   {
     key: "biwheel",
@@ -331,6 +345,7 @@ export const engineeringProjects: Project[] = [
       },
     ],
     size: "xxl",
+    awesomeness: 6,
   },
   {
     key: "drone",
@@ -358,8 +373,9 @@ export const engineeringProjects: Project[] = [
           "PID tuning session using a ceiling-mounted tether for safe testing.",
       },
     ],
-    size: "md",
+    size: "lg",
     link: "https://github.com/smonzon14/PiDrone",
+    awesomeness: 8,
   },
   {
     key: "mushete",
@@ -398,6 +414,7 @@ export const engineeringProjects: Project[] = [
       },
     ],
     size: "xxl",
+    awesomeness: 7,
   },
   {
     key: "3dprinter",
@@ -429,6 +446,7 @@ export const engineeringProjects: Project[] = [
       },
     ],
     size: "md",
+    awesomeness: 12,
   },
   {
     key: "whoshome",
@@ -443,6 +461,7 @@ export const engineeringProjects: Project[] = [
       },
     ],
     size: "sm",
+    awesomeness: 17,
   },
   {
     key: "breaker",
@@ -461,7 +480,8 @@ export const engineeringProjects: Project[] = [
           "Example IFTTT mobile notification triggered by a breaker trip.",
       },
     ],
-    size: "md",
+    size: "sm",
+    awesomeness: 18,
   },
 ];
 

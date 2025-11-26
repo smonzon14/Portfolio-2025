@@ -66,11 +66,21 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
             </div>
             {!isMobileDevice && (
               <div id="skills-sphere" className={"relative transition-opacity transition duration-[4s] " + (isVisible ? "opacity-100" : "opacity-0")}>
-
-                <canvas id="sphere-canvas" width="400" height="400">
+                {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                    <div
+                        className="w-[140px] h-[140px] rounded-full"
+                        style={{
+                            background: "radial-gradient(circle at 60% 40%, #fbbf24 0%, #d16060ff 30%, transparent 100%)",
+                            filter: "blur(20px)",
+                            opacity: 0.7,
+                        }}
+                        aria-hidden="true"
+                    />
+                </div> */}
+                <canvas id="sphere-canvas" width="400" height="400" className='relative z-10'>
 
                 </canvas>
-                <div className="absolute bottom-0 text-center text-white/40">
+                <div className="absolute bottom-0 text-center opacity-70 text-sm ">
                   ^ Coded by me on <Link showAnchorIcon href="https://github.com/smonzon14/Fibonacci-Sphere" target="_blank" rel="noopener noreferrer">GitHub</Link> and <Link showAnchorIcon href="https://codepen.io/smonzon14/pen/NWjRZWe" target="_blank" rel="noopener noreferrer">CodePen</Link>.
                 </div>
               </div>)}

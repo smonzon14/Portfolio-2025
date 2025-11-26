@@ -21,13 +21,24 @@ export default function MiniCardsSection() {
 
     return (
         <section className={"relative flex flex-col max-w-[1340px] w-full gap-12 transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")} id="about" ref={ref}>
-            <div className="flex justify-center">
+            <div className="flex justify-center relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                        className="w-[300px] h-[300px] rounded-full"
+                        style={{
+                            background: "radial-gradient(circle at 60% 40%, #fbbf24 0%, #6366f1 60%, transparent 100%)",
+                            filter: "blur(40px)",
+                            opacity: 0.7,
+                        }}
+                        aria-hidden="true"
+                    />
+                </div>
                 <Image
                     src="/profile_2.png"
                     alt="P"
-                    width={320}
-                    height={320}
-                    className="rounded-full border-1 border-white shadow-lg object-cover w-[250px] h-[250px] bg-[#122b4d]"
+                    width={340}
+                    height={340}
+                    className="rounded-full border-1 border-white shadow-lg object-cover w-[260px] h-[260px] relative z-10"
                 />
             </div>
             <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning bold">lifelong learner</span> ready to make a difference...</div>

@@ -13,7 +13,6 @@ interface SectionCardProps extends CardProps {
     imageSrc: string;
     imageAlt: string;
     description: string;
-    children: React.ReactNode[] | React.ReactNode | string;
     className?: string;
     cardFooterClassName?: string;
 }
@@ -23,7 +22,6 @@ export const SectionCard = ({
     imageSrc,
     imageAlt,
     description,
-    children,
     className,
     cardFooterClassName,
     ...props
@@ -40,20 +38,17 @@ export const SectionCard = ({
                 <Image
                     src={imageSrc}
                     alt={imageAlt}
-                    className="object-cover w-full h-full opacity-70 hover:opacity-80 hover:scale-105 transition-all duration-300 ease-in-out"
+                    className="object-cover w-full h-full  transition-all duration-300 ease-in-out"
                     width={500}
                     height={500}
                 />
             </React.Suspense>
 
-            <CardFooter className={"justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none rounded-none text-left gap-2 " + cardFooterClassName}>
+            <CardFooter className={"justify-between flex-wrap absolute bottom-0 z-2 pointer-events-none rounded-none text-left gap-2 bg-black/50 " + cardFooterClassName}>
                 <h2 className="text-4xl">{title}</h2>
                 
                 <div className="flex flex-col pointer-events-none max-w-[450px] text-white/80">
                     <p className="text-md">{description}</p>
-                </div>
-                <div className="gap-2 pointer-events-auto flex-wrap flex flex-row self-end">
-                    {children}
                 </div>
             </CardFooter>
         </Card>

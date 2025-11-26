@@ -67,22 +67,11 @@ export const CVSection = ({isMobileDevice = false}) => {
               </Button> */}
                 </SectionCard>
                 <SectionCard
-                    href="#engineering"
-                    title="Engineering Projects"
-                    imageSrc="/projects/drone-exposed.jpg"
-                    imageAlt="Engineering Projects"
-                    description="See my robotics, 3D design, electronics, and IoT projects."
-                >
-                    <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
-                        View Projects
-                    </Button>
-                </SectionCard>
-                <SectionCard
-                    href="#software"
-                    title="Software Projects"
-                    imageSrc="/projects/simulation-physics-compressed.gif"
-                    imageAlt="Software Projects"
-                    description="See my software projects which incorporate AI, simulations, mobile apps, commercial websites, and games."
+                    href="#projects"
+                    title="Projects"
+                    imageSrc="/projects/mushete-board-completed.JPEG"
+                    imageAlt="Projects"
+                    description="See my electronics, robotics, games, and 3D design projects."
                 >
                     <Button as={Link} size="md" color="default" variant="faded" href="#research" className='bg-[#111] text-white border-white/10'>
                         View Projects
@@ -99,7 +88,15 @@ export const CVSection = ({isMobileDevice = false}) => {
                         Listen Now
                     </Button>
                 </SectionCard>
-
+                <SectionCard
+                href="mailto:smonzon360@gmail.com"
+                imageSrc="/projects/art-guitar.jpg"
+                className="max-h-[350px]"
+                imageAlt="Contact"
+                title="Contact"
+                cardFooterClassName="backdrop-filter-none bg-black/50"
+                description="^ A Gibson les Paul guitar, painted by me :)"
+                />
             </div>)}
         </section>
     );
