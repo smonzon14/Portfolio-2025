@@ -19,22 +19,22 @@ export const researchProjects: Project[] = [
       "An ongoing independent research project that uses a variational autoencoder to generate percussive audio from hand gestures. The model builds upon RAVE, a state-of-the-art neural audio synthesis architecture, and trains on high-frame-rate recordings of conga drum performances (played by my dad) to capture fine hand movements. The goal is to make it possible to play any percussive instrument using only hand gestures and a camera.",
     images: [
       {
-        src: "/projects/mage_live.gif",
+        src: "/projects/mage/mage_live.gif",
         caption:
           "Live demo of MAGE generating conga drum audio from real-time hand tracking using MediaPipe.",
       },
       {
-        src: "/projects/mage_hand_landmarks_vs_audio.png",
+        src: "/projects/mage/mage_hand_landmarks_vs_audio.png",
         caption:
           "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
       },
       {
-        src: "/projects/mage_playing_adv2.mp4",
+        src: "/projects/mage/mage_playing_adv2.mp4",
         caption:
           "Hand landmarks are extracted with MediaPipe and augmented with normal vectors to capture hand orientation.",
       },
       {
-        src: "/projects/mage_audio_waveform_peaks.png",
+        src: "/projects/mage/mage_audio_waveform_peaks.png",
         caption:
           "Audio clips are segmented and denoised by aligning to percussive peaks and removing initial audio before the first beat, ensuring the model focuses on the sound itself rather than gesture noise.",
       },
@@ -44,19 +44,62 @@ export const researchProjects: Project[] = [
   },
   {
     key: "music-spectrogram-inpainting",
-    name: "Music-Spectrogram Inpainting (in-progress)",
+    name: "Music-Spectrogram Inpainting for Hydrogel Dewatering (in-progress)",
     description:
       "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I develop a Stable Diffusion-based pipeline (inspired by Riffusion) for spectrogram inpainting. The system reconstructs masked audio regions to enhance hydrogel air-water extraction by amplifying specific frequency bands. I am currently experimenting with CLIP soft tokens to improve generative guidance and musical coherence.",
     images: [
       {
-        src: "/projects/music-spectrogram-inpainting.png",
+        src: "/projects/music-spectrogram-inpainting/audio/disco.00049.wav",
+        caption:
+          "\"Boogie Shoes\" by KC and the Sunshine Band. This is the original song/bassline for the regenerated song below.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/audio/disco.00049_80s.wav",
+        caption:
+          "Regenerated, inpainted audio where high frequencies (>300 Hz) were masked and reconstructed with the prompt \"80s song with energetic wind section, guitar, bass and drums. very funky\"... (I've heard worse 80s remixes)",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/audio/hiphop.00037.wav",
+        caption: "A hip-hop track from the GTZAN dataset used for the regenerated song below.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/audio/hiphop.00037_dnb.wav",
+        caption: "Drum-and-bass style inpainting where low frequencies (<300 Hz) were masked and regenerated with the prompt \"Drum and bass with thick and punchy bass, stuttering synth pattern, drums, loud clap.\"",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-simple.svg",
+        caption:
+          "A high-level overview of how the spectrogram inpainting pipeline works.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-mask.png",
+        caption:
+          "Spectrogram with masked low-frequency region (<300 Hz) for inpainting.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting.png",
         caption:
           "The Riffusion-inspired inpainting framework reconstructs masked spectrogram regions while preserving unmasked context.",
       },
       {
-        src: "/projects/music-spectrogram-inpainting-hiphop.png",
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-predict.jpg",
         caption:
-          "Low-frequency inpainting on a GTZAN track produces a coherent new bassline (<300 Hz) while preserving higher-frequency details.",
+          "My spectrogram-based multi-layer perceptron model predicts hydrogel performance (r=0.6) from individual frequency range energies.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-shap.png",
+        caption:
+          "My SHAP analysis pipeline predicts hydrogel performance from spectrograms and identifies important frequency bands.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-shap-results.png",
+        caption:
+          "SHAP analysis reveals that low and high frequency bands contribute most to hydrogel performance predictions.",
+      },
+      {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-band-correlations.png",
+        caption:
+          "Spearman correlation of band power density and hydrogel performance indicates that low and high frequency bands are more important for hydrogel dewatering.",
       },
     ],
     size: "xxl",
@@ -68,43 +111,58 @@ export const researchProjects: Project[] = [
     description:
       "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training.",
     images: [
+
       {
-        src: "/projects/swimsense-swimming-and-dashboard.mp4",
+        src: "/projects/swimsense/swimsense-gabe-swimming.mp4",
+        caption: "SwimSense in action during swim trials, capturing motion and physiological data.",
+      },
+      {
+        src: "/projects/swimsense/swimsense-swimming-and-dashboard.mp4",
         caption:
           "SwimSense captures real-time heart rate and motion data during swimming, visualized on a dashboard for performance analysis. This is a video of my brother swimming as I film and monitor the data.",
       },
       {
-        src: "/projects/swimsense-gabe-side.png",
+        src: "/projects/swimsense/swimsense-gabe-side.png",
         caption:
           "SwimSense prototype sandwiched between two swim-caps for waterproofing and a wire leading to the PPG sensor positioned on top of the earlobe.",
       },
+      // {
+      //   src: "/projects/swimsense/swimsense-heartrate.jpeg",
+      //   caption:
+      //     "The SwimSense device measures heart rate underwater using a PPG sensor positioned on the earlobe.",
+      // },
       {
-        src: "/projects/swimsense-heartrate.jpeg",
-        caption:
-          "The SwimSense device measures heart rate underwater using a PPG sensor positioned on the earlobe.",
-      },
-      {
-        src: "/projects/swimsense-stripped.jpg",
+        src: "/projects/swimsense/swimsense-stripped.jpg",
         caption: "The soldered SwimSense v2 prototype with waterproof top removed. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
       },
       {
-        src: "/projects/swimsense-single.jpg",
+        src: "/projects/swimsense/swimsense-single.jpg",
         caption:
           "The device without a second layer swim-cap. External wires include a charging/ data port, power button, and PPG sensor.",
       },
       {
-        src: "/projects/swimsense-doubled.jpg",
-        caption:
-          "The SwimSense v2 prototype is designed to be worn under two swim-caps for waterproofing and stability during swimming.",
+        src: "/projects/swimsense/swimsense-back.png",
+        caption: "Rear view showing outline of the SwimSense device inside the swim-cap.",
       },
-      {
-        src: "/projects/swimsense-rx.jpg",
-        caption: "Data is transmitted and received via LoRa to a nearby computer for real-time monitoring and analysis.",
+      {src: "/projects/swimsense/swimsense-setup.png",
+        caption: "The testing setup with LoRa receiver connected to a laptop for real-time data monitoring."
       },
-      {
-        src: "/projects/swimsense-v1.mp4",
-        caption: "V1 prototype with a battery that was too big for safety. I'm using a 250 mAh LiPo in V2 with a protection circuit.",
-      },
+      {src: "/projects/swimsense/swimsense-dashboard.png",
+        caption: "Real-time dashboard displaying velocity, rotation, RSSI signal strength, and heart monitor. Buttons are used for labeling swim strokes during data collection."
+      }
+      // {
+      //   src: "/projects/swimsense/swimsense-doubled.jpg",
+      //   caption:
+      //     "The SwimSense v2 prototype is designed to be worn under two swim-caps for waterproofing and stability during swimming.",
+      // },
+      // {
+      //   src: "/projects/swimsense/swimsense-rx.jpg",
+      //   caption: "Data is transmitted and received via LoRa to a nearby computer for real-time monitoring and analysis.",
+      // },
+      // {
+      //   src: "/projects/swimsense/swimsense-v1.mp4",
+      //   caption: "V1 prototype with a battery that was too big for safety. I'm using a 250 mAh LiPo in V2 with a protection circuit.",
+      // },
     ],
     size: "xxl",
     link: "https://github.com/smonzon14/SwimSense",
@@ -114,35 +172,35 @@ export const researchProjects: Project[] = [
     key: "honors",
     name: "Honors Thesis",
     description:
-      "As a music producer, I searched for ways to design the right timbre and texture. That curiosity led me to research Generative Adversarial Networks for timbre synthesis in my undergraduate honors thesis at UMass Amherst. With limited resources, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.”",
+      "As a recreational music producer, I've been trying to find \"my sound\" ever since I began. That mission led me to research Generative Adversarial Networks for timbre synthesis in my undergraduate honors thesis at UMass Amherst. With limited time, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.”",
     images: [
       {
-        src: "/projects/honors-title.png",
-        caption:
-          "Undergraduate thesis at the UMass Amherst Commonwealth Honors College exploring GANs for timbre synthesis.",
-      },
-      {
-        src: "/projects/honors-confusion-matrix.png",
+        src: "/projects/honors/honors-confusion-matrix.png",
         caption:
           "A confusion matrix showing 76% test accuracy, with most confusion between psychoacoustically similar instruments.",
       },
       {
-        src: "/projects/honors-gan.png",
+        src: "/projects/honors/honors-gan.png",
         caption:
           "The GAN architecture I studied as the basis for the thesis; the classifier served as a starting point for a future discriminator.",
       },
       {
-        src: "/projects/honors-spectrograms.png",
+        src: "/projects/honors/honors-spectrograms.png",
         caption:
           "Spectrogram examples from the NSynth dataset used to train the classifier.",
       },
       {
-        src: "/projects/honors-nsynth-dataset.png",
+        src: "/projects/honors/honors-nsynth-dataset.png",
         caption:
           "NSynth dataset distribution showing class imbalance across instrument families—an issue discussed in the thesis.",
       },
+      {
+        src: "/projects/honors/honors-title.png",
+        caption:
+          "The title for my thesis at the UMass Amherst Commonwealth Honors College exploring GANs for timbre synthesis.",
+      },
     ],
-    size: "lg",
+    size: "xxl",
     link: "https://docs.google.com/document/d/1Xb-1g6tz4VSmXon9N6VQUGq1lYzuSttLNalpCWSiQdc/edit?usp=sharing",
     awesomeness: 4,
   },
@@ -156,12 +214,12 @@ export const codingProjects: Project[] = [
       "I designed a local Ollama-based personal assistant that summarized and read New York Times articles using real-time TTS. The system refreshed its dataset daily and answered both current and historical questions—stored and processed locally for privacy.",
     images: [
       {
-        src: "/projects/nyt-llm.mp4",
+        src: "/projects/nyt/nyt-llm.mp4",
         caption:
           "The NYT LLM answering “What's happening in the tech sector today?” using locally stored articles.",
       },
       {
-        src: "/projects/nyt-logo.jpg",
+        src: "/projects/nyt/nyt-logo.jpg",
         caption:
           "Article summaries were vectorized and retrieved from a local database for contextual question answering.",
       },
@@ -177,7 +235,7 @@ export const codingProjects: Project[] = [
       "I built the Beamshyft web platform to connect developers with manufacturers for cost-efficient interior materials. Developed with Next.js, it enabled users to request materials, manage deliveries, and source stylish furnishings directly from producers.",
     images: [
       {
-        src: "/projects/beamshyft_white.PNG",
+        src: "/projects/beamshyft/beamshyft_white.PNG",
         caption:
           "The Beamshyft platform delivered interior construction materials from manufacturers to developers.",
       },
@@ -239,12 +297,12 @@ export const codingProjects: Project[] = [
       "I created a modern blockbreaker game using JavaScript and an HTML5 canvas. It featured multiple levels, progressive difficulty, and crisp collision physics.",
     images: [
       {
-        src: "/projects/blockbreaker.mp4",
+        src: "/projects/blockbreaker/blockbreaker.mp4",
         caption:
           "Gameplay demo of the modernized blockbreaker built with HTML5 canvas.",
       },
       {
-        src: "/projects/blockbreaker-ss.png",
+        src: "/projects/blockbreaker/blockbreaker-ss.png",
         caption:
           "Each level increased difficulty, demanding precision and timing to clear all blocks.",
       },
@@ -300,12 +358,12 @@ export const engineeringProjects: Project[] = [
           "A WiFi-enabled feeding tracker built with an ESP8266, OLED, and tactile button.",
       },
       {
-        src: "/projects/feedkevin-timer.jpeg",
+        src: "/projects/feedkevin/feedkevin-timer.jpeg",
         caption:
           "Pressing the button logged Kevin's last meal so he couldn't beg twice.",
       },
       {
-        src: "/projects/feedkevin-weight.jpg",
+        src: "/projects/feedkevin/feedkevin-weight.jpg",
         caption: "Kevin had a problem.",
       },
     ],
@@ -320,26 +378,26 @@ export const engineeringProjects: Project[] = [
       "Originally meant to help me “clean my room remotely,” this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed objects autonomously or via controller.",
     images: [
       {
-        src: "/projects/biwheel-top.jpg",
+        src: "/projects/biwheel/biwheel-top.jpg",
         caption:
           "Top view showing the camera and ultrasonic sensor used for detection.",
       },
       {
-        src: "/projects/biwheel-controller.JPEG",
+        src: "/projects/biwheel/biwheel-controller.JPEG",
         caption:
           "Controlled with a DualShock 4 controller; included a two-DOF claw for object interaction.",
       },
       {
-        src: "/projects/biwheel-cad-compressed.gif",
+        src: "/projects/biwheel/biwheel-cad-compressed.gif",
         caption: "The robot's CAD model designed in Fusion 360.",
       },
       {
-        src: "/projects/biwheel-back.jpg",
+        src: "/projects/biwheel/biwheel-back.jpg",
         caption:
           "Rear view showing power setup and status LED for controller connection.",
       },
       {
-        src: "/projects/biwheel-karate.mp4",
+        src: "/projects/biwheel/biwheel-karate.mp4",
         caption:
           "Robot performing a “karate chop” emote—because function and fun coexisted.",
       },
@@ -354,21 +412,21 @@ export const engineeringProjects: Project[] = [
       "I built a quadcopter powered by a Raspberry Pi with an onboard camera, GPS, and Bluetooth/WiFi control. The project explored PID flight control and quadcopter dynamics—the Raspberry Pi wasn't ideal for flight control, but the lessons were invaluable.",
     images: [
       {
-        src: "/projects/drone-exposed.jpg",
+        src: "/projects/drone/drone-exposed.jpg",
         caption:
           "Components included Raspberry Pi, GPS, IMU, ESCs, and a camera for navigation.",
       },
       {
-        src: "/projects/drone-design.png",
+        src: "/projects/drone/drone-design.png",
         caption:
           "Fusion 360 model showing optimized weight distribution and frame design.",
       },
       {
-        src: "/projects/drone-top.jpg",
+        src: "/projects/drone/drone-top.jpg",
         caption: "Top view highlighting navigation and sensing modules.",
       },
       {
-        src: "/projects/drone-testing.mp4",
+        src: "/projects/drone/drone-testing.mp4",
         caption:
           "PID tuning session using a ceiling-mounted tether for safe testing.",
       },
@@ -384,31 +442,31 @@ export const engineeringProjects: Project[] = [
       "I designed a custom ESP32-based environmental controller for mushroom cultivation. Built on a custom KiCAD PCB, it controlled humidity, UV lighting, PC fans, and a Peltier element for heating/cooling. It also included an OLED interface and internet connectivity for monitoring.",
     images: [
       {
-        src: "/projects/mushete-board-completed.JPEG",
+        src: "/projects/mushete/mushete-board-completed.JPEG",
         caption:
           "Completed controller featuring an ESP32 microcontroller and custom PCB.",
       },
       {
-        src: "/projects/mushete-kicad.jpg",
+        src: "/projects/mushete/mushete-kicad.jpg",
         caption: "KiCAD schematic showing humidity and fan control circuits.",
       },
       {
-        src: "/projects/mushete-board-pcb.jpg",
+        src: "/projects/mushete/mushete-board-pcb.jpg",
         caption:
           "PCB layout integrating sensors, display, and solid-state cooling components.",
       },
       {
-        src: "/projects/mushete-sensor.mp4",
+        src: "/projects/mushete/mushete-sensor.mp4",
         caption:
           "Temperature and humidity sensor feeding data to the OLED display.",
       },
       {
-        src: "/projects/mushete-mount.png",
+        src: "/projects/mushete/mushete-mount.png",
         caption:
           "Custom mount for the Peltier module designed for easy maintenance.",
       },
       {
-        src: "/projects/mushete-case.jpg",
+        src: "/projects/mushete/mushete-case.jpg",
         caption:
           "Completed mushroom-growing setup inside a repurposed PC case.",
       },
@@ -423,24 +481,24 @@ export const engineeringProjects: Project[] = [
       "To improve print quality on my budget 3D printer, I designed a custom fan mount and nozzle system in Fusion 360. The upgrade significantly improved cooling performance, overhangs, and overall print precision.",
     images: [
       {
-        src: "/projects/3dprinter-attachment.jpg",
+        src: "/projects/3dprinter/3dprinter-attachment.jpg",
         caption:
           "Custom cooling mount and nozzle assembly for improved print performance.",
       },
       {
-        src: "/projects/3dprinter-design.png",
+        src: "/projects/3dprinter/3dprinter-design.png",
         caption: "First nozzle revision designed in Fusion 360.",
       },
       {
-        src: "/projects/3dprinter-design2.png",
+        src: "/projects/3dprinter/3dprinter-design2.png",
         caption: "Simplified second revision—less proved to be more.",
       },
       {
-        src: "/projects/3dprinter-mount.png",
+        src: "/projects/3dprinter/3dprinter-mount.png",
         caption: "Cooling mount designed to fit the printer's extrusion frame.",
       },
       {
-        src: "/projects/3dprinter-nozzle.gif",
+        src: "/projects/3dprinter/3dprinter-nozzle.gif",
         caption:
           "Stress test demonstrating improved cooling and layer consistency.",
       },
@@ -470,12 +528,12 @@ export const engineeringProjects: Project[] = [
       "To prevent frozen pipes during winter, I built a breaker panel monitor that detected circuit trips and sent notifications via IFTTT. It was a reliable, low-cost safeguard—and far cheaper than calling an electrician.",
     images: [
       {
-        src: "/projects/breaker-panel.jpg",
+        src: "/projects/breaker/breaker-panel.jpg",
         caption:
           "Breaker monitor that detected tripped circuits and alerted via WiFi.",
       },
       {
-        src: "/projects/breaker-ifttt.PNG",
+        src: "/projects/breaker/breaker-ifttt.PNG",
         caption:
           "Example IFTTT mobile notification triggered by a breaker trip.",
       },

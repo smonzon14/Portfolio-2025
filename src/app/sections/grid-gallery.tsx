@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Spinner } from "@heroui/spinner";
 import { Button, Link, useDisclosure } from "@heroui/react";
 
-const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: string, caption: string, autoplay: boolean, controls?: boolean }) => {
+const Media = ({ src, caption, autoplay = true, controls = true }: { src: string, caption: string, autoplay: boolean, controls?: boolean }) => {
     const [loading, setLoading] = useState(true);
 
     if (src.endsWith('.mp4')) {
@@ -19,7 +19,7 @@ const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: s
                     </div>
                 )}
                 <video
-                    className="object-cover"
+                    className="object-cover max-h-[80vh] max-w-full"
                     preload="metadata"
                     src={src + "#t=0.1"}
                     autoPlay={autoplay}
@@ -27,6 +27,23 @@ const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: s
                     muted
                     controls={controls}
                     onLoadedData={() => setLoading(false)}
+                />
+            </div>
+        );
+    } else if (src.endsWith('.mp3') || src.endsWith('.wav')) {
+        return (
+            <div className="relative w-full h-full flex flex-col items-center justify-center">
+                {loading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30 pointer-events-none">
+                        <Spinner color="warning" size="lg" />
+                    </div>
+                )}
+                <audio
+                    src={src}
+                    autoPlay={autoplay}
+                    controls={controls}
+                    onLoadedData={() => setLoading(false)}
+                    className="w-full"
                 />
             </div>
         );
@@ -43,8 +60,8 @@ const ImageOrVideo = ({ src, caption, autoplay = true, controls=true }: { src: s
                     loading="lazy"
                     src={src}
                     alt={caption}
-                    width={500}
-                    height={500}
+                    width={600}
+                    height={600}
                     unoptimized={src.endsWith(".gif")}
                     onLoad={() => setLoading(false)}
                     style={loading ? { visibility: "hidden" } : {}}
@@ -87,6 +104,44 @@ export const GridGallery = ({
   return (<div className="relative w-full pb-6" id={sectionId}>
         <h2 className="text-4xl pb-10 z-[21]">{title}</h2>
           <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 grid-flow-dense ${getGridColsClass(cols)}`}>
+            <style>{
+            `
+            .holographic-card {
+                filter: brightness(0.5);
+            }
+            .holographic-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(
+                    0deg, 
+                    transparent, 
+                    transparent 30%, 
+                    rgba(255,255,255,0.3)
+                );
+                transform: rotate(-45deg);
+                transition: all 0.5s ease;
+                opacity: 0;
+            }
+
+            .holographic-card:hover,
+            .holographic-card.holo-active {
+                z-index: 10;
+                transform: scale(1.05);
+                filter: brightness(1.0);
+                box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            }
+
+            .holographic-card:hover::before,
+            .holographic-card.holo-active::before {
+                z-index: 11;
+                opacity: 1;
+                transform: rotate(-45deg) translateY(100%);
+            }
+            `}</style>
             {projects.map((project) => (
               <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice}/>
             ))}
@@ -123,7 +178,7 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
         project.size as keyof typeof textSizeMap
         ] ?? textSizeMap.md;
 
-    const firstImage = project.images?.find((img) => !img.src.endsWith(".mp4"));
+    const firstImage = project.images?.find((img) => !img.src.endsWith(".mp4") && !img.src.endsWith(".mp3") && !img.src.endsWith(".wav"));
 
     const cardRef = React.useRef<HTMLAnchorElement>(null);
     const [isActive, setIsActive] = React.useState(false);
@@ -188,43 +243,7 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
 
                 </div>
             </a>
-            <style>{
-            `
-            .holographic-card {
-                filter: brightness(0.5);
-            }
-            .holographic-card::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(
-                    0deg, 
-                    transparent, 
-                    transparent 30%, 
-                    rgba(255,255,255,0.3)
-                );
-                transform: rotate(-45deg);
-                transition: all 0.5s ease;
-                opacity: 0;
-            }
-
-            .holographic-card:hover,
-            .holographic-card.holo-active {
-                z-index: 10;
-                transform: scale(1.05);
-                filter: brightness(1.0);
-                box-shadow: 0 0 20px rgba(255,255,255,0.5);
-            }
-
-            .holographic-card:hover::before,
-            .holographic-card.holo-active::before {
-                opacity: 1;
-                transform: rotate(-45deg) translateY(100%);
-            }
-            `}</style>
+            
            <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="dark max-w-max" backdrop="blur" scrollBehavior="outside">
                 <ModalContent>
                     {(onClose) => (
@@ -241,7 +260,7 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                                         {project.images.map((image, index) => (
                                             <div key={index} className="items-center flex flex-col gap-4 bg-black/40 p-4 rounded-lg min-w-[200px] min-h-[200px]">
                                                 <p className="self-start text-xl">{"fig." + (index+1)}</p>
-                                                    <ImageOrVideo src={image.src} caption={image.caption} autoplay={false}/>
+                                                    <Media src={image.src} caption={image.caption} autoplay={false}/>
                                                 <p className="text-center">{image.caption}</p>
                                             </div>
                                         ))}
