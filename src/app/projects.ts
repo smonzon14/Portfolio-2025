@@ -147,9 +147,9 @@ export const researchProjects: Project[] = [
       {src: "/projects/swimsense/swimsense-setup.png",
         caption: "The testing setup with LoRa receiver connected to a laptop for real-time data monitoring."
       },
-      {src: "/projects/swimsense/swimsense-dashboard.png",
-        caption: "Real-time dashboard displaying velocity, rotation, RSSI signal strength, and heart monitor. Buttons are used for labeling swim strokes during data collection."
-      }
+      // {src: "/projects/swimsense/swimsense-dashboard.png",
+      //   caption: "Real-time dashboard displaying velocity, rotation, RSSI signal strength, and heart monitor. Buttons are used for labeling swim strokes during data collection."
+      // },
       // {
       //   src: "/projects/swimsense/swimsense-doubled.jpg",
       //   caption:
