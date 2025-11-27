@@ -101,7 +101,7 @@ export const GridGallery = ({
     return colsMap[cols] || 'md:grid-cols-12';
   };
 
-  return (<div className="relative w-full pb-6" id={sectionId}>
+  return (<div className="relative w-full pb-6 " id={sectionId}>
         <h2 className="text-4xl pb-10 z-[21]">{title}</h2>
           <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 grid-flow-dense ${getGridColsClass(cols)}`}>
             <style>{
@@ -163,9 +163,9 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
     const textSizeMap = {
         sm: "text-2xl",
         md: "text-2xl",
-        lg: "text-3xl",
-        xl: "text-3xl",
-        xxl: "text-4xl",
+        lg: "text-2xl",
+        xl: "text-2xl",
+        xxl: "text-2xl",
     } as const;
 
     const span =

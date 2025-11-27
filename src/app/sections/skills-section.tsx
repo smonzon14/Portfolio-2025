@@ -25,9 +25,9 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
               <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">
                 SKILLS & TECHNOLOGIES
               </div>
-              <p>I&#39;m constantly looking to solve problems with what I know, and searching for opportunities to learn what I don&#39;t.
+              <p className='text-md'>I&#39;m constantly looking to solve problems with what I know, and searching for opportunities to learn what I don&#39;t.
               </p>
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex gap-4 flex-wrap text-sm">
                 <ul className="list-none">
                   <li className="flex items-center gap-2">
                     <span className="text-green-500">✔</span> HTML, CSS, & JavaScript

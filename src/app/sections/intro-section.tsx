@@ -13,7 +13,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p>Software engineer, researcher, <Link href="https://cra.org/csgrad4us/" className="text-lg text-[#bbb]" target="_blank" showAnchorIcon>NSF CSGrad4US fellow</Link>, and musician creating <b className="text-white">multimodal generative systems for computational sensing & design</b>. I explore the intersection of human motion, sound, and materials through interactive AI tools. I also work full-time as a full-stack engineer at <Link href="https://meraki.cisco.com/" className="text-lg text-[#bbb]" target="_blank" showAnchorIcon>Cisco Meraki</Link>. Applying to PhD and Master&apos;s programs for Fall 2026.</p>
+                    <p className="text-md">Software engineer, researcher, <Link href="https://cra.org/csgrad4us/" className="text-[#bbb] text-md" target="_blank" showAnchorIcon>NSF CSGrad4US fellow</Link>, and musician creating <b className="text-white">multimodal generative systems for computational sensing & design</b>. I explore the intersection of human motion, sound, and materials through interactive AI tools. I also work full-time as a full-stack engineer at <Link href="https://meraki.cisco.com/" className="text-lg text-[#bbb]" target="_blank" showAnchorIcon>Cisco Meraki</Link>. Applying to PhD and Master&apos;s programs for Fall 2026.</p>
 
                     <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
                         <Button

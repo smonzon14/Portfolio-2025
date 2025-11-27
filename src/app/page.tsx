@@ -26,7 +26,7 @@ export default async function Home() {
       <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
         <SmonzonNavbar isMobileDevice={isMobileDevice} />
         <main
-          className="relative flex flex-col px-2 md:px-6 items-center"
+          className="relative flex flex-col px-4 md:px-6 items-center"
           id="home"
         >
           <ParallaxHeader isMobileDevice={isMobileDevice} />
@@ -77,17 +77,19 @@ export default async function Home() {
 
           <Divider className="my-4 mt-10" />
           <MusicSection />
+          <Divider className="my-4 mt-10" />
+
           <section
-            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40 flex-wrap grid place-items-center"
+            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40 flex-col"
             id="contact"
           >
-              <h2 className="text-4xl pb-4 z-[21]">GET IN TOUCH</h2>
+              <h2 className="text-4xl z-[21]">GET IN TOUCH</h2>
 
               <Button
                 as={Link}
                 size="lg"
                 color="primary"
-                className="text-white"
+                className="text-white w-min"
                 href="https://www.linkedin.com/in/sebastian-monz%C3%B3n-9ab695102/"
                 target="_blank"
                 rel="noopener noreferrer"
