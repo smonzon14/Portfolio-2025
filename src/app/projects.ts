@@ -19,14 +19,14 @@ export const researchProjects: Project[] = [
       "An ongoing independent research project that uses a variational autoencoder to generate percussive audio from hand gestures. The model builds upon RAVE, a state-of-the-art neural audio synthesis architecture, and trains on high-frame-rate recordings of conga drum performances (played by my dad) to capture fine hand movements. The goal is to make it possible to play any percussive instrument using only hand gestures and a camera.",
     images: [
       {
-        src: "/projects/mage/mage_live.gif",
+        src: "/projects/mage/mage_stress_test.mp4",
         caption:
-          "Live demo of MAGE generating conga drum audio from real-time hand tracking using MediaPipe.",
+          "This is me (a non-drummer) testing MAGE with some improvised drumming gestures. The model works for basic movements but struggles at higher speeds - probably due to motion blur from my cheap high-speed camera. I also plan to improve the model architecture by reducing convolutional layers since it sometimes seems to 'drift' off of what I'm playing and into a 'learned' drumming pattern. To teach the hand-encoder model to better generalize and understand hand dynamics, I also plan on augmenting the input features with relative velocities, accelerations, and hand-local rotation matrices instead of just raw landmark positions.",
       },
       {
-        src: "/projects/mage/mage_hand_landmarks_vs_audio.png",
+        src: "/projects/mage/mage_architecture_diagram.svg",
         caption:
-          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
+          "High-level architecture of MAGE, depicting the hand encoder, latent space, and RAVE-based frozen decoder. The hand encoder maps hand landmarks to the pre-trained BRAVE latent space for audio synthesis. KL divergence loss ensures the latent distribution matches BRAVE's prior through training.",
       },
       {
         src: "/projects/mage/mage_playing_adv2.mp4",
@@ -37,6 +37,11 @@ export const researchProjects: Project[] = [
         src: "/projects/mage/mage_audio_waveform_peaks.png",
         caption:
           "Audio clips are segmented and denoised by aligning to percussive peaks and removing initial audio before the first beat, ensuring the model focuses on the sound itself rather than gesture noise.",
+      },
+      {
+        src: "/projects/mage/mage_hand_landmarks_vs_audio.png",
+        caption:
+          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
       },
     ],
     size: "xxl",

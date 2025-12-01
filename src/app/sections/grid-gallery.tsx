@@ -178,7 +178,10 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
         project.size as keyof typeof textSizeMap
         ] ?? textSizeMap.md;
 
-    const firstImage = project.images?.find((img) => !img.src.endsWith(".mp4") && !img.src.endsWith(".mp3") && !img.src.endsWith(".wav"));
+    let firstImage = project.images?.find((img) => !img.src.endsWith(".mp4") && !img.src.endsWith(".mp3") && !img.src.endsWith(".wav"));
+    if (project.key === "mage"){
+        firstImage = {src: "/projects/mage/mage_live.gif", caption: "GIF of MAGE generating conga drum audio from real-time hand tracking using MediaPipe."};
+    }
 
     const cardRef = React.useRef<HTMLAnchorElement>(null);
     const [isActive, setIsActive] = React.useState(false);
