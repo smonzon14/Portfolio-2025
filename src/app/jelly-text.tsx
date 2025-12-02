@@ -17,7 +17,6 @@ export const JellyText = ({ children }: { children: ReactNode | string }) => {
           }
         }}
         data-priority="true"
-        poster="jellies2-poster.jpg"
       >
         <source src="jellies10.mp4" type="video/mp4" />
       </video>
