@@ -43,8 +43,9 @@ export const ParallaxHeader = ({
       </div>
       <IntroSection isMobileDevice={isMobileDevice} />
       
-      <Divider className="my-12" />
-
+      {
+        isMobileDevice ? null : <Divider className="my-12" />
+      }
       
 
       <div className="relative flex flex-col max-w-[1340px] w-full gap-4">

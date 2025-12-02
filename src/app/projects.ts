@@ -9,6 +9,7 @@ export type Project = {
   size: "sm" | "md" | "lg" | "xl" | "xxl";
   awesomeness: number;
   link?: string;
+  date?: string;
 };
 
 export const researchProjects: Project[] = [
@@ -46,12 +47,13 @@ export const researchProjects: Project[] = [
     ],
     size: "xxl",
     awesomeness: 1,
+    date: "2025",
   },
   {
     key: "music-spectrogram-inpainting",
     name: "Music-Spectrogram Inpainting for Hydrogel Dewatering (in-progress)",
     description:
-      "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I develop a Stable Diffusion-based pipeline (inspired by Riffusion) for spectrogram inpainting. The system reconstructs masked audio regions to enhance hydrogel air-water extraction by amplifying specific frequency bands. I am currently experimenting with CLIP soft tokens to improve generative guidance and musical coherence.",
+      "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I developed a Stable Diffusion-based pipeline (inspired by Riffusion) for Mel-spectrogram inpainting. The model reconstructs masked audio regions, keeping optimal frequencies intact. I am currently experimenting with CLIP soft tokens to directly generate improved hydrogel music without inpainting and an audio equalizer I designed based on band performance correlations and SHAP analysis.",
     images: [
       {
         src: "/projects/music-spectrogram-inpainting/audio/disco.00049.wav",
@@ -61,7 +63,7 @@ export const researchProjects: Project[] = [
       {
         src: "/projects/music-spectrogram-inpainting/audio/disco.00049_80s.wav",
         caption:
-          "Regenerated, inpainted audio where high frequencies (>300 Hz) were masked and reconstructed with the prompt \"80s song with energetic wind section, guitar, bass and drums. very funky\"... (I've heard worse 80s remixes)",
+          "Regenerated, inpainted audio where high frequencies (>300 Hz) were masked and reconstructed with the prompt \"80s song with energetic wind section, guitar, bass and drums. very funky\"... (I've heard worse remixes)",
       },
       {
         src: "/projects/music-spectrogram-inpainting/audio/hiphop.00037.wav",
@@ -94,7 +96,7 @@ export const researchProjects: Project[] = [
       {
         src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-shap.png",
         caption:
-          "My SHAP analysis pipeline predicts hydrogel performance from spectrograms and identifies important frequency bands.",
+          "My SHAP analysis pipeline predicts hydrogel performance from spectrograms and estimates important frequency bands.",
       },
       {
         src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-shap-results.png",
@@ -109,17 +111,18 @@ export const researchProjects: Project[] = [
     ],
     size: "xxl",
     awesomeness: 2,
+    date: "2025",
   },
   {
     key: "swimsense",
     name: "SwimSense: Computational Sensing for Swimming Analysis (in-progress)",
     description:
-      "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training.",
+      "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training. I also plan on adapting this device to other extreme environments where low energy, long range health monitoring is critical.",
     images: [
 
       {
         src: "/projects/swimsense/swimsense-gabe-swimming.mp4",
-        caption: "SwimSense in action during swim trials, capturing motion and physiological data.",
+        caption: "SwimSense in action during swim trials, capturing motion and physiological data. (The swimmer is my brother, Gabe, who was voluntold to be my test subject)",
       },
       {
         src: "/projects/swimsense/swimsense-swimming-and-dashboard.mp4",
@@ -138,7 +141,7 @@ export const researchProjects: Project[] = [
       // },
       {
         src: "/projects/swimsense/swimsense-stripped.jpg",
-        caption: "The soldered SwimSense v2 prototype with waterproof top removed. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
+        caption: "The soldered SwimSense v2 prototype with waterproof top removed - complete with IMU, PPG, temperature sensor, battery, and external usb. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
       },
       {
         src: "/projects/swimsense/swimsense-single.jpg",
@@ -172,12 +175,13 @@ export const researchProjects: Project[] = [
     size: "xxl",
     link: "https://github.com/smonzon14/SwimSense",
     awesomeness: 3,
+    date: "2025",
   },
   {
     key: "honors",
     name: "Honors Thesis",
     description:
-      "As a recreational music producer, I've been trying to find \"my sound\" ever since I began. That mission led me to research Generative Adversarial Networks for timbre synthesis in my undergraduate honors thesis at UMass Amherst. With limited time, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.”",
+      "As a recreational music producer, I've tried to find \"my sound\" from the beginning. That mission led me to research Generative Adversarial Networks for timbre/sound synthesis in my undergraduate honors thesis at UMass Amherst. With limited time, I built a multiclass classification model for instrument identification as a foundation for future GAN-based synthesis. The long-term vision was to generate novel sounds directly from text descriptions like “soothing piano with warm overtones.” I never got to build the GAN, but I learned a lot about deep learning, audio processing, and the challenges of generative models.",
     images: [
       {
         src: "/projects/honors/honors-confusion-matrix.png",
@@ -208,6 +212,7 @@ export const researchProjects: Project[] = [
     size: "xxl",
     link: "https://docs.google.com/document/d/1Xb-1g6tz4VSmXon9N6VQUGq1lYzuSttLNalpCWSiQdc/edit?usp=sharing",
     awesomeness: 4,
+    date: "2023",
   },
 ];
 
@@ -216,54 +221,57 @@ export const codingProjects: Project[] = [
     key: "nyt",
     name: "NYT Large Language Model (LLM)",
     description:
-      "I designed a local Ollama-based personal assistant that summarized and read New York Times articles using real-time TTS. The system refreshed its dataset daily and answered both current and historical questions—stored and processed locally for privacy.",
+      "I designed a local Ollama-based personal assistant that summarized New York Times articles using real-time Text-to-Speech. The system refreshed its dataset daily from a live RSS feed and answered both current and historical questions stored and vectorized locally.",
     images: [
       {
         src: "/projects/nyt/nyt-llm.mp4",
         caption:
-          "The NYT LLM answering “What's happening in the tech sector today?” using locally stored articles.",
+          "The NYT LLM answering “What's happening in the tech sector today?” using locally stored articles. The system fetches K similar articles from a vector database to provide context-aware answers with up-to-date information.",
       },
       {
         src: "/projects/nyt/nyt-logo.jpg",
         caption:
-          "Article summaries were vectorized and retrieved from a local database for contextual question answering.",
+          "Article summaries were vectorized and retrieved from a local database for contextual question answering. I used Ollama's LLM for on-device inference to ensure privacy and low latency.",
       },
     ],
     link: "https://github.com/smonzon14/NYT-LLM",
     size: "lg",
     awesomeness: 5,
+    date: "2024",
   },
   {
     key: "beamshyft",
     name: "Beamshyft - Lower Construction Costs for Developers",
     description:
-      "I built the Beamshyft web platform to connect developers with manufacturers for cost-efficient interior materials. Developed with Next.js, it enabled users to request materials, manage deliveries, and source stylish furnishings directly from producers.",
+      "I built the Beamshyft website to connect developers to cost-efficient interior materials. Developed with Next.js, it enabled users to request custom furnishings directly from producers. Now, the company has pivoted to focus on consumer-facing distribution, and I'm proud to have contributed to its early growth.",
     images: [
       {
         src: "/projects/beamshyft/beamshyft_white.PNG",
         caption:
-          "The Beamshyft platform delivered interior construction materials from manufacturers to developers.",
+          "The Beamshyft platform delivered interior construction materials from manufacturers to developers. See it live at beamshyft.com.",
       },
     ],
     size: "lg",
     link: "https://beamshyft.com/",
     awesomeness: 11,
+    date: "2025",
   },
   {
     key: "curdle",
     name: "Curdle - Wordle for Cheeses",
     description:
-      "To address my cheese-based insecurity, I created Curdle—a Wordle-style game featuring real five-letter cheese names (yes, there were 42). Built with JavaScript, it refreshed daily and offered a flavorful test of dairy vocabulary.",
+      "Because Wordle was too easy, I created Curdle: a Wordle-style game featuring real five-letter cheese names (There are 42, in case you were wondering. And yes, it probably would have been better to include all cheeses, hangman-style). Built with JavaScript, it refreshed daily and offers a flavorful test of dairy vocabulary. Feel free to give it a try!",
     images: [
       {
         src: "/projects/curdle.png",
         caption:
-          "A playful word game that challenged users to guess five-letter cheese names.",
+          "A cheesy word game that challenged users to guess five-letter cheese names.",
       },
     ],
     size: "sm",
     link: "/curdle/index.html",
     awesomeness: 19,
+    date: "2022",
   },
   {
     key: "simulation-physics",
@@ -274,11 +282,12 @@ export const codingProjects: Project[] = [
       {
         src: "/projects/simulation-physics-compressed.gif",
         caption:
-          "A 2D physics simulation that visualized gravitational attraction and motion in real time.",
+          "A 2D physics simulation that visualized gravitational attraction and motion in real time. By placing masses, users could see how objects influenced each other's trajectories as the bodies would collide and disappear upon contact.",
       },
     ],
     size: "md",
     awesomeness: 10,
+    date: "2018",
   },
   {
     key: "simulation-cgol",
@@ -294,6 +303,7 @@ export const codingProjects: Project[] = [
     ],
     size: "sm",
     awesomeness: 14,
+    date: "2020",
   },
   {
     key: "blockbreaker",
@@ -315,38 +325,41 @@ export const codingProjects: Project[] = [
     size: "sm",
     link: "https://github.com/smonzon14/BlockBreaker",
     awesomeness: 15,
+    date: "2019",
   },
   {
     key: "vibeq",
     name: "VibeQ - Spotify Group DJ App",
     description:
-      "I developed VibeQ, an app that let multiple users vote on the next Spotify song in a shared queue via QR code. Built with React Native (Expo) and Firebase, it won two runner-up awards at a UMass Amherst hackathon.",
+      "For a 3 day UMass Amherst hackathon, I developed VibeQ, an app that let multiple users vote on the next Spotify song in a shared queue via QR code. Built with React Native (Expo) and Firebase, it won two runner-up awards at a UMass Amherst hackathon.",
     images: [
       {
         src: "/projects/vibeq.png",
         caption:
-          "“Still waiting for your favorite song? Bring the aux to the people with VibeQ.”",
+          "“Still waiting for your favorite song? Bring the aux to the people with VibeQ.” Unfortunately, this app's expo version is outdated and no longer works, but the code is available on GitHub.",
       },
     ],
     size: "md",
     link: "https://github.com/smonzon14/VibeQ",
     awesomeness: 9,
+    date: "2021",
   },
   {
     key: "myhs",
     name: "MyHS - High School Student Portal",
     description:
-      "In high school, I wrote a Swift-based mobile app that aggregated grades, homework, and schedules. The IT department mistook it for hacking and issued a cease-and-desist—an early lesson in innovation (and bureaucracy).",
+      "In high school, I wrote a Swift-based mobile app that aggregated grades, homework, and schedules. The IT department mistook it as a student privacy issue and issued a cease-and-desist. An early lesson in innovation (and red tape).",
     images: [
       {
         src: "/projects/myhs.jpg",
         caption:
-          "A Swift mobile app that synced grades, homework, and schedules—built during high school.",
+          "A Swift mobile app that synced grades, homework, and schedules—built during high school. I coded this entirely on the Mac in the library after school hours or during free periods.",
       },
     ],
     size: "sm",
     link: "https://github.com/smonzon14/MyHS",
     awesomeness: 16,
+    date: "2018",
   },
 ];
 
@@ -355,12 +368,12 @@ export const engineeringProjects: Project[] = [
     key: "feedkevin",
     name: "FeedKevin! - Pet Food Timer",
     description:
-      "To avoid double-feeding our cat Kevin, I soldered a WiFi-enabled smart button that logged and displayed feeding times using an ESP8266, SSD1306 OLED, and a single button. The device fetched NTP time and kept everyone honest—including Kevin.",
+      "To avoid double-feeding our cat Kevin, I soldered a WiFi-enabled smart button that logs and displays feeding times using an ESP8266, SSD1306 OLED, and a single button. The device fetched NTP time and kept everyone honest. Including Kevin.",
     images: [
       {
         src: "/gifs/feedkevin.gif",
         caption:
-          "A WiFi-enabled feeding tracker built with an ESP8266, OLED, and tactile button.",
+          "A WiFi-enabled feeding tracker built with an ESP8266, OLED, and tactile button. There are different menus and display modes to show last fed time, time since last feeding, and total daily feedings.",
       },
       {
         src: "/projects/feedkevin/feedkevin-timer.jpeg",
@@ -375,12 +388,13 @@ export const engineeringProjects: Project[] = [
     size: "md",
     link: "https://github.com/smonzon14/Feed-Kevin",
     awesomeness: 13,
+    date: "2025",
   },
   {
     key: "biwheel",
     name: "Raspberry Pi Robot",
     description:
-      "Originally meant to help me “clean my room remotely,” this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed objects autonomously or via controller.",
+      "Originally meant to help me “clean my room remotely,” this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed 3d-printed green cubes autonomously or via controller.",
     images: [
       {
         src: "/projects/biwheel/biwheel-top.jpg",
@@ -404,11 +418,12 @@ export const engineeringProjects: Project[] = [
       {
         src: "/projects/biwheel/biwheel-karate.mp4",
         caption:
-          "Robot performing a “karate chop” emote—because function and fun coexisted.",
+          "Robot performing a “karate chop” emote, Bruce Lee style.",
       },
     ],
     size: "xxl",
     awesomeness: 6,
+    date: "2019",
   },
   {
     key: "drone",
@@ -439,12 +454,13 @@ export const engineeringProjects: Project[] = [
     size: "lg",
     link: "https://github.com/smonzon14/PiDrone",
     awesomeness: 8,
+    date: "2022",
   },
   {
     key: "mushete",
     name: "Mushroom Environment Controller",
     description:
-      "I designed a custom ESP32-based environmental controller for mushroom cultivation. Built on a custom KiCAD PCB, it controlled humidity, UV lighting, PC fans, and a Peltier element for heating/cooling. It also included an OLED interface and internet connectivity for monitoring.",
+      "I designed a custom ESP32-based environmental controller for mushroom cultivation (the legal kind). Built on a custom KiCAD PCB, it controlled humidity, UV lighting, PC fans, and a Peltier element for heating/cooling. It also included an OLED interface and internet connectivity for monitoring.",
     images: [
       {
         src: "/projects/mushete/mushete-board-completed.JPEG",
@@ -478,6 +494,7 @@ export const engineeringProjects: Project[] = [
     ],
     size: "xxl",
     awesomeness: 7,
+    date: "2024",
   },
   {
     key: "3dprinter",
@@ -505,37 +522,39 @@ export const engineeringProjects: Project[] = [
       {
         src: "/projects/3dprinter/3dprinter-nozzle.gif",
         caption:
-          "Stress test demonstrating improved cooling and layer consistency.",
+          "Stress test demonstrating improved cooling and first layer adhesion.",
       },
     ],
     size: "md",
     awesomeness: 12,
+    date: "2017",
   },
   {
     key: "whoshome",
     name: "Anybody Home?",
     description:
-      "Because living in an attic made it hard to tell who was home, I created an ESP8266-based device that detected nearby phones by MAC address and sent notifications. I eventually decommissioned it—effective, but a little too Black Mirror.",
+      "Because living in an attic made it hard to tell who was home, I created an ESP8266-based device that detected nearby phones by MAC address and sent notifications. I eventually decommissioned it because it's creepy.",
     images: [
       {
         src: "/projects/whoshome.jpg",
         caption:
-          "ESP8266 device that detected known MAC addresses to infer presence.",
+          "ESP8266 device that detected known MAC addresses to infer the presence of my 4 family members at home.",
       },
     ],
     size: "sm",
     awesomeness: 17,
+    date: "2016",
   },
   {
     key: "breaker",
     name: "Breaker Panel Monitor",
     description:
-      "To prevent frozen pipes during winter, I built a breaker panel monitor that detected circuit trips and sent notifications via IFTTT. It was a reliable, low-cost safeguard—and far cheaper than calling an electrician.",
+      "To prevent frozen pipes during winter, I built a breaker panel monitor that detected circuit trips and sent notifications via IFTTT. It was a reliable, low-cost safeguard, and far cheaper than calling an electrician... though we still did that.",
     images: [
       {
         src: "/projects/breaker/breaker-panel.jpg",
         caption:
-          "Breaker monitor that detected tripped circuits and alerted via WiFi.",
+          "Breaker monitor that detected tripped circuits and alerted my phone via IFTTT.",
       },
       {
         src: "/projects/breaker/breaker-ifttt.PNG",
@@ -545,6 +564,7 @@ export const engineeringProjects: Project[] = [
     ],
     size: "sm",
     awesomeness: 18,
+    date: "2023",
   },
 ];
 

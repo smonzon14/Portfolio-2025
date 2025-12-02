@@ -24,7 +24,6 @@ const Media = ({ src, caption, autoplay = true, controls = true }: { src: string
                     src={src + "#t=0.1"}
                     autoPlay={autoplay}
                     loop={autoplay}
-                    muted
                     controls={controls}
                     onLoadedData={() => setLoading(false)}
                 />
@@ -221,7 +220,7 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                 onClick={onOpen}
                 rel="noreferrer"
                 ref={cardRef}
-                className={`${span} ${isActive ? "holo-active" : ""} relative block overflow-hidden holographic-card duration-300 pointer-events-auto cursor-pointer border-1 border-white/10 bg-black`}
+                className={`${span} ${isActive ? "holo-active" : ""} relative block overflow-hidden holographic-card duration-300 pointer-events-auto cursor-pointer bg-black`}
             >
                 {firstImage?.src ? (
                     <Image
@@ -235,6 +234,11 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                 ) : (
                     <div className="absolute inset-0 bg-neutral-900" />
                 )}
+                <div className="absolute inset-0" >
+                    <p className="font-bold text-white/90 bg-black/60 px-2 py-1 w-fit m-2 rounded-md text-sm">
+                        {project.date}
+                    </p>
+                </div>
                 <div className="absolute inset-x-0 bottom-0 pointer-events-none">
                     <div className="bg-gradient-to-t from-black/100 to-transparent px-2 py-40 pb-4">
                         <p className={"font-bold text-white/90 w-fit " + textSize}>
@@ -251,10 +255,10 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1 text-2xl">{project.name}</ModalHeader>
+                            <ModalHeader className="flex flex-col gap-1 text-2xl max-w-[700px]">{project.name}</ModalHeader>
                             <ModalBody >
                                 <div className="flex flex-col gap-8 max-w-[700px]" >
-                                    <div className="text-lg">{project.description}</div>
+                                    <div className="text-md">{project.description}</div>
                                     {project.link && (
                                 <div className="w-full flex justify-center"><Button as={Link} color="primary" variant="faded" href={project.link} target="_blank" rel="noopener noreferrer" showAnchorIcon>
                                     Project Link
@@ -264,7 +268,7 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                                             <div key={index} className="items-center flex flex-col gap-4 bg-black/40 p-4 rounded-lg min-w-[200px] min-h-[200px]">
                                                 <p className="self-start text-xl">{"fig." + (index+1)}</p>
                                                     <Media src={image.src} caption={image.caption} autoplay={false}/>
-                                                <p className="text-center">{image.caption}</p>
+                                                <p className="text-center text-sm self-center text-justify">{image.caption}</p>
                                             </div>
                                         ))}
                                     </div>
