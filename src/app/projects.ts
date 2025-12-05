@@ -56,6 +56,10 @@ export const researchProjects: Project[] = [
       "In collaboration with researchers at the MIT Department of Mechanical Engineering and Media Lab, I developed a Stable Diffusion-based pipeline (inspired by Riffusion) for Mel-spectrogram inpainting. The model reconstructs masked audio regions, keeping optimal frequencies intact. I am currently experimenting with CLIP soft tokens to directly generate improved hydrogel music without inpainting and an audio equalizer I designed based on band performance correlations and SHAP analysis.",
     images: [
       {
+        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-mrs.png",
+        caption: "Our poster presented at the 2025 Materials Research Society (MRS) Fall Meeting showcasing the spectrogram inpainting approach for hydrogel dewatering.",
+      },
+      {
         src: "/projects/music-spectrogram-inpainting/audio/disco.00049.wav",
         caption:
           "\"Boogie Shoes\" by KC and the Sunshine Band. This is the original song/bassline for the regenerated song below.",
