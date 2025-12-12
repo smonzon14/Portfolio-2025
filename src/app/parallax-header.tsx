@@ -48,7 +48,31 @@ export const ParallaxHeader = ({
       }
       
 
-      <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
+      <div
+        style={{
+          maxWidth: 800,
+          width: "100%",
+          zIndex: 10,
+          aspectRatio: "16/9",
+          height: "auto",
+        }}
+        className="mb-12 mx-auto"
+      >
+        <iframe
+          src="https://www.youtube.com/embed/6XUdCfi1rkw"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{
+        borderRadius: 12,
+        aspectRatio: "16/9",
+        display: "block",
+          }}
+        ></iframe>
+      </div>
+
+      {/* <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
         <GridGallery
       title=""
       projects={resizedProjects}
@@ -56,8 +80,7 @@ export const ParallaxHeader = ({
       cols={9}
       isMobileDevice={isMobileDevice}
         />
-      </div>
-
+      </div> */}
       <div className="flex justify-center my-8">
         <div className="animate-bounce flex flex-col items-center">
           <span className="text-gray-500 text-sm mb-1">Scroll to see more</span>
@@ -73,7 +96,6 @@ export const ParallaxHeader = ({
         </div>
       </div>
       <Divider className="my-12" />
-
 
       <MiniCardsSection />
 
