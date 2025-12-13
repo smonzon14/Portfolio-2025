@@ -9,13 +9,40 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? " h-[800px]" : "h-[87vh] min-h-[800px]") } id="intro">
             <div className="flex flex-row gap-[8px] justify-between h-full items-center">
                 <div className="flex flex-col gap-[8px]">
-                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl ">
+                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl">
                         Hello, I&#39;m<br />
                         <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                     </span>
-                    <p className="text-md">Software engineer, researcher, <Link href="https://cra.org/csgrad4us/" className="text-[#bbb] text-md" target="_blank" showAnchorIcon>NSF CSGrad4US fellow</Link>, and musician building <b className="text-white">multimodal AI and embedded systems that transform human signals into sound and insight</b>. I explore expressive interfaces, wireless sensing wearables, and material-optimizing frameworks - often in collaboration with researchers at MIT and UMass Amherst. Full-stack engineer at <Link href="https://meraki.cisco.com/" className="text-md text-[#bbb]" target="_blank" showAnchorIcon>Cisco Meraki</Link>; applying to graduate programs for Fall 2026.</p>
+                    <p className="text-sm md:text-md lg:text-lg ">
+                        Software engineer, researcher,{" "}
+                        <Link
+                            href="https://cra.org/csgrad4us/"
+                            className="text-[#bbb] text-md"
+                            target="_blank"
+                            showAnchorIcon
+                            rel="noopener noreferrer"
+                        >
+                            NSF CSGrad4US fellow
+                        </Link>
+                        , and musician building{" "}
+                        <b className="text-white">
+                            multimodal AI and embedded systems that transform human signals into sound and insight
+                        </b>
+                        . I explore expressive interfaces, wireless sensing wearables, and material-optimizing frameworks - often in collaboration with researchers at MIT and UMass Amherst. Full-stack engineer at{" "}
+                        <Link
+                            href="https://meraki.cisco.com/"
+                            className="text-md text-[#bbb]"
+                            target="_blank"
+                            showAnchorIcon
+                            rel="noopener noreferrer"
+                        >
+                            Cisco Meraki
+                        </Link>
+                        ; applying to graduate programs for Fall 2026.
+                    </p>
+                    <div className="text-sm md:text-md lg:text-lg text-white/40 bg-black max-w-max mt-2">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer" className="text-sm md:text-md lg:text-lg">coded by me</Link> in Next.JS</div>
 
-                    <div className="flex flex-row gap-4 flex-wrap items-center mt-10 max-w-[60%]">
+                    <div className="flex flex-row gap-2 md:gap-4 flex-wrap items-center mt-10 max-w-[60%]">
                         <Button
                             as="a"
                             size="lg"
@@ -42,7 +69,6 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         </Button>
                         <Link className="underline text-lg" href="mailto:smonzon360@gmail.com">smonzon360@gmail.com</Link>
                     </div>
-                    <div className="text-white/40 bg-black max-w-max mt-2">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer">coded by me</Link> in Next.JS</div>
 
                 </div>
             </div>

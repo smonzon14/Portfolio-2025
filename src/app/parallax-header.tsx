@@ -56,20 +56,22 @@ export const ParallaxHeader = ({
           aspectRatio: "16/9",
           height: "auto",
         }}
-        className="mb-12 mx-auto"
+        className="mb-12 mx-auto flex justify-center items-center"
       >
-        <iframe
-          src="https://www.youtube.com/embed/6XUdCfi1rkw"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{
-        borderRadius: 12,
-        aspectRatio: "16/9",
-        display: "block",
-          }}
-        ></iframe>
+        <div className="w-full" style={{ aspectRatio: "16/9" }}>
+          <iframe
+        src="https://www.youtube.com/embed/6XUdCfi1rkw"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="w-full h-full block"
+        style={{
+          borderRadius: 12,
+          aspectRatio: "16/9",
+        }}
+          ></iframe>
+        </div>
       </div>
 
       {/* <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
