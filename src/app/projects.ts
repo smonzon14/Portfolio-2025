@@ -25,25 +25,30 @@ export const researchProjects: Project[] = [
           "This is me (a non-drummer) testing MAGE with some improvised drumming gestures. The model works for basic movements but struggles at higher speeds - probably due to motion blur from my cheap high-speed camera. I also plan to improve the model architecture by reducing convolutional layers since it sometimes seems to 'drift' off of what I'm playing and into a 'learned' drumming pattern. To teach the hand-encoder model to better generalize and understand hand dynamics, I also plan on augmenting the input features with relative velocities, accelerations, and hand-local rotation matrices instead of just raw landmark positions.",
       },
       {
+        src: "/projects/mage/mage_playing_adv2.mp4",
+        caption:
+          "Hand landmarks are extracted with MediaPipe and augmented with normal vectors to capture hand orientation. I'm working on improving robustness to motion blur and occlusions by experimenting with temporal smoothing and other rotational/noise augmentations.",
+      },
+      {
         src: "/projects/mage/mage_architecture_diagram.svg",
         caption:
           "High-level architecture of MAGE, depicting the hand encoder, latent space, and RAVE-based frozen decoder. The hand encoder maps hand landmarks to the pre-trained BRAVE latent space for audio synthesis. KL divergence loss ensures the latent distribution matches BRAVE's prior through training.",
       },
       {
-        src: "/projects/mage/mage_playing_adv2.mp4",
-        caption:
-          "Hand landmarks are extracted with MediaPipe and augmented with normal vectors to capture hand orientation.",
-      },
-      {
-        src: "/projects/mage/mage_audio_waveform_peaks.png",
+        src: "/projects/mage/mage_audio_waveform_onset.png",
         caption:
           "Audio clips are segmented and denoised by aligning to percussive peaks and removing initial audio before the first beat, ensuring the model focuses on the sound itself rather than gesture noise.",
       },
       {
-        src: "/projects/mage/mage_hand_landmarks_vs_audio.png",
+        src: "/projects/mage/mage_t_v_s.png",
         caption:
-          "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
-      },
+          "An example 512-frame validation sample during the training process shows the custom hand-landmark encoder learning to map hand positions to BRAVE's latent space. The model captures temporal dynamics of hand motion to generate corresponding audio features. Unlike RAVE's highly compressed latent space, BRAVE's lower compression ratio preserves residual audio-like signals in the latent representation. As a result, the hand encoder learns temporally aligned control mappings that interact more directly with acoustic structure rather than purely abstract latent codes.",
+      }
+      // {
+      //   src: "/projects/mage/mage_hand_landmarks_vs_audio.png",
+      //   caption:
+      //     "Hand landmarks are resampled to match BRAVE's latent rate of 344.5 Hz, while audio is encoded into latent space via BRAVE's encoder.",
+      // },
     ],
     size: "xxl",
     awesomeness: 1,
@@ -92,11 +97,11 @@ export const researchProjects: Project[] = [
         caption:
           "The Riffusion-inspired inpainting framework reconstructs masked spectrogram regions while preserving unmasked context.",
       },
-      {
-        src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-predict.jpg",
-        caption:
-          "My spectrogram-based multi-layer perceptron model predicts hydrogel performance (r=0.6) from individual frequency range energies.",
-      },
+      // {
+      //   src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-predict.jpg",
+      //   caption:
+      //     "My spectrogram-based multi-layer perceptron model predicts hydrogel performance (r=0.6) from individual frequency range energies.",
+      // },
       {
         src: "/projects/music-spectrogram-inpainting/music-spectrogram-inpainting-shap.png",
         caption:
@@ -398,7 +403,7 @@ export const engineeringProjects: Project[] = [
     key: "biwheel",
     name: "Raspberry Pi Robot",
     description:
-      "Originally meant to help me “clean my room remotely,” this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed 3d-printed green cubes autonomously or via controller.",
+      "Originally meant to help me clean my room remotely, this three-wheel robot evolved into a PS4-controlled rover with a camera, ultrasonic sensor, and claw arm. Built with Raspberry Pi and OpenCV, it detected and grabbed 3d-printed green cubes autonomously or via controller. (Unfortunately, it never quite mastered room cleaning).",
     images: [
       {
         src: "/projects/biwheel/biwheel-top.jpg",
