@@ -43,9 +43,9 @@ export const ParallaxHeader = ({
       </div>
       <IntroSection isMobileDevice={isMobileDevice} />
       
-      {/* {
-        isMobileDevice ? null : <Divider className="my-12" />
-      } */}
+      {
+        isMobileDevice ? null : <Divider className="my-6" />
+      }
       
 
       <div
