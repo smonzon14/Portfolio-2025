@@ -180,7 +180,7 @@ function sphere() {
       // save the sphereCanvas origin
       ctx.save();
 
-      ctx.globalAlpha = Math.abs(0.5 - this.z * 1.2 * GLOBE_RADIUS / width); // items in the back will appear more translucent than those in front
+      ctx.globalAlpha = Math.abs(0.8 - this.z * 1 * GLOBE_RADIUS / width); // items in the back will appear more translucent than those in front
       ctx.beginPath();
       ctx.translate(this.xProjected, this.yProjected); // move to the projected coordinates
       ctx.scale(this.scaleProjected * SCALE * width / 1920, this.scaleProjected * SCALE * width / 1920); // scale smaller if farther and bigger if closer

@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "@heroui/react";
 import React, { useEffect, useRef, useState } from "react";
 
 const SoundCloudEmbed: React.FC<{ html: string }> = ({ html }) => {
@@ -42,6 +43,9 @@ export const MusicSection = () => {
     return (
         <section className="relative flex flex-col w-full gap-4 max-w-[1340px] w-full" id="music">
             <h2 className="text-4xl pb-4">MUSIC</h2>
+            <p>
+                I&#39;ve been producing music for a few years as a hobby, experimenting with different styles and genres. Here are some of my recent tracks available on SoundCloud:
+            </p>
             <div className="flex flex-col items-start w-full flex-wrap justify-start gap-4">
                 {[
                     {
@@ -64,7 +68,9 @@ export const MusicSection = () => {
                     <SoundCloudEmbed key={key} html={iframe} />
                 ))}
             </div>
-
+            <p className="mt-4">
+                I used Javscript to code this song on Strudel.cc: <Link href="https://tinyurl.com/27vf2df5" target="blank_" className="text-blue-500 underline" showAnchorIcon>first-strudel.js</Link>
+            </p>
         </section>
     )
 }

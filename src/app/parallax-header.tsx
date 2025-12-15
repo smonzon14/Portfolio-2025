@@ -43,9 +43,9 @@ export const ParallaxHeader = ({
       </div>
       <IntroSection isMobileDevice={isMobileDevice} />
       
-      {
+      {/* {
         isMobileDevice ? null : <Divider className="my-12" />
-      }
+      } */}
       
 
       <div
@@ -97,7 +97,6 @@ export const ParallaxHeader = ({
           </svg>
         </div>
       </div>
-      <Divider className="my-12" />
 
       <MiniCardsSection />
 
