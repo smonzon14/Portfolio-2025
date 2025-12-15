@@ -12,6 +12,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
             if (loaded) return;
             loaded = true;
             setIsLoaded(true);
+            try { window.dispatchEvent(new CustomEvent("app-loaded")); } catch {}
         };
         // if wait is longer the 5 seconds, load the page
         setTimeout(() => {
@@ -43,7 +44,7 @@ export default function PageLoader({ children }: { children: React.ReactNode }) 
     return (
         <>
             <div
-                className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[2s] ${
+                className={`fixed inset-0 z-50 bg-black flex items-center justify-center transition-opacity duration-[1s] ${
                     isLoaded ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
             >
