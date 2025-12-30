@@ -2,6 +2,7 @@
 import { Button } from "@heroui/button";
 import { JellyText } from "../jelly-text";
 import { Link } from "@heroui/link";
+import Image from "next/image";
 import React from "react";
 
 export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => {
@@ -37,8 +38,8 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         return () => window.removeEventListener("app-loaded", onLoaded);
     }, []);
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? " h-[800px]" : "h-[87vh] min-h-[800px]") } id="intro">
-            <div className="flex flex-row gap-[8px] justify-between h-full items-center">
+        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 h-[89vh] min-h-[800px]"} id="intro">
+            <div className="flex flex-col xl:flex-row mt-20 xl:mt-0 gap-[8px] justify-between h-full items-center">
 
                 <div className="flex flex-col gap-[8px]">
                     <span className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl">
@@ -107,6 +108,18 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
 
                     </div>
                 </div>
+
+                <div className="block xl:absolute pt-20 right-0 bottom-1 xl:transform xl:-translate-y-1/2 fade-in-on-load">
+
+                    <Image
+                        src="/profile.jpg"
+                        alt="P"
+                        width={600}
+                        height={600}
+                        className="rounded-full border-white shadow-lg object-cover w-[360px] h-[360px] relative z-10"
+                    />
+                </div>
+            
             </div>
 
             {/* <svg viewBox="0 0 68 33" className="chevron-down">

@@ -46,11 +46,13 @@ export const ParallaxHeader = ({
       {
         isMobileDevice ? null : <Divider className="my-12" />
       }
+      {/* <MiniCardsSection /> */}
+      <Divider className="my-12" />
       
 
       <div
         style={{
-          maxWidth: 800,
+          maxWidth: 1000,
           width: "100%",
           zIndex: 10,
           aspectRatio: "16/9",
@@ -66,10 +68,6 @@ export const ParallaxHeader = ({
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         className="w-full h-full block"
-        style={{
-          borderRadius: 12,
-          aspectRatio: "16/9",
-        }}
           ></iframe>
         </div>
       </div>
@@ -83,7 +81,7 @@ export const ParallaxHeader = ({
       isMobileDevice={isMobileDevice}
         />
       </div> */}
-      <div className="flex justify-center my-8">
+      {/* <div className="flex justify-center my-8">
         <div className="animate-bounce flex flex-col items-center">
           <span className="text-gray-500 text-sm mb-1">Scroll to see more</span>
           <svg
@@ -96,11 +94,9 @@ export const ParallaxHeader = ({
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
-      </div>
+      </div> */}
 
-      <MiniCardsSection />
 
-      <Divider className="my-12" />
       
       
       {/* {isMobileDevice ? null : (
