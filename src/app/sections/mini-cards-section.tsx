@@ -24,9 +24,9 @@ export default function MiniCardsSection() {
             <div className="flex justify-center relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <div
-                        className="w-[300px] h-[300px] rounded-full"
+                        className="w-[400px] h-[400px] rounded-full"
                         style={{
-                            background: "radial-gradient(circle at 60% 40%, #fbbf24 0%, #6366f1 60%, transparent 100%)",
+                            background: "radial-gradient(circle at 60% 40%, #d6cec2ff 0%, #df8e15ff 60%, transparent 100%)",
                             filter: "blur(40px)",
                             opacity: 0.7,
                         }}
@@ -34,11 +34,11 @@ export default function MiniCardsSection() {
                     />
                 </div>
                 <Image
-                    src="/profile_2.png"
+                    src="/profile.jpg"
                     alt="P"
-                    width={340}
-                    height={340}
-                    className="rounded-full border-1 border-white shadow-lg object-cover w-[260px] h-[260px] relative z-10"
+                    width={600}
+                    height={600}
+                    className="rounded-full border-1 border-white shadow-lg object-cover w-[400px] h-[400px] relative z-10"
                 />
             </div>
             <div className="inline text-4xl lg:text-5xl self-center">A <span className="text-warning bold">lifelong learner</span> ready to make a difference...</div>
