@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from 'react'
-import { Card, CardHeader, CardFooter } from "@heroui/card";
-import Image from "next/image";
-import { projects } from "../projects";
+// import { Card, CardHeader, CardFooter } from "@heroui/card";
+// import Image from "next/image";
+// import { projects } from "../projects";
 import { useInView } from 'react-intersection-observer';
 
 export default function MiniCardsSection() {

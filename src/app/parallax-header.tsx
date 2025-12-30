@@ -1,26 +1,26 @@
 "use client";
-import React from "react";
+// import React from "react";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import { IntroSection } from "./sections/intro-section";
-import MiniCardsSection from "./sections/mini-cards-section";
+// import MiniCardsSection from "./sections/mini-cards-section";
 import { Divider } from "@heroui/divider";
 import Script from "next/script";
 // import ProjectShowcase from "./sections/project-showcase";
-import { GridGallery } from "./sections/grid-gallery";
-import { researchProjects } from "./projects";
+// import { GridGallery } from "./sections/grid-gallery";
+// import { researchProjects } from "./projects";
 export const ParallaxHeader = ({
   isMobileDevice = true,
 }: {
   isMobileDevice?: boolean;
 }) => {
-  const resizedProjects = researchProjects
-    .filter((project) => project.key.includes("honors") === false)
-    .map((project) => {
-    return {
-      ...project,
-      size: "sm" as const,
-    };
-  });
+  // const resizedProjects = researchProjects
+  //   .filter((project) => project.key.includes("honors") === false)
+  //   .map((project) => {
+  //   return {
+  //     ...project,
+  //     size: "sm" as const,
+  //   };
+  // });
   return (
     <ParallaxProvider>
       <div className="absolute flex justify-center items-center top-0 right-0 w-screen h-[3000px] z-2 overflow-hidden opacity-80 pointer-events-none">
