@@ -13,11 +13,11 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
             el.classList.add("opacity-0");
         });
         const fadeIn = ()=> {
-            fadeInElements.forEach((el) => {
+            fadeInElements.forEach((el, index) => {
                 setTimeout(() => {
                     el.classList.add("transition-opacity", "duration-[2s]");
                     el.classList.remove("opacity-0");
-                }, 100);
+                }, 800 * index);
             });
         }
         const onLoaded = () => {
