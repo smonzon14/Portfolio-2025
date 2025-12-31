@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export const JellyText = ({ children }: { children: ReactNode | string }) => {
   return (
-    <div className="relative overflow-hidden inline-block text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white bg-black [isolation:isolate]">
+    <div className="relative overflow-hidden inline-block text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-white bg-black [isolation:isolate]">
       <video
         preload="auto"
         autoPlay

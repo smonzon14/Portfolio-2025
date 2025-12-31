@@ -38,7 +38,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         return () => window.removeEventListener("app-loaded", onLoaded);
     }, []);
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 h-[89vh] min-h-[800px]"} id="intro">
+        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? "h-[900px]" : "h-[89vh] min-h-[800px]")} id="intro">
             <div className="flex flex-col xl:flex-row mt-20 xl:mt-0 gap-[8px] justify-between h-full items-center">
 
                 <div className="flex flex-col gap-[8px]">
@@ -46,7 +46,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         {typed}
                     </span>
                     <div className="flex flex-col gap-[8px] fade-in-on-load">
-                        <span className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl">
+                        <span className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl">
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
                         <p className="text-sm md:text-md lg:text-lg ">
