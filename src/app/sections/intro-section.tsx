@@ -50,7 +50,16 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
                         <p className="text-sm md:text-md lg:text-lg ">
-                            Software engineer, researcher,{" "}
+                            <Link
+                                href="https://mde.harvard.edu"
+                                className="text-[#bbb] text-md"
+                                target="_blank"
+                                showAnchorIcon
+                                rel="noopener noreferrer"
+                            >
+                                Harvard MDE candidate
+                            </Link>
+                            , MIT research affiliate, and{" "}
                             <Link
                                 href="https://cra.org/csgrad4us/"
                                 className="text-[#bbb] text-md"
@@ -58,13 +67,13 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                                 showAnchorIcon
                                 rel="noopener noreferrer"
                             >
-                                NSF CSGrad4US fellow
+                                NSF CSGrad4US fellowship awardee
                             </Link>
-                            , and musician building{" "}
+                            building{" "}
                             <b className="text-white">
                                 multimodal AI and embedded systems that transform human signals into sound and insight
                             </b>
-                            . I explore expressive interfaces, wireless sensing wearables, and material-optimizing frameworks - often in collaboration with researchers at MIT and UMass Amherst. Full-stack engineer at{" "}
+                            . I explore expressive interfaces, wireless sensing wearables, and material-optimizing frameworks. Ex-SWE at{" "}
                             <Link
                                 href="https://meraki.cisco.com/"
                                 className="text-md text-[#bbb]"
@@ -73,8 +82,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                                 rel="noopener noreferrer"
                             >
                                 Cisco Meraki
-                            </Link>
-                            ; applying to graduate programs for Fall 2026.
+                            </Link>.
                         </p>
                         <div className="text-sm md:text-md lg:text-lg text-white/40 bg-black max-w-max mt-2">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer" className="text-sm md:text-md lg:text-lg">coded by me</Link> in Next.JS</div>
 

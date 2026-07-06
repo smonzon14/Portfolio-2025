@@ -18,7 +18,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.11.0",
-    "next": "16.0.7",
+    "next": "^16.2.10",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "react-intersection-observer": "^9.16.0",
@@ -30,6 +30,7 @@
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.4.21",
+    "baseline-browser-mapping": "^2.10.42",
     "eslint": "^9",
     "eslint-config-next": "16.0.7",
     "postcss": "^8.5.3",
@@ -39,5 +40,13 @@
   "overrides": {
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3"
+  },
+  "allowScripts": {
+    "@heroui/shared-utils@2.1.9": true,
+    "@tailwindcss/oxide@4.1.6": true,
+    "@vercel/speed-insights@1.2.0": true,
+    "fsevents@2.3.3": true,
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.7.2": true
   }
 }
