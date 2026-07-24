@@ -44,11 +44,11 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? "min-h-[700px] pb-12" : "h-screen min-h-[800px]")} id="intro">
             <div className="flex flex-col xl:flex-row mt-20 xl:mt-0 gap-[8px] justify-between h-full items-center">
 
-                <div className="flex flex-col gap-[8px]">
+                <div className={"flex flex-col gap-[8px]" + (isMobileDevice ? " items-center text-center" : "")}>
                     <span className="typed text-5xl sm:text-6xl md:text-7xl lg:text-9xl opacity-100">
                         {typed}
                     </span>
-                    <div className="flex flex-col gap-[8px] fade-in-on-load">
+                    <div className={"flex flex-col gap-[8px] fade-in-on-load" + (isMobileDevice ? " items-center text-center" : "")}>
                         <span className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl">
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
@@ -57,7 +57,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                             <b className="text-white">embedded systems</b> that transform
                             human signals into sound and insight.
                         </p>
-                        <div className="flex flex-row gap-2 md:gap-4 flex-wrap items-center mt-10 max-w-[60%]">
+                        <div className={"flex flex-row gap-2 md:gap-4 flex-wrap items-center mt-10" + (isMobileDevice ? " justify-center max-w-full" : " max-w-[60%]")}>
                             <Button
                                 as="a"
                                 size="lg"

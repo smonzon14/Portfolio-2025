@@ -7,10 +7,10 @@ const camera = new THREE.PerspectiveCamera(
   1,
   10000
 );
-const renderer = new THREE.WebGLRenderer({ antialias: true });
-const amountX = 16;
-const amountY = 60;
-const spacer = 35;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+const amountX = 80;
+const amountY = 70;
+const spacer = 20;
 const particlesCount = amountX * amountY;
 let particles = 0;
 let count = 0;
@@ -18,7 +18,7 @@ let count = 0;
 // Additional parameters for dynamic waves
 const waveFrequencyX = 0.17;
 const waveFrequencyY = 0.3;
-const waveAmplitude = 90;
+const waveAmplitude = 80;
 const waveSpeed = 0.01;
 
 
@@ -31,7 +31,8 @@ function init() {
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth * 2.0, window.innerHeight);
 
-    camera.position.x = 520;
+    camera.position.x = 400;
+    camera.position.y = 200;
     camera.lookAt(scene.position);
 
     const positions = new Float32Array(particlesCount * 3);

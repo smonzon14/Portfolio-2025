@@ -108,19 +108,19 @@ export const GridGallery = ({
   };
 
   return (<div className="relative w-full pb-6 " id={sectionId}>
-        <div className="flex flex-row items-baseline justify-between pb-10">
+        <div className="flex flex-row flex-wrap items-baseline justify-between gap-x-4 gap-y-2 pb-10">
           <h2 className={titleClassName + " z-[21]"}>{title}</h2>
           {viewAllHref && (
             <Link
               as={NextLink}
               href={viewAllHref}
-              className="text-inherit opacity-60 hover:opacity-100 text-md z-[21]"
+              className="text-inherit opacity-60 hover:opacity-100 text-md z-[21] whitespace-nowrap shrink-0"
             >
               View all →
             </Link>
           )}
         </div>
-          <div className={`grid grid-cols-1 auto-rows-[9rem] gap-2 grid-flow-dense ${getGridColsClass(cols)}`}>
+          <div className={`grid grid-cols-1 auto-rows-[18rem] md:auto-rows-[9rem] gap-2 grid-flow-dense ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
               <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice} light={light}/>
             ))}
@@ -135,8 +135,8 @@ export const ProjectItem = ({project, isMobileDevice, fillContainer = false, lig
             sm: "col-span-1 md:col-span-3 row-span-1 md:row-span-2",
             md: "col-span-1 md:col-span-3 row-span-1 md:row-span-3",
             lg: "col-span-1 md:col-span-6 row-span-1 md:row-span-2",
-            xl: "col-span-1 md:col-span-5 row-span-2 md:row-span-3",
-            xxl: "col-span-1 md:col-span-6 row-span-2 md:row-span-3",
+            xl: "col-span-1 md:col-span-5 row-span-1 md:row-span-3",
+            xxl: "col-span-1 md:col-span-6 row-span-1 md:row-span-3",
         } as const;
 
     const span = fillContainer

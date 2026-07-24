@@ -38,7 +38,7 @@ export default async function ContactPage() {
         <section className="relative flex flex-col py-10 max-w-[1340px] w-full gap-8" id="contact">
           <h2 className="text-5xl md:text-7xl z-[21]">GET IN TOUCH</h2>
           <p className="text-md lg:text-lg text-[#ccc] max-w-[600px]">
-            Whether it&#39;s research, a collaboration, or just to say hi — my inbox is
+            Whether it&#39;s research, a collaboration, or just to say hi - my inbox is
             always open.
           </p>
 

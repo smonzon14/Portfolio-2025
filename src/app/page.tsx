@@ -11,6 +11,7 @@ import { GridGallery } from "./sections/grid-gallery";
 import PageLoader from "./page-loader";
 import { ScrollingText } from "./scrolling-text";
 import { SectionBand } from "./section-band";
+import { WavesBackdrop } from "./waves-backdrop";
 import { DottedLeader } from "./spec-tile";
 import { AboutSection } from "./sections/about-section";
 import { SkillsSection } from "./sections/skills-section";
@@ -41,15 +42,14 @@ export default async function Home() {
         >
           <ParallaxHeader isMobileDevice={isMobileDevice} />
 
-          <SectionBand frosted>
+          <SectionBand elevated className="relative overflow-hidden">
+            {!isMobileDevice && <WavesBackdrop />}
             <AboutSection />
           </SectionBand>
 
           <SectionBand>
             <SkillsSection isMobileDevice={isMobileDevice} />
           </SectionBand>
-
-          <ScrollingText />
 
           <SectionBand elevated>
           <div className="relative flex flex-col max-w-[1340px] w-full">
@@ -120,6 +120,8 @@ export default async function Home() {
               <h2 className="text-5xl pb-10 z-[21]">HARDWARE<br/>PROJECTS</h2>
           </div>
           <EngineeringSection isMobileDevice={isMobileDevice} /> */}
+
+          <ScrollingText />
 
           <ContactFooter />
         </main>

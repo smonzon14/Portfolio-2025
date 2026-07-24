@@ -40,13 +40,13 @@ export const AutoScrollGallery = ({
 
     return (
         <div className="relative w-full pb-6" id={sectionId}>
-            <div className="flex flex-row items-baseline justify-between pb-10">
+            <div className="flex flex-row flex-wrap items-baseline justify-between gap-x-4 gap-y-2 pb-10">
                 <h2 className="text-4xl z-[21]">{title}</h2>
                 {viewAllHref && (
                     <Link
                         as={NextLink}
                         href={viewAllHref}
-                        className="text-inherit opacity-60 hover:opacity-100 text-md z-[21]"
+                        className="text-inherit opacity-60 hover:opacity-100 text-md z-[21] whitespace-nowrap shrink-0"
                     >
                         View all →
                     </Link>
