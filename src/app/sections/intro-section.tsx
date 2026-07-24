@@ -20,7 +20,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
             });
             document.querySelectorAll(".typed").forEach((el) => {
                 el.classList.add("transition-opacity", "duration-[2s]");
-                el.classList.add("opacity-40");
+                el.classList.add("opacity-70");
             });
         };  
         const onLoaded = () => {
@@ -41,23 +41,26 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         return () => window.removeEventListener("app-loaded", onLoaded);
     }, []);
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? "min-h-[700px] pb-12" : "h-screen min-h-[800px]")} id="intro">
-            <div className="flex flex-col xl:flex-row mt-20 xl:mt-0 gap-[8px] justify-between h-full items-center">
+        <section className={"relative isolate flex flex-col justify-center max-w-[1340px] w-full z-1 " + (isMobileDevice ? "min-h-[700px] pb-12" : "h-[calc(100vh-4rem)] min-h-[736px]")} id="intro">
+            {/* corner glow: blue from the primary button */}
+            <div aria-hidden className="pointer-events-none absolute -z-10 -top-16 bottom-0 left-1/2 w-screen -translate-x-1/2 bg-[radial-gradient(ellipse_60%_55%_at_100%_100%,rgba(0,111,238,0.30),transparent_70%)]" />
+            <div className="flex flex-col xl:flex-row gap-[8px] items-center">
 
-                <div className={"flex flex-col gap-[8px]" + (isMobileDevice ? " items-center text-center" : "")}>
-                    <span className="typed text-5xl sm:text-6xl md:text-7xl lg:text-9xl opacity-100">
+                <div className={"flex flex-col gap-[8px] w-full" + (isMobileDevice ? " items-center text-center" : "")}>
+                    <span className="typed text-5xl sm:text-6xl md:text-7xl lg:text-8xl opacity-100">
                         {typed}
                     </span>
                     <div className={"flex flex-col gap-[8px] fade-in-on-load" + (isMobileDevice ? " items-center text-center" : "")}>
                         <span className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl">
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
+                        <div className="flex flex-col gap-2 md:gap-4 w-full items-end text-right mt-20 fade-in-on-load">
                         <p className="text-lg md:text-xl lg:text-2xl text-[#bbb] max-w-[720px]">
                             Building <b className="text-white">multimodal AI</b> and{" "}
                             <b className="text-white">embedded systems</b> that transform
                             human signals into sound and insight.
                         </p>
-                        <div className={"flex flex-row gap-2 md:gap-4 flex-wrap items-center mt-10" + (isMobileDevice ? " justify-center max-w-full" : " max-w-[60%]")}>
+                        <div className={"flex flex-row-reverse gap-2 md:gap-4 flex-wrap items-center" + (isMobileDevice ? " justify-center max-w-full" : " max-w-[60%]")}>
                             <Button
                                 as="a"
                                 size="lg"
@@ -83,6 +86,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                                 Github
                             </Button>
                             <Link className="underline text-lg" href="mailto:smonzon360@gmail.com">smonzon360@gmail.com</Link>
+                        </div>
                         </div>
 
                     </div>

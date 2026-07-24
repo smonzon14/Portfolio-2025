@@ -70,10 +70,10 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
                     aria-hidden
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                      background: "radial-gradient(circle at center, rgba(255,255,255,0.06) 0%, transparent 70%)",
+                      background: "radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%)",
                     }}
                   />
-                  <canvas id="sphere-canvas" width="550" height="550" className='relative z-10 w-[550px] h-[550px] self-center'>
+                  <canvas id="sphere-canvas" width="640" height="640" className='relative z-10 w-[640px] h-[640px] self-center'>
 
                   </canvas>
                   <div className="text-center opacity-70 text-sm z-10">

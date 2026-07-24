@@ -47,6 +47,12 @@
   font-size: 1.9em;
 }
 
+html {
+  /* prevent Chrome scroll anchoring from parking the page 64px down
+     (navbar height) during load, which left upward scroll slack */
+  overflow-anchor: none;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

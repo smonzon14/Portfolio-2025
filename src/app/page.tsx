@@ -47,7 +47,9 @@ export default async function Home() {
             <AboutSection />
           </SectionBand>
 
-          <SectionBand>
+          <SectionBand className="relative isolate">
+            {/* right-side purple glow, echoing the intro's corner glow */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_60%_at_0%_0%,rgba(150,55,205,0.20),transparent_70%),radial-gradient(ellipse_35%_45%_at_8%_60%,rgba(190,60,200,0.12),transparent_70%)]" />
             <SkillsSection isMobileDevice={isMobileDevice} />
           </SectionBand>
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import NextLink from "next/link";
+import React from "react";
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Link } from "@heroui/link";
@@ -15,9 +16,17 @@ const navItems = [
 ];
 
 export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
+  const [atTop, setAtTop] = React.useState(true);
+  React.useEffect(() => {
+    const onScroll = () => setAtTop(window.scrollY < 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <Navbar
-          className="sticky top-0 flex items-center justify-center w-full bg-[black] bg-black/60"
+          isBlurred={!atTop}
+          className={`sticky top-0 flex items-center justify-center w-full transition-colors duration-500 ${atTop ? "bg-transparent" : "bg-black/60"}`}
           maxWidth="full"
         >
           <NavbarBrand>
