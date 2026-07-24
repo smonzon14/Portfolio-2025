@@ -26,7 +26,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
     const { ref, inView } = useInView({
         threshold: 0.1,
         triggerOnce: true,
-        rootMargin: "0px 0px 0px 0px",
+        rootMargin: "0px 0px -35% 0px",
     });
 
     const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +47,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
     return (
         <section className="relative flex flex-col max-w-[1340px] w-full gap-8 justify-center items-center my-0 overflow-hidden" id="skills-section" ref={ref}>
           <div className="lg:grid grid-cols-2 relative flex flex-row gap-10 justify-between h-full w-full items-center flex-wrap" id="skills">
-            <div className={"flex flex-col gap-4 w-[500px] transition-opacity transition duration-[1.5s] " + (isVisible ? "opacity-100" : "opacity-0")}>
+            <div className={"flex flex-col gap-4 w-[500px] transition duration-[1.5s] " + (isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6")}>
               <div className="text-3xl md:text-4xl lg:text-5xl jelly-text">
                 SKILLS & TECHNOLOGIES
               </div>
@@ -64,7 +64,7 @@ export const SkillsSection = ({ isMobileDevice=true } : {isMobileDevice?: boolea
               </div>
             </div>
             {!isMobileDevice && (
-              <div id="skills-sphere" className={"relative transition-opacity transition duration-[4s] " + (isVisible ? "opacity-100" : "opacity-0")}>
+              <div id="skills-sphere" className={"relative transition duration-[4s] " + (isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6")}>
                 <div className="relative flex flex-col gap-2 p-4 overflow-hidden">
                   <div
                     aria-hidden

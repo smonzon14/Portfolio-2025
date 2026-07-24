@@ -1,5 +1,6 @@
 "use client"
 import { Button } from "@heroui/button";
+import { Drift } from "../fx";
 import { JellyText } from "../jelly-text";
 import { Link } from "@heroui/link";
 import React from "react";
@@ -54,7 +55,8 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                         <span className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl">
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
-                        <div className="flex flex-col gap-2 md:gap-4 w-full items-end text-right mt-20 fade-in-on-load">
+                        <div className="w-full mt-20 fade-in-on-load">
+                        <Drift by={-24} className="flex flex-col gap-2 md:gap-4 w-full items-end text-right">
                         <p className="text-lg md:text-xl lg:text-2xl text-[#bbb] max-w-[720px]">
                             Building <b className="text-white">multimodal AI</b> and{" "}
                             <b className="text-white">embedded systems</b> that transform
@@ -87,6 +89,7 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                             </Button>
                             <Link className="underline text-lg" href="mailto:smonzon360@gmail.com">smonzon360@gmail.com</Link>
                         </div>
+                        </Drift>
                         </div>
 
                     </div>

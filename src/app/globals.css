@@ -53,6 +53,31 @@ html {
   overflow-anchor: none;
 }
 
+/* scroll reveals — `translate` (not `transform`) so they compose with the
+   drift/hover effects, which use transform and scale respectively */
+.reveal,
+.reveal-stagger > * {
+  opacity: 0;
+  translate: 0 24px;
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.revealed,
+.reveal-stagger.revealed > * {
+  opacity: 1;
+  translate: 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    transition: none;
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -155,7 +180,8 @@ section{
 }
 
 .holographic-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* hover growth uses `scale` so `transform` stays free for scroll drift */
+    transition: scale 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .holographic-card::before {
     content: '';
@@ -178,7 +204,7 @@ section{
 .holographic-card:hover,
 .holographic-card.holo-active {
     z-index: 10;
-    transform: scale(1.02);
+    scale: 1.02;
     border-color: rgba(255,255,255,0.35);
     box-shadow: 0 0 24px rgba(255,255,255,0.15);
 }

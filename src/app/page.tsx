@@ -9,6 +9,8 @@ import { AutoScrollGallery } from "./sections/auto-gallery";
 import { GridGallery } from "./sections/grid-gallery";
 
 import PageLoader from "./page-loader";
+import { Reveal } from "./reveal";
+import { ScrollGlow } from "./fx";
 import { ScrollingText } from "./scrolling-text";
 import { SectionBand } from "./section-band";
 import { WavesBackdrop } from "./waves-backdrop";
@@ -44,17 +46,19 @@ export default async function Home() {
 
           <SectionBand elevated className="relative overflow-hidden">
             {!isMobileDevice && <WavesBackdrop />}
-            <AboutSection />
+            <Reveal className="w-full flex flex-col items-center">
+              <AboutSection />
+            </Reveal>
           </SectionBand>
 
           <SectionBand className="relative isolate">
-            {/* right-side purple glow, echoing the intro's corner glow */}
-            <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_60%_at_0%_0%,rgba(150,55,205,0.20),transparent_70%),radial-gradient(ellipse_35%_45%_at_18%_30%,rgba(190,60,200,0.12),transparent_70%)]" />
+            {/* purple glow echoing the intro's corner glow; brightens as the band scrolls into view */}
+            <ScrollGlow className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_50%_60%_at_0%_0%,rgba(150,55,205,0.20),transparent_70%),radial-gradient(ellipse_35%_45%_at_18%_30%,rgba(190,60,200,0.12),transparent_70%)]" />
             <SkillsSection isMobileDevice={isMobileDevice} />
           </SectionBand>
 
           <SectionBand elevated>
-          <div className="relative flex flex-col max-w-[1340px] w-full">
+          <Reveal className="relative flex flex-col max-w-[1340px] w-full">
             <GridGallery
               projects={previewResearch}
               sectionId="research-preview"
@@ -63,11 +67,11 @@ export default async function Home() {
               viewAllHref="/research"
               isMobileDevice={isMobileDevice}
             />
-          </div>
+          </Reveal>
           </SectionBand>
 
           <SectionBand>
-          <div className="relative flex flex-col max-w-[1340px] w-full">
+          <Reveal className="relative flex flex-col max-w-[1340px] w-full">
             <AutoScrollGallery
               projects={previewProjects}
               sectionId="projects-preview"
@@ -75,11 +79,11 @@ export default async function Home() {
               viewAllHref="/projects"
               isMobileDevice={isMobileDevice}
             />
-          </div>
+          </Reveal>
           </SectionBand>
 
           <SectionBand elevated>
-          <div className="relative w-full max-w-[800px] z-10">
+          <Reveal className="relative w-full max-w-[800px] z-10">
             <Card className="bg-black/40 border-1 border-white/10 rounded-none p-4 md:p-6 gap-3">
               <div className="flex flex-row items-baseline gap-2">
                 <span className="text-xs uppercase tracking-widest text-white/40 whitespace-nowrap">
@@ -98,7 +102,7 @@ export default async function Home() {
                 ></iframe>
               </div>
             </Card>
-          </div>
+          </Reveal>
           </SectionBand>
 
           {/* <div
@@ -125,7 +129,10 @@ export default async function Home() {
 
           <ScrollingText />
 
-          <ContactFooter />
+          {/* footer sits at the very bottom — a deep trigger zone would never fire for it */}
+          <Reveal className="w-full" rootMargin="0px 0px -10% 0px">
+            <ContactFooter />
+          </Reveal>
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           {!isMobileDevice && (

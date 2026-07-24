@@ -7,6 +7,7 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@herou
 import { useState } from "react";
 import { Spinner } from "@heroui/spinner";
 import { Button, Link, useDisclosure } from "@heroui/react";
+import { Reveal } from "../reveal";
 
 const Media = ({ src, caption, autoplay = true, controls = true }: { src: string, caption: string, autoplay: boolean, controls?: boolean }) => {
     const [loading, setLoading] = useState(true);
@@ -120,11 +121,11 @@ export const GridGallery = ({
             </Link>
           )}
         </div>
-          <div className={`grid grid-cols-1 auto-rows-[18rem] md:auto-rows-[9rem] gap-2 grid-flow-dense ${getGridColsClass(cols)}`}>
+          <Reveal stagger={70} className={`grid grid-cols-1 auto-rows-[18rem] md:auto-rows-[9rem] gap-2 grid-flow-dense ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
               <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice} light={light}/>
             ))}
-          </div>
+          </Reveal>
         </div>);
 };
 
