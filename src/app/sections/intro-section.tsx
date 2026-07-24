@@ -2,7 +2,6 @@
 import { Button } from "@heroui/button";
 import { JellyText } from "../jelly-text";
 import { Link } from "@heroui/link";
-import Image from "next/image";
 import React from "react";
 
 export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boolean }) => {
@@ -19,7 +18,11 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                     el.classList.remove("opacity-0");
                 }, 800 * index);
             });
-        }
+            document.querySelectorAll(".typed").forEach((el) => {
+                el.classList.add("transition-opacity", "duration-[2s]");
+                el.classList.add("opacity-40");
+            });
+        };  
         const onLoaded = () => {
             const text = "Hello, I\'m";
             let i = 0;
@@ -38,54 +41,22 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
         return () => window.removeEventListener("app-loaded", onLoaded);
     }, []);
     return (
-        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? "h-[950px]" : "h-[89vh] min-h-[800px]")} id="intro">
+        <section className={"relative flex flex-col max-w-[1340px] w-full z-1 " + (isMobileDevice ? "min-h-[700px] pb-12" : "h-screen min-h-[800px]")} id="intro">
             <div className="flex flex-col xl:flex-row mt-20 xl:mt-0 gap-[8px] justify-between h-full items-center">
 
                 <div className="flex flex-col gap-[8px]">
-                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl">
+                    <span className="typed text-5xl sm:text-6xl md:text-7xl lg:text-9xl opacity-100">
                         {typed}
                     </span>
                     <div className="flex flex-col gap-[8px] fade-in-on-load">
                         <span className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl">
                             <JellyText><span className="jelly-text">SEBASTIAN <br /> MONZÓN.</span></JellyText>
                         </span>
-                        <p className="text-sm md:text-md lg:text-lg ">
-                            <Link
-                                href="https://mde.harvard.edu"
-                                className="text-[#bbb] text-md"
-                                target="_blank"
-                                showAnchorIcon
-                                rel="noopener noreferrer"
-                            >
-                                Harvard MDE candidate
-                            </Link>
-                            , MIT research affiliate, and{" "}
-                            <Link
-                                href="https://cra.org/csgrad4us/"
-                                className="text-[#bbb] text-md"
-                                target="_blank"
-                                showAnchorIcon
-                                rel="noopener noreferrer"
-                            >
-                                NSF CSGrad4US fellowship awardee
-                            </Link>
-                            building{" "}
-                            <b className="text-white">
-                                multimodal AI and embedded systems that transform human signals into sound and insight
-                            </b>
-                            . I explore expressive interfaces, wireless sensing wearables, and material-optimizing frameworks. Ex-SWE at{" "}
-                            <Link
-                                href="https://meraki.cisco.com/"
-                                className="text-md text-[#bbb]"
-                                target="_blank"
-                                showAnchorIcon
-                                rel="noopener noreferrer"
-                            >
-                                Cisco Meraki
-                            </Link>.
+                        <p className="text-lg md:text-xl lg:text-2xl text-[#bbb] max-w-[720px]">
+                            Building <b className="text-white">multimodal AI</b> and{" "}
+                            <b className="text-white">embedded systems</b> that transform
+                            human signals into sound and insight.
                         </p>
-                        <div className="text-sm md:text-md lg:text-lg text-white/40 bg-black max-w-max mt-2">Everything you see was <Link showAnchorIcon href="https://github.com/smonzon14/Portfolio-2025" target="_blank" rel="noopener noreferrer" className="text-sm md:text-md lg:text-lg">coded by me</Link> in Next.JS</div>
-
                         <div className="flex flex-row gap-2 md:gap-4 flex-wrap items-center mt-10 max-w-[60%]">
                             <Button
                                 as="a"
@@ -117,17 +88,6 @@ export const IntroSection = ({ isMobileDevice = true }: { isMobileDevice?: boole
                     </div>
                 </div>
 
-                <div className="block xl:absolute pt-20 right-0 bottom-1 xl:transform xl:-translate-y-1/2 fade-in-on-load">
-
-                    <Image
-                        src="/profile1.jpg"
-                        alt="P"
-                        width={500}
-                        height={500}
-                        className="rounded-full border-white shadow-lg object-cover w-[320px] h-[320px] relative z-10"
-                    />
-                </div>
-            
             </div>
 
             {/* <svg viewBox="0 0 68 33" className="chevron-down">

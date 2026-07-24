@@ -7,7 +7,7 @@ const camera = new THREE.PerspectiveCamera(
   1,
   10000
 );
-const renderer = new THREE.WebGLRenderer({ antialias: false });
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 const amountX = 16;
 const amountY = 60;
 const spacer = 35;
@@ -23,36 +23,49 @@ const waveSpeed = 0.01;
 
 
 function init() {
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth * 1.2, window.innerHeight);
-  document.getElementById("waves-canvas").appendChild(renderer.domElement);
+  const container = document.getElementById("waves-canvas");
+  if (!container) return;
 
-  camera.position.x = 750;
-  camera.lookAt(scene.position);
+  // First run: build the scene and start the render loop
+  if (!particles) {
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth * 2.0, window.innerHeight);
 
-  const positions = new Float32Array(particlesCount * 3);
+    camera.position.x = 520;
+    camera.lookAt(scene.position);
 
-  let i = 0;
-  for (let ix = 0; ix < amountX; ix++) {
-    for (let iy = 0; iy < amountY; iy++) {
-      positions[i] = ix * spacer - (amountX * spacer) / 2; // x
-      positions[i + 1] = 0; // y
-      positions[i + 2] = iy * spacer - (amountY * spacer) / 2; // z
+    const positions = new Float32Array(particlesCount * 3);
 
-      i += 3;
+    let i = 0;
+    for (let ix = 0; ix < amountX; ix++) {
+      for (let iy = 0; iy < amountY; iy++) {
+        positions[i] = ix * spacer - (amountX * spacer) / 2; // x
+        positions[i + 1] = 0; // y
+        positions[i + 2] = iy * spacer - (amountY * spacer) / 2; // z
+
+        i += 3;
+      }
     }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+    particles = new THREE.Points(geometry); // add material here
+
+    scene.add(particles);
+    animate();
   }
 
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-  particles = new THREE.Points(geometry); // add material here
-
-  scene.add(particles);
+  // On every (re-)init, re-attach the renderer canvas — client-side
+  // navigation replaces the container div with a fresh one.
+  if (renderer.domElement.parentElement !== container) {
+    container.appendChild(renderer.domElement);
+  }
 
   renderer.render(scene, camera);
-  animate();
 }
+
+window.initWaves = init;
 
 function animate() {
   requestAnimationFrame(animate);

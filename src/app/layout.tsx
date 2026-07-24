@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-black">
+    <html lang="en" className="bg-black scroll-smooth">
       <body
         className={`antialiased min-h-max h-full`}
       >

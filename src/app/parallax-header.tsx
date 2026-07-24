@@ -1,56 +1,12 @@
 "use client";
-// import React from "react";
+import { useEffect } from "react";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import { IntroSection } from "./sections/intro-section";
 // import MiniCardsSection from "./sections/mini-cards-section";
-import { Divider } from "@heroui/divider";
 import Script from "next/script";
 // import ProjectShowcase from "./sections/project-showcase";
 // import { GridGallery } from "./sections/grid-gallery";
 // import { researchProjects } from "./projects";
-
-const ScrollingText = ({ direction = "normal" }: { direction?: "normal" | "reverse" }) => {
-  const scrollingText = ["ENGINEER", "RESEARCHER", "DESIGNER", "MUSICIAN"];
-  const animationClass = direction === "reverse" ? "animate-scroll-reverse" : "animate-scroll";
-  
-  return (
-    <>
-      <div className="w-full overflow-hidden my-12 opacity-20 pointer-events-none">
-        <div className={`inline-flex whitespace-nowrap ${animationClass}`}>
-          {Array(4).fill(scrollingText).flat().map((text, i) => (
-            <span key={i} className="text-2xl font-bold mx-8">{text}</span>
-          ))}
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-
-        @keyframes scroll-reverse {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        .animate-scroll-reverse {
-          animation: scroll-reverse 30s linear infinite;
-        }
-      `}</style>
-    </>
-  );
-};
 
 export const ParallaxHeader = ({
   isMobileDevice = true,
@@ -65,11 +21,25 @@ export const ParallaxHeader = ({
   //     size: "sm" as const,
   //   };
   // });
+
+  // Re-init the waves after client-side navigation back to this page —
+  // waves.js only auto-runs on the initial script load.
+  useEffect(() => {
+    const w = window as unknown as { initWaves?: () => void };
+    w.initWaves?.();
+  }, []);
+
   return (
     <ParallaxProvider>
-      <div className="absolute flex justify-center items-center top-0 right-0 w-screen h-[3000px] z-2 overflow-hidden opacity-80 pointer-events-none">
+      <div
+        className="absolute flex justify-center items-center top-0 right-0 w-screen h-[185vh] z-2 overflow-hidden opacity-80 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+        }}
+      >
         {isMobileDevice ? null : (
-          <Parallax speed={-30}>
+          <Parallax speed={-10}>
             <div
               id="waves-canvas"
               className="self-center"
@@ -86,36 +56,6 @@ export const ParallaxHeader = ({
         )}
       </div>
       <IntroSection isMobileDevice={isMobileDevice} />
-      
-      {
-        isMobileDevice ? null : <Divider className="my-12" />
-      }
-      
-      <Divider className="my-12" />
-      {/* <ScrollingText direction="normal" /> */}
-
-      <div
-        style={{
-          maxWidth: 1000,
-          width: "100%",
-          zIndex: 10,
-          aspectRatio: "16/9",
-          height: "auto",
-        }}
-        className="mb-12 mx-auto flex justify-center items-center"
-      >
-        <div className="w-full" style={{ aspectRatio: "16/9" }}>
-          <iframe
-        src="https://www.youtube.com/embed/6XUdCfi1rkw"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="w-full h-full block"
-          ></iframe>
-        </div>
-      </div>
-      {/* <ScrollingText direction="reverse" /> */}
       {/* <div className="relative flex flex-col max-w-[1340px] w-full gap-4">
         <GridGallery
       title=""
@@ -149,8 +89,6 @@ export const ParallaxHeader = ({
           edgeFadeWidth={120}
         />
       )} */}
-      
-      <Divider className="my-4" />
     </ParallaxProvider>
   );
 };

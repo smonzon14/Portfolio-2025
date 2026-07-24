@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import NextLink from "next/link";
 import { Project } from "../projects";
 import React from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@heroui/modal";
@@ -75,12 +76,18 @@ export const GridGallery = ({
   sectionId,
   cols = 12,
   isMobileDevice = false,
+  viewAllHref,
+  titleClassName = "text-4xl",
+  light = false,
 }: {
   projects: Project[];
     title: string;
     sectionId: string;
     cols?: number;
     isMobileDevice?: boolean;
+    viewAllHref?: string;
+    titleClassName?: string;
+    light?: boolean;
 }) => {
   const getGridColsClass = (cols: number) => {
     const colsMap: { [key: number]: string } = {
@@ -101,54 +108,27 @@ export const GridGallery = ({
   };
 
   return (<div className="relative w-full pb-6 " id={sectionId}>
-        <h2 className="text-4xl pb-10 z-[21]">{title}</h2>
-          <div className={`grid grid-cols-1 auto-rows-[12rem] gap-1 grid-flow-dense ${getGridColsClass(cols)}`}>
-            <style>{
-            `
-            .holographic-card {
-                filter: brightness(0.5);
-            }
-            .holographic-card::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: linear-gradient(
-                    0deg, 
-                    transparent, 
-                    transparent 30%, 
-                    rgba(255,255,255,0.3)
-                );
-                transform: rotate(-45deg);
-                transition: all 0.5s ease;
-                opacity: 0;
-            }
-
-            .holographic-card:hover,
-            .holographic-card.holo-active {
-                z-index: 10;
-                transform: scale(1.05);
-                filter: brightness(1.0);
-                box-shadow: 0 0 20px rgba(255,255,255,0.5);
-            }
-
-            .holographic-card:hover::before,
-            .holographic-card.holo-active::before {
-                z-index: 11;
-                opacity: 1;
-                transform: rotate(-45deg) translateY(100%);
-            }
-            `}</style>
+        <div className="flex flex-row items-baseline justify-between pb-10">
+          <h2 className={titleClassName + " z-[21]"}>{title}</h2>
+          {viewAllHref && (
+            <Link
+              as={NextLink}
+              href={viewAllHref}
+              className="text-inherit opacity-60 hover:opacity-100 text-md z-[21]"
+            >
+              View all →
+            </Link>
+          )}
+        </div>
+          <div className={`grid grid-cols-1 auto-rows-[9rem] gap-2 grid-flow-dense ${getGridColsClass(cols)}`}>
             {projects.map((project) => (
-              <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice}/>
+              <ProjectItem key={project.key} project={project} isMobileDevice={isMobileDevice} light={light}/>
             ))}
           </div>
         </div>);
 };
 
-const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevice: boolean;}) => {
+export const ProjectItem = ({project, isMobileDevice, fillContainer = false, light = false}: {project: Project; isMobileDevice: boolean; fillContainer?: boolean; light?: boolean;}) => {
     // If you use useDisclosure, make sure to import it:
     const { isOpen, onOpen, onOpenChange } = useDisclosure?.() ?? {};
     const sizeMap = {
@@ -159,23 +139,11 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
             xxl: "col-span-1 md:col-span-6 row-span-2 md:row-span-3",
         } as const;
 
-    const textSizeMap = {
-        sm: "text-2xl",
-        md: "text-2xl",
-        lg: "text-2xl",
-        xl: "text-2xl",
-        xxl: "text-2xl",
-    } as const;
-
-    const span =
-        sizeMap[
+    const span = fillContainer
+        ? "h-full w-full"
+        : sizeMap[
         project.size as keyof typeof sizeMap
         ] ?? sizeMap.md;
-
-    const textSize =
-        textSizeMap[
-        project.size as keyof typeof textSizeMap
-        ] ?? textSizeMap.md;
 
     let firstImage = project.images?.find((img) => !img.src.endsWith(".mp4") && !img.src.endsWith(".mp3") && !img.src.endsWith(".wav"));
     if (project.key === "mage"){
@@ -220,34 +188,30 @@ const ProjectItem = ({project, isMobileDevice}: {project: Project; isMobileDevic
                 onClick={onOpen}
                 rel="noreferrer"
                 ref={cardRef}
-                className={`${span} ${isActive ? "holo-active" : ""} relative block overflow-hidden holographic-card duration-300 pointer-events-auto cursor-pointer bg-black`}
+                className={`${span} ${isActive ? "holo-active" : ""} ${light ? "light-card bg-white border-black/10" : "bg-black/40 border-white/10"} group relative flex flex-col overflow-hidden holographic-card duration-300 pointer-events-auto cursor-pointer border-1`}
             >
-                {firstImage?.src ? (
-                    <Image
-                        width={700}
-                        height={700}
-                        src={firstImage.src}
-                        alt={project.description ?? project.name}
-                        className={`absolute inset-0 h-full w-full duration-300 ` + (project.key === "beamshyft" ? " object-contain" : " object-cover")}
-                        draggable={false}
-                    />
-                ) : (
-                    <div className="absolute inset-0 bg-neutral-900" />
-                )}
-                <div className="absolute inset-0" >
-                    <p className="font-bold text-white/90 bg-black/60 px-2 py-1 w-fit m-2 rounded-md text-sm">
-                        {project.date}
-                    </p>
+                <div className={`relative flex-1 min-h-0 overflow-hidden ${light ? "bg-white" : "bg-black"}`}>
+                    {firstImage?.src ? (
+                        <Image
+                            width={700}
+                            height={700}
+                            src={firstImage.src}
+                            alt={project.description ?? project.name}
+                            className={`absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-105 ` + (project.key === "beamshyft" ? " object-contain" : " object-cover")}
+                            draggable={false}
+                        />
+                    ) : (
+                        <div className={`absolute inset-0 ${light ? "bg-neutral-200" : "bg-neutral-900"}`} />
+                    )}
                 </div>
-                <div className="absolute inset-x-0 bottom-0 pointer-events-none">
-                    <div className="bg-gradient-to-t from-black/100 to-transparent px-2 py-40 pb-4">
-                        <p className={"font-bold text-white/90 w-fit " + textSize}>
-                            {project.name}
-                        </p>
-                        <p className="text-sm font-normal  mt-1 text-[#ccc] line-clamp-1">{project.description}</p>
-
-                    </div>
-
+                <div className={`flex flex-col gap-0.5 p-3 border-t-1 ${light ? "border-black/10" : "border-white/10"}`}>
+                    <span className={`text-[10px] uppercase tracking-widest ${light ? "text-black/40" : "text-white/40"}`}>
+                        {project.date}
+                    </span>
+                    <p className={`font-bold text-md truncate ${light ? "text-black/90" : "text-white/90"}`}>
+                        {project.name}
+                    </p>
+                    <p className={`text-xs line-clamp-1 ${light ? "text-black/60" : "text-white/50"}`}>{project.description}</p>
                 </div>
             </a>
             

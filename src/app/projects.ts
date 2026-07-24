@@ -14,6 +14,70 @@ export type Project = {
 
 export const researchProjects: Project[] = [
   {
+    key: "swimsense",
+    name: "SwimSense: Computational Sensing for Swimming Analysis (in-progress)",
+    description:
+      "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training. I also plan on adapting this device to other extreme environments where low energy, long range health monitoring is critical.",
+    images: [
+
+      {
+        src: "/projects/swimsense/swimsense-gabe-swimming.mp4",
+        caption: "SwimSense in action during swim trials, capturing motion and physiological data. (The swimmer is my brother, Gabe, who was voluntold to be my test subject)",
+      },
+      {
+        src: "/projects/swimsense/swimsense-swimming-and-dashboard.mp4",
+        caption:
+          "SwimSense captures real-time heart rate and motion data during swimming, visualized on a dashboard for performance analysis. This is a video of my brother swimming as I film and monitor the data.",
+      },
+      {
+        src: "/projects/swimsense/swimsense-gabe-side.png",
+        caption:
+          "SwimSense prototype sandwiched between two swim-caps for waterproofing and a wire leading to the PPG sensor positioned on top of the earlobe.",
+      },
+      // {
+      //   src: "/projects/swimsense/swimsense-heartrate.jpeg",
+      //   caption:
+      //     "The SwimSense device measures heart rate underwater using a PPG sensor positioned on the earlobe.",
+      // },
+      {
+        src: "/projects/swimsense/swimsense-stripped.jpg",
+        caption: "The soldered SwimSense v2 prototype with waterproof top removed - complete with IMU, PPG, temperature sensor, battery, and external usb. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
+      },
+      {
+        src: "/projects/swimsense/swimsense-single.jpg",
+        caption:
+          "The device without a second layer swim-cap. External wires include a charging/ data port, power button, and PPG sensor.",
+      },
+      {
+        src: "/projects/swimsense/swimsense-back.png",
+        caption: "Rear view showing outline of the SwimSense device inside the swim-cap.",
+      },
+      {src: "/projects/swimsense/swimsense-setup.png",
+        caption: "The testing setup with LoRa receiver connected to a laptop for real-time data monitoring."
+      },
+      // {src: "/projects/swimsense/swimsense-dashboard.png",
+      //   caption: "Real-time dashboard displaying velocity, rotation, RSSI signal strength, and heart monitor. Buttons are used for labeling swim strokes during data collection."
+      // },
+      // {
+      //   src: "/projects/swimsense/swimsense-doubled.jpg",
+      //   caption:
+      //     "The SwimSense v2 prototype is designed to be worn under two swim-caps for waterproofing and stability during swimming.",
+      // },
+      // {
+      //   src: "/projects/swimsense/swimsense-rx.jpg",
+      //   caption: "Data is transmitted and received via LoRa to a nearby computer for real-time monitoring and analysis.",
+      // },
+      // {
+      //   src: "/projects/swimsense/swimsense-v1.mp4",
+      //   caption: "V1 prototype with a battery that was too big for safety. I'm using a 250 mAh LiPo in V2 with a protection circuit.",
+      // },
+    ],
+    size: "xxl",
+    link: "https://github.com/smonzon14/SwimSense",
+    awesomeness: 0,
+    date: "2025",
+  },
+  {
     key: "mage",
     name: "MAGE: Motion-to-Audio Generative autoEncoder (in-progress)",
     description:
@@ -120,70 +184,6 @@ export const researchProjects: Project[] = [
     ],
     size: "xxl",
     awesomeness: 2,
-    date: "2025",
-  },
-  {
-    key: "swimsense",
-    name: "SwimSense: Computational Sensing for Swimming Analysis (in-progress)",
-    description:
-      "SwimSense is a wireless, wearable, waterproof device equipped with IMU, PPG, and temperature sensor for realtime health sensing and reporting for aquatic environments. Originally as a research collaboration with MIT Media Lab and Dept. of Mechanical Engineering, I am now independently developing SwimSense to improve comfort, battery life, and data quality. The device aims to provide swimmers and coaches with detailed insights into performance and physiological metrics during training. I also plan on adapting this device to other extreme environments where low energy, long range health monitoring is critical.",
-    images: [
-
-      {
-        src: "/projects/swimsense/swimsense-gabe-swimming.mp4",
-        caption: "SwimSense in action during swim trials, capturing motion and physiological data. (The swimmer is my brother, Gabe, who was voluntold to be my test subject)",
-      },
-      {
-        src: "/projects/swimsense/swimsense-swimming-and-dashboard.mp4",
-        caption:
-          "SwimSense captures real-time heart rate and motion data during swimming, visualized on a dashboard for performance analysis. This is a video of my brother swimming as I film and monitor the data.",
-      },
-      {
-        src: "/projects/swimsense/swimsense-gabe-side.png",
-        caption:
-          "SwimSense prototype sandwiched between two swim-caps for waterproofing and a wire leading to the PPG sensor positioned on top of the earlobe.",
-      },
-      // {
-      //   src: "/projects/swimsense/swimsense-heartrate.jpeg",
-      //   caption:
-      //     "The SwimSense device measures heart rate underwater using a PPG sensor positioned on the earlobe.",
-      // },
-      {
-        src: "/projects/swimsense/swimsense-stripped.jpg",
-        caption: "The soldered SwimSense v2 prototype with waterproof top removed - complete with IMU, PPG, temperature sensor, battery, and external usb. The device is housed in a 3D-printed waterproof case and glued using silicone sealant to a swim-cap.",
-      },
-      {
-        src: "/projects/swimsense/swimsense-single.jpg",
-        caption:
-          "The device without a second layer swim-cap. External wires include a charging/ data port, power button, and PPG sensor.",
-      },
-      {
-        src: "/projects/swimsense/swimsense-back.png",
-        caption: "Rear view showing outline of the SwimSense device inside the swim-cap.",
-      },
-      {src: "/projects/swimsense/swimsense-setup.png",
-        caption: "The testing setup with LoRa receiver connected to a laptop for real-time data monitoring."
-      },
-      // {src: "/projects/swimsense/swimsense-dashboard.png",
-      //   caption: "Real-time dashboard displaying velocity, rotation, RSSI signal strength, and heart monitor. Buttons are used for labeling swim strokes during data collection."
-      // },
-      // {
-      //   src: "/projects/swimsense/swimsense-doubled.jpg",
-      //   caption:
-      //     "The SwimSense v2 prototype is designed to be worn under two swim-caps for waterproofing and stability during swimming.",
-      // },
-      // {
-      //   src: "/projects/swimsense/swimsense-rx.jpg",
-      //   caption: "Data is transmitted and received via LoRa to a nearby computer for real-time monitoring and analysis.",
-      // },
-      // {
-      //   src: "/projects/swimsense/swimsense-v1.mp4",
-      //   caption: "V1 prototype with a battery that was too big for safety. I'm using a 250 mAh LiPo in V2 with a protection circuit.",
-      // },
-    ],
-    size: "xxl",
-    link: "https://github.com/smonzon14/SwimSense",
-    awesomeness: 3,
     date: "2025",
   },
   {

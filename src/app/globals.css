@@ -54,7 +54,7 @@ body {
 }
 h2{
   font-family: "Quivera", sans-serif;
-  color: var(--foreground);
+  color: inherit;
 }
 
 p{
@@ -101,14 +101,8 @@ section{
   align-items: center;
 }
 #sphere-canvas {
-  width: 700px;
-  height: 700px;
-  /* background-color: #0a0a0a; */
-  /* background: radial-gradient(circle at 50% 50%, #0f0f0f 0%, #000000 100%); */
+  /* size is controlled by utility classes in skills-section.tsx */
   border-radius: 100%;
-  /* border-color: #52d1b1;
-  border-width: 1px; */
-  /* background: radial-gradient(circle at 50% 50%, rgba(7, 65, 88, 0.932) 0%,  rgba(6, 77, 61, 0.384) 15%, black 20%); */
 }
 
 .tracking-in-contract-bck-top {
@@ -152,4 +146,55 @@ section{
             transform: translateZ(0) translateY(0);
     opacity: 1;
   }
+}
+
+.holographic-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.holographic-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent 30%,
+        rgba(255,255,255,0.3)
+    );
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.holographic-card:hover,
+.holographic-card.holo-active {
+    z-index: 10;
+    transform: scale(1.02);
+    border-color: rgba(255,255,255,0.35);
+    box-shadow: 0 0 24px rgba(255,255,255,0.15);
+}
+
+.holographic-card.light-card::before {
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent 30%,
+        rgba(0,0,0,0.08)
+    );
+}
+
+.holographic-card.light-card:hover,
+.holographic-card.light-card.holo-active {
+    border-color: rgba(0,0,0,0.35);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+}
+
+.holographic-card:hover::before,
+.holographic-card.holo-active::before {
+    z-index: 11;
+    opacity: 1;
+    transform: rotate(-45deg) translateY(100%);
 }

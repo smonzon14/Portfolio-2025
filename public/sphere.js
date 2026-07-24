@@ -1,4 +1,5 @@
 let isRendering = true;
+let sphereGeneration = 0;
 
 function startSphere() {
   isRendering = true;
@@ -9,6 +10,7 @@ function stopSphere() {
 
 function sphere() {
 
+  const generation = ++sphereGeneration;
 
   const DOT_RADIUS = 64; // Radius of the dots
   const SCALE = 1.5; // Scale of svgs
@@ -79,6 +81,10 @@ function sphere() {
     GLOBE_RADIUS = width / 2.5;
 
   }
+  if (window.__sphereOnResize) {
+    window.removeEventListener('resize', window.__sphereOnResize);
+  }
+  window.__sphereOnResize = onResize;
   window.addEventListener('resize', onResize);
   onResize();
 
@@ -200,6 +206,8 @@ function sphere() {
   }
   const dots = PATHS.map((e, i) => new Dot(i, e));
   function render() {
+    // A newer sphere() call owns the canvas now; stop this loop
+    if (generation !== sphereGeneration) return;
     //ctx.fillStyle = "black";
     ctx.clearRect(0, 0, width, height);
     // Sort dots array based on their projected size
@@ -223,6 +231,7 @@ function sphere() {
     // }, 20);
   }
   function listenForIsRender() {
+    if (generation !== sphereGeneration) return;
     if (isRendering) {
       render();
     } else {
@@ -232,4 +241,9 @@ function sphere() {
   render();
 }
 
-sphere();
+window.initSphere = function () {
+  if (document.getElementById("sphere-canvas") && document.getElementById("svg-container")) {
+    sphere();
+  }
+};
+window.initSphere();

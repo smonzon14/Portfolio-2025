@@ -1,9 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import NextLink from "next/link";
 
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
 import { Link } from "@heroui/link";
+
+const navItems = [
+  { name: "About", href: "/#about" },
+  { name: "Research", href: "/research" },
+  { name: "Projects", href: "/projects" },
+  { name: "Music", href: "/music" },
+  { name: "Contact", href: "/contact" },
+];
 
 export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
   return (
@@ -12,15 +21,22 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
           maxWidth="full"
         >
           <NavbarBrand>
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              className={`w-10 h-10 ${isMobileDevice ? "-ml-5" : "-ml-2"}`}
-              loading="eager"
-            />
-            <h1 className="text-xl text-white font-bold">SMONZON.COM</h1>
+            <Link
+              as={NextLink}
+              href="/"
+              className="flex flex-row items-center"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={100}
+                height={100}
+                className={`w-10 h-10 ${isMobileDevice ? "-ml-5" : "-ml-2"}`}
+                loading="eager"
+              />
+              <h1 className="text-xl text-white font-bold">SMONZON.COM</h1>
+            </Link>
           </NavbarBrand>
           {isMobileDevice ? (
             <div className="ml-auto">
@@ -38,29 +54,15 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
                   </svg>
                 </summary>
                 <div className="absolute right-0 mt-2 w-48 bg-black/90 rounded shadow-lg z-50 flex flex-col border border-white/10">
-                  {[
-                    "about",
-                    "research",
-                    "projects",
-                    "music",
-                    "contact",
-                  ].map((section) => (
+                  {navItems.map((item) => (
                     <Link
-                      key={section}
+                      key={item.name}
+                      as={NextLink}
                       color="foreground"
-                      href={`#${section}`}
-                      onClick={(e) => {
-                          e.preventDefault();
-                          const el = document.getElementById(section);
-                          if (el) {
-                          const yOffset = -100;
-                          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                          window.scrollTo({ top: y, behavior: "smooth" });
-                          }
-                      }}
+                      href={item.href}
                       className="block px-4 py-3 text-white hover:bg-white/10 transition-colors duration-200"
                     >
-                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                      {item.name}
                     </Link>
                   ))}
                   {/* <Link
@@ -113,29 +115,15 @@ export const SmonzonNavbar = ({isMobileDevice}: {isMobileDevice: boolean}) => {
             </div>
           ) : (
             <NavbarContent className="hidden sm:flex gap-4" justify="end">
-              {[
-              "about",
-              "research",
-              "projects",
-              "music",
-              "contact",
-              ].map((section) => (
-              <NavbarItem key={section} isActive={false}>
+              {navItems.map((item) => (
+              <NavbarItem key={item.name} isActive={false}>
                 <Link
+                as={NextLink}
                 color="foreground"
-                href={`#${section}`}
+                href={item.href}
                 className="hover:text-white/60 transition-colors duration-200"
-                onClick={(e) => {
-                    e.preventDefault();
-                    const el = document.getElementById(section);
-                    if (el) {
-                    const yOffset = -100;
-                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                    }
-                }}
                 >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {item.name}
                 </Link>
               </NavbarItem>
               ))}

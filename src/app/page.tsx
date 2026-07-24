@@ -2,16 +2,19 @@ import Script from "next/script";
 import { userAgent } from "next/server";
 import { headers } from "next/headers";
 
-import { Button } from "@heroui/button";
-import { Divider } from "@heroui/divider";
-import { Link } from "@heroui/link";
+import { Card } from "@heroui/card";
 
 import { engineeringProjects, codingProjects, researchProjects } from "./projects";
+import { AutoScrollGallery } from "./sections/auto-gallery";
 import { GridGallery } from "./sections/grid-gallery";
 
 import PageLoader from "./page-loader";
+import { ScrollingText } from "./scrolling-text";
+import { SectionBand } from "./section-band";
+import { DottedLeader } from "./spec-tile";
+import { AboutSection } from "./sections/about-section";
 import { SkillsSection } from "./sections/skills-section";
-import { MusicSection } from "./sections/music-section";
+import { ContactFooter } from "./contact-footer";
 
 import { ParallaxHeader } from "./parallax-header";
 import { SmonzonNavbar } from "./smonzon-navbar";
@@ -20,6 +23,13 @@ export default async function Home() {
   const headersData = await headers();
   const { device } = userAgent({ headers: headersData });
   const isMobileDevice = device.type === "mobile";
+
+  const previewResearch = researchProjects
+    .slice(0, 3)
+    .map((p) => ({ ...p, size: "sm" as const }));
+  const previewProjects = [...codingProjects, ...engineeringProjects].sort(
+    (a, b) => a.awesomeness - b.awesomeness
+  );
 
   return (
     <PageLoader>
@@ -31,27 +41,63 @@ export default async function Home() {
         >
           <ParallaxHeader isMobileDevice={isMobileDevice} />
 
-          <Divider className="mt-10" />
+          <SectionBand frosted>
+            <AboutSection />
+          </SectionBand>
 
-          <SkillsSection isMobileDevice={isMobileDevice} />
+          <SectionBand>
+            <SkillsSection isMobileDevice={isMobileDevice} />
+          </SectionBand>
 
-          {/* <Divider className="mt-10 mb-4" />
+          <ScrollingText />
 
-          <CVSection isMobileDevice={isMobileDevice} /> */}
+          <SectionBand elevated>
+          <div className="relative flex flex-col max-w-[1340px] w-full">
+            <GridGallery
+              projects={previewResearch}
+              sectionId="research-preview"
+              title="RESEARCH"
+              cols={9}
+              viewAllHref="/research"
+              isMobileDevice={isMobileDevice}
+            />
+          </div>
+          </SectionBand>
 
-          <Divider className="my-20" />
+          <SectionBand>
+          <div className="relative flex flex-col max-w-[1340px] w-full">
+            <AutoScrollGallery
+              projects={previewProjects}
+              sectionId="projects-preview"
+              title="PROJECTS"
+              viewAllHref="/projects"
+              isMobileDevice={isMobileDevice}
+            />
+          </div>
+          </SectionBand>
 
-          
-          <div className="relative flex flex-col max-w-[1340px] w-full gap-10">
-            {
-              
-              [researchProjects, [...codingProjects, ...engineeringProjects].sort((a, b) => a.awesomeness - b.awesomeness)].map((projects, index) => {
-                const sectionIds = ["research", "projects"];
-                const sectionTitles = ["RESEARCH", "PROJECTS"];
-                return (<GridGallery key={index} projects={projects} sectionId={sectionIds[index]} title={sectionTitles[index]} isMobileDevice={isMobileDevice} />);
-            })
-            }
-          </div>    
+          <SectionBand elevated>
+          <div className="relative w-full max-w-[800px] z-10">
+            <Card className="bg-black/40 border-1 border-white/10 rounded-none p-4 md:p-6 gap-3">
+              <div className="flex flex-row items-baseline gap-2">
+                <span className="text-xs uppercase tracking-widest text-white/40 whitespace-nowrap">
+                  Featured
+                </span>
+                <DottedLeader />
+                <span className="text-sm text-white/50 whitespace-nowrap">Portfolio Video · 2025</span>
+              </div>
+              <div className="w-full" style={{ aspectRatio: "16/9" }}>
+                <iframe
+                  src="https://www.youtube.com/embed/6XUdCfi1rkw"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full block border-0"
+                ></iframe>
+              </div>
+            </Card>
+          </div>
+          </SectionBand>
 
           {/* <div
           className="relative flex flex-col max-w-[1340px] w-full gap-4"
@@ -75,51 +121,7 @@ export default async function Home() {
           </div>
           <EngineeringSection isMobileDevice={isMobileDevice} /> */}
 
-          <Divider className="my-4 mt-10" />
-          <MusicSection />
-          <Divider className="my-4 mt-10" />
-
-          <section
-            className="relative flex flex-row py-20 max-w-[1340px] w-full gap-8 h-full mb-40 flex-col"
-            id="contact"
-          >
-              <h2 className="text-4xl z-[21]">GET IN TOUCH</h2>
-
-              <Button
-                as={Link}
-                size="lg"
-                color="primary"
-                className="text-white w-min"
-                href="https://www.linkedin.com/in/sebastian-monz%C3%B3n-9ab695102/"
-                target="_blank"
-                rel="noopener noreferrer"
-                showAnchorIcon
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-6 h-6 mr-2"
-                >
-                  <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z" />
-                </svg>
-                LinkedIn
-              </Button>
-              <Link
-                size="lg"
-                href="mailto:smonzon360@gmail.com"
-                className="text-white"
-              >
-                smonzon360@gmail.com
-              </Link>
-              <Link
-                size="lg"
-                href="sms://17815308016"
-                className="text-white"
-              >
-                (781) 530-8016
-              </Link>
-          </section>
+          <ContactFooter />
         </main>
         <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
           {!isMobileDevice && (
