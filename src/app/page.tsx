@@ -5,7 +5,6 @@ import { headers } from "next/headers";
 import { Card } from "@heroui/card";
 
 import { engineeringProjects, codingProjects, researchProjects } from "./projects";
-import { AutoScrollGallery } from "./sections/auto-gallery";
 import { GridGallery } from "./sections/grid-gallery";
 
 import PageLoader from "./page-loader";
@@ -30,9 +29,10 @@ export default async function Home() {
   const previewResearch = researchProjects
     .slice(0, 3)
     .map((p) => ({ ...p, size: "sm" as const }));
-  const previewProjects = [...codingProjects, ...engineeringProjects].sort(
-    (a, b) => a.awesomeness - b.awesomeness
-  );
+  const previewProjects = [...codingProjects, ...engineeringProjects]
+    .sort((a, b) => a.awesomeness - b.awesomeness)
+    .slice(0, 3)
+    .map((p) => ({ ...p, size: "sm" as const }));
 
   return (
     <PageLoader>
@@ -72,10 +72,11 @@ export default async function Home() {
 
           <SectionBand>
           <Reveal className="relative flex flex-col max-w-[1340px] w-full">
-            <AutoScrollGallery
+            <GridGallery
               projects={previewProjects}
               sectionId="projects-preview"
               title="PROJECTS"
+              cols={9}
               viewAllHref="/projects"
               isMobileDevice={isMobileDevice}
             />

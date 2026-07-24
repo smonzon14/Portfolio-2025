@@ -7,6 +7,7 @@ export type Project = {
     caption: string;
   }[];
   size: "sm" | "md" | "lg" | "xl" | "xxl";
+  /** sort priority: LOWER is better; the home preview shows the 3 lowest */
   awesomeness: number;
   link?: string;
   date?: string;
@@ -245,7 +246,7 @@ export const codingProjects: Project[] = [
     ],
     link: "https://github.com/smonzon14/NYT-LLM",
     size: "lg",
-    awesomeness: 5,
+    awesomeness: 8.5,
     date: "2024",
   },
   {
